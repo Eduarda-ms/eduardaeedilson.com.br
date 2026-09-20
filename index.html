@@ -1,277 +1,491 @@
-[18:23, 20/09/2026] Eduarda Morais: <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eduarda & Edilson | 28.11.2026</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Eduarda & Edilson | 28.11.2026</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#f7f4ee;
+  color:#34483b;
+  font-family:'Montserrat',sans-serif;
+}
+
+h1,h2,h3{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:400;
+}
+
+nav{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:10;
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  padding:28px 20px;
+}
+
+nav a{
+  color:#34483b;
+  text-decoration:none;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:10px;
+}
+
+.hero{
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
+}
+
+/* Futuramente colocaremos o vídeo aqui */
+.hero-video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:-2;
+  display:none;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+  linear-gradient(rgba(248,246,241,.30),rgba(248,246,241,.50)),
+  radial-gradient(circle at center,#ffffff 0%,#eee9df 100%);
+  z-index:-1;
+}
+
+.hero-content{
+  padding:120px 20px 50px;
+  width:100%;
+}
+
+.monograma{
+  font-family:'Cormorant Garamond',serif;
+  font-size:38px;
+  margin-bottom:25px;
+}
+
+.hero h1{
+  font-size:clamp(55px,8vw,95px);
+  line-height:1;
+}
+
+.frase{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:24px;
+  margin:22px 0;
+}
+
+.data{
+  letter-spacing:7px;
+  font-size:15px;
+}
+
+.contador-titulo{
+  margin:40px 0 20px;
+  letter-spacing:5px;
+  font-size:11px;
+}
+
+.contador{
+  display:flex;
+  justify-content:center;
+  gap:40px;
+}
+
+.numero{
+  display:block;
+  font-family:'Cormorant Garamond',serif;
+  font-size:38px;
+}
+
+.rotulo{
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:8px;
+}
+
+.scroll{
+  display:block;
+  margin-top:45px;
+  color:#34483b;
+  text-decoration:none;
+  letter-spacing:3px;
+  font-size:9px;
+}
+
+section:not(.hero){
+  padding:110px 20px;
+}
+
+.container{
+  max-width:1000px;
+  margin:auto;
+  text-align:center;
+}
+
+.titulo{
+  font-size:52px;
+  margin-bottom:25px;
+}
+
+.texto{
+  max-width:700px;
+  margin:auto;
+  line-height:1.9;
+  font-size:14px;
+}
+
+.historia{
+  background:#fffdf9;
+}
+
+.grande-dia{
+  background:#e8ebe5;
+}
+
+.cards{
+  display:flex;
+  gap:30px;
+  justify-content:center;
+  margin-top:50px;
+  flex-wrap:wrap;
+}
+
+.card{
+  background:#fff;
+  padding:45px 30px;
+  width:320px;
+}
+
+.card h3{
+  font-size:32px;
+  margin-bottom:15px;
+}
+
+.botao{
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 25px;
+  border:1px solid #34483b;
+  color:#34483b;
+  text-decoration:none;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:9px;
+}
+
+.rsvp{
+  background:#f7f4ee;
+}
+
+.presentes{
+  background:#fffdf9;
+}
+
+.galeria{
+  background:#e8ebe5;
+}
+
+.final{
+  min-height:55vh;
+  display:flex;
+  align-items:center;
+  background:#34483b;
+  color:#f7f4ee;
+}
+
+.final h2{
+  font-size:50px;
+}
+
+.final p{
+  margin-top:20px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;
+  font-style:italic;
+}
+
+@media(max-width:750px){
+
+  nav{
+    display:none;
+  }
+
+  .contador{
+    gap:18px;
+  }
+
+  .numero{
+    font-size:30px;
+  }
+
+  .titulo{
+    font-size:42px;
+  }
+
+  section:not(.hero){
+    padding:80px 20px;
+  }
+
+}
+
+</style>
 </head>
 
 <body>
 
-  <h1>Eduarda & Edilson</h1>
+<nav>
+<a href="#inicio">Início</a>
+<a href="#historia">Nossa história</a>
+<a href="#grande-dia">O grande dia</a>
+<a href="#rsvp">Confirme sua presença</a>
+<a href="#presentes">Lista de presentes</a>
+</nav>
 
-  <p>Até aqui Deus nos sustentou.</p>
 
-  <h2>28 • 11 • 2026</h2>
+<section class="hero" id="inicio">
 
-  <p>Estamos muito felizes em compartilhar esse momento com você.</p>
+<video class="hero-video" autoplay muted loop playsinline>
+<source src="video-pre-wedding.mp4" type="video/mp4">
+</video>
 
-</body>
-</html>
-[18:43, 20/09/2026] Eduarda Morais: <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="hero-content">
 
-  <title>Eduarda & Edilson | 28.11.2026</title>
+<div class="monograma">E & E</div>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<h1>Eduarda & Edilson</h1>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<p class="frase">“Até aqui Deus nos sustentou.”</p>
 
-    html {
-      scroll-behavior: smooth;
-    }
+<p class="data">28 • 11 • 2026</p>
 
-    body {
-      background: #f8f6f1;
-      color: #33483b;
-      font-family: 'Montserrat', sans-serif;
-    }
+<p class="contador-titulo">FALTAM</p>
 
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 40px 20px;
-      background:
-        radial-gradient(circle at top left, #e6ebe4, transparent 40%),
-        radial-gradient(circle at bottom right, #e9e5dc, transparent 45%),
-        #f8f6f1;
-    }
+<div class="contador">
 
-    .hero-content {
-      max-width: 850px;
-    }
+<div>
+<span class="numero" id="dias">00</span>
+<span class="rotulo">dias</span>
+</div>
 
-    .monograma {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 30px;
-      letter-spacing: 8px;
-      margin-bottom: 35px;
-    }
+<div>
+<span class="numero" id="horas">00</span>
+<span class="rotulo">horas</span>
+</div>
 
-    .frase {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 24px;
-      font-weight: 300;
-      margin-bottom: 25px;
-    }
+<div>
+<span class="numero" id="minutos">00</span>
+<span class="rotulo">minutos</span>
+</div>
 
-    h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(60px, 10vw, 110px);
-      font-weight: 400;
-      line-height: 0.9;
-      color: #33483b;
-    }
+<div>
+<span class="numero" id="segundos">00</span>
+<span class="rotulo">segundos</span>
+</div>
 
-    .e {
-      display: block;
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 45px;
-      margin: 10px 0;
-    }
+</div>
 
-    .data {
-      margin-top: 35px;
-      font-size: 15px;
-      letter-spacing: 7px;
-      text-transform: uppercase;
-    }
+<a class="scroll" href="#historia">
+ROLE PARA BAIXO<br><br>↓
+</a>
 
-    .linha {
-      width: 55px;
-      height: 1px;
-      background: #718274;
-      margin: 35px auto;
-    }
+</div>
+</section>
 
-    .faltam {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 21px;
-      margin-bottom: 20px;
-    }
 
-    .contador {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
+<section class="historia" id="historia">
+<div class="container">
 
-    .numero {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 38px;
-      display: block;
-    }
+<h2 class="titulo">Nossa História</h2>
 
-    .rotulo {
-      font-size: 9px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
+<p class="texto">
+Nossa história começou há muitos anos e, desde então,
+construímos juntos uma vida cheia de sonhos, aprendizados
+e momentos que nos trouxeram até aqui.
+<br><br>
+Agora chegou o momento de celebrarmos um novo capítulo
+ao lado das pessoas que fazem parte da nossa história.
+</p>
 
-    .rolar {
-      display: inline-block;
-      margin-top: 45px;
-      color: #33483b;
-      text-decoration: none;
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
+</div>
+</section>
 
-    .seta {
-      display: block;
-      font-size: 22px;
-      margin-top: 10px;
-      animation: descer 1.8s infinite;
-    }
 
-    @keyframes descer {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(8px); }
-    }
+<section class="grande-dia" id="grande-dia">
+<div class="container">
 
-    @media (max-width: 600px) {
-      .frase {
-        font-size: 20px;
-      }
+<h2 class="titulo">O Grande Dia</h2>
 
-      .contador {
-        gap: 20px;
-      }
+<p class="texto">28 de novembro de 2026</p>
 
-      .numero {
-        font-size: 30px;
-      }
+<div class="cards">
 
-      .data {
-        letter-spacing: 4px;
-      }
-    }
-  </style>
-</head>
+<div class="card">
+<h3>Cerimônia</h3>
+<p>17h</p>
+<p>Nome da Igreja</p>
 
-<body>
+<a class="botao" href="#">
+Como chegar
+</a>
+</div>
 
-  <section class="hero">
+<div class="card">
+<h3>Recepção</h3>
+<p>Após a cerimônia</p>
+<p>Sítio Águas de Março</p>
 
-    <div class="hero-content">
+<a class="botao" href="#">
+Como chegar
+</a>
+</div>
 
-      <div class="monograma">E & E</div>
+</div>
+</div>
+</section>
 
-      <p class="frase">“Até aqui Deus nos sustentou.”</p>
 
-      <h1>
-        Eduarda
-        <span class="e">&</span>
-        Edilson
-      </h1>
+<section class="rsvp" id="rsvp">
+<div class="container">
 
-      <p class="data">28 · 11 · 2026</p>
+<h2 class="titulo">Confirme sua presença</h2>
 
-      <div class="linha"></div>
+<p class="texto">
+Sua presença tornará esse momento ainda mais especial.
+Pedimos que confirme sua presença para que possamos
+preparar tudo com muito carinho.
+</p>
 
-      <p class="faltam">Faltam</p>
+<a class="botao" href="#">
+Confirmar presença
+</a>
 
-      <div class="contador">
+</div>
+</section>
 
-        <div>
-          <span class="numero" id="dias">00</span>
-          <span class="rotulo">dias</span>
-        </div>
 
-        <div>
-          <span class="numero" id="horas">00</span>
-          <span class="rotulo">horas</span>
-        </div>
+<section class="presentes" id="presentes">
+<div class="container">
 
-        <div>
-          <span class="numero" id="minutos">00</span>
-          <span class="rotulo">minutos</span>
-        </div>
+<h2 class="titulo">Lista de Presentes</h2>
 
-        <div>
-          <span class="numero" id="segundos">00</span>
-          <span class="rotulo">segundos</span>
-        </div>
+<p class="texto">
+O maior presente será celebrar esse dia com você.
+Mas, caso queira nos presentear, preparamos algumas
+sugestões com carinho.
+</p>
 
-      </div>
+<a class="botao" href="#">
+Ver lista de presentes
+</a>
 
-      <a class="rolar" href="#historia">
-        Nossa história
-        <span class="seta">↓</span>
-      </a>
+</div>
+</section>
 
-    </div>
 
-  </section>
+<section class="galeria">
+<div class="container">
 
-  <section id="historia"></section>
+<h2 class="titulo">Nossos Momentos</h2>
 
-  <script>
-    const casamento = new Date("2026-11-28T17:00:00").getTime();
+<p class="texto">
+Em breve, nossas fotos estarão por aqui. 🤍
+</p>
 
-    function atualizarContador() {
-      const agora = new Date().getTime();
-      const distancia = casamento - agora;
+</div>
+</section>
 
-      if (distancia <= 0) {
-        document.querySelector(".faltam").innerText =
-          "Chegou o nosso grande dia!";
-        document.querySelector(".contador").style.display = "none";
-        return;
-      }
 
-      const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
-      const horas = Math.floor(
-        (distancia % (1000 * 60 * 60 * 24)) /
-        (1000 * 60 * 60)
-      );
-      const minutos = Math.floor(
-        (distancia % (1000 * 60 * 60)) /
-        (1000 * 60)
-      );
-      const segundos = Math.floor(
-        (distancia % (1000 * 60)) / 1000
-      );
+<section class="final">
+<div class="container">
 
-      document.getElementById("dias").innerText = dias;
-      document.getElementById("horas").innerText =
-        String(horas).padStart(2, "0");
-      document.getElementById("minutos").innerText =
-        String(minutos).padStart(2, "0");
-      document.getElementById("segundos").innerText =
-        String(segundos).padStart(2, "0");
-    }
+<h2>Eduarda & Edilson</h2>
 
-    atualizarContador();
-    setInterval(atualizarContador, 1000);
-  </script>
+<p>“O amor tudo crê, tudo espera...”</p>
+
+<br>
+
+<span>28 • 11 • 2026</span>
+
+</div>
+</section>
+
+
+<script>
+
+const casamento =
+new Date("2026-11-28T17:00:00-03:00").getTime();
+
+function atualizarContador(){
+
+const agora = new Date().getTime();
+const distancia = casamento - agora;
+
+if(distancia <= 0){
+document.querySelector(".contador-titulo").innerText =
+"CHEGOU O NOSSO GRANDE DIA";
+document.querySelector(".contador").style.display="none";
+return;
+}
+
+const dias =
+Math.floor(distancia/(1000*60*60*24));
+
+const horas =
+Math.floor((distancia%(1000*60*60*24))/(1000*60*60));
+
+const minutos =
+Math.floor((distancia%(1000*60*60))/(1000*60));
+
+const segundos =
+Math.floor((distancia%(1000*60))/1000);
+
+document.getElementById("dias").innerText=dias;
+document.getElementById("horas").innerText=
+String(horas).padStart(2,"0");
+document.getElementById("minutos").innerText=
+String(minutos).padStart(2,"0");
+document.getElementById("segundos").innerText=
+String(segundos).padStart(2,"0");
+
+}
+
+atualizarContador();
+setInterval(atualizarContador,1000);
+
+</script>
 
 </body>
 </html>
