@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+[18:23, 20/09/2026] Eduarda Morais: <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -15,6 +15,263 @@
   <h2>28 • 11 • 2026</h2>
 
   <p>Estamos muito felizes em compartilhar esse momento com você.</p>
+
+</body>
+</html>
+[18:43, 20/09/2026] Eduarda Morais: <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Eduarda & Edilson | 28.11.2026</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f8f6f1;
+      color: #33483b;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      background:
+        radial-gradient(circle at top left, #e6ebe4, transparent 40%),
+        radial-gradient(circle at bottom right, #e9e5dc, transparent 45%),
+        #f8f6f1;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .monograma {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      letter-spacing: 8px;
+      margin-bottom: 35px;
+    }
+
+    .frase {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 24px;
+      font-weight: 300;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(60px, 10vw, 110px);
+      font-weight: 400;
+      line-height: 0.9;
+      color: #33483b;
+    }
+
+    .e {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 45px;
+      margin: 10px 0;
+    }
+
+    .data {
+      margin-top: 35px;
+      font-size: 15px;
+      letter-spacing: 7px;
+      text-transform: uppercase;
+    }
+
+    .linha {
+      width: 55px;
+      height: 1px;
+      background: #718274;
+      margin: 35px auto;
+    }
+
+    .faltam {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 21px;
+      margin-bottom: 20px;
+    }
+
+    .contador {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .numero {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      display: block;
+    }
+
+    .rotulo {
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .rolar {
+      display: inline-block;
+      margin-top: 45px;
+      color: #33483b;
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .seta {
+      display: block;
+      font-size: 22px;
+      margin-top: 10px;
+      animation: descer 1.8s infinite;
+    }
+
+    @keyframes descer {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+
+    @media (max-width: 600px) {
+      .frase {
+        font-size: 20px;
+      }
+
+      .contador {
+        gap: 20px;
+      }
+
+      .numero {
+        font-size: 30px;
+      }
+
+      .data {
+        letter-spacing: 4px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="monograma">E & E</div>
+
+      <p class="frase">“Até aqui Deus nos sustentou.”</p>
+
+      <h1>
+        Eduarda
+        <span class="e">&</span>
+        Edilson
+      </h1>
+
+      <p class="data">28 · 11 · 2026</p>
+
+      <div class="linha"></div>
+
+      <p class="faltam">Faltam</p>
+
+      <div class="contador">
+
+        <div>
+          <span class="numero" id="dias">00</span>
+          <span class="rotulo">dias</span>
+        </div>
+
+        <div>
+          <span class="numero" id="horas">00</span>
+          <span class="rotulo">horas</span>
+        </div>
+
+        <div>
+          <span class="numero" id="minutos">00</span>
+          <span class="rotulo">minutos</span>
+        </div>
+
+        <div>
+          <span class="numero" id="segundos">00</span>
+          <span class="rotulo">segundos</span>
+        </div>
+
+      </div>
+
+      <a class="rolar" href="#historia">
+        Nossa história
+        <span class="seta">↓</span>
+      </a>
+
+    </div>
+
+  </section>
+
+  <section id="historia"></section>
+
+  <script>
+    const casamento = new Date("2026-11-28T17:00:00").getTime();
+
+    function atualizarContador() {
+      const agora = new Date().getTime();
+      const distancia = casamento - agora;
+
+      if (distancia <= 0) {
+        document.querySelector(".faltam").innerText =
+          "Chegou o nosso grande dia!";
+        document.querySelector(".contador").style.display = "none";
+        return;
+      }
+
+      const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor(
+        (distancia % (1000 * 60 * 60 * 24)) /
+        (1000 * 60 * 60)
+      );
+      const minutos = Math.floor(
+        (distancia % (1000 * 60 * 60)) /
+        (1000 * 60)
+      );
+      const segundos = Math.floor(
+        (distancia % (1000 * 60)) / 1000
+      );
+
+      document.getElementById("dias").innerText = dias;
+      document.getElementById("horas").innerText =
+        String(horas).padStart(2, "0");
+      document.getElementById("minutos").innerText =
+        String(minutos).padStart(2, "0");
+      document.getElementById("segundos").innerText =
+        String(segundos).padStart(2, "0");
+    }
+
+    atualizarContador();
+    setInterval(atualizarContador, 1000);
+  </script>
 
 </body>
 </html>
