@@ -501,6 +501,84 @@ setInterval(atualizarContador,1000);
   
 <script>
 const RSVP_API = "https://script.google.com/macros/s/AKfycbzGuK02Xs-wZVPfMnoS1-AL60cNx71QP78-auSB2QdN_523mFzP2PHYot9428GVaqVt9Q/exec";
+  const campoNome = document.getElementById("nome-convidado");
+const botaoBuscar = document.getElementById("btn-buscar");
+const mensagemRSVP = document.getElementById("mensagem-rsvp");
+const familiaRSVP = document.getElementById("familia-rsvp");
+
+botaoBuscar.addEventListener("click", buscarConvite);
+
+campoNome.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    buscarConvite();
+  }
+});
+
+async function buscarConvite() {
+  const nome = campoNome.value.trim();
+
+  familiaRSVP.innerHTML = "";
+
+  if (!nome) {
+    mensagemRSVP.textContent = "Digite seu nome para localizar o convite.";
+    return;
+  }
+
+  mensagemRSVP.textContent = "Buscando seu convite...";
+
+  try {
+    const url =
+      RSVP_API +
+      "?acao=buscar&nome=" +
+      encodeURIComponent(nome);
+
+    const resposta = await fetch(url);
+    const dados = await resposta.json();
+
+    if (!dados.sucesso) {
+      mensagemRSVP.textContent =
+        dados.mensagem || "Não foi possível localizar o convite.";
+      return;
+    }
+
+    mensagemRSVP.textContent =
+      "Encontramos seu convite! Confirme a presença de cada pessoa:";
+
+    dados.convidados.forEach(function(convidado) {
+      const pessoa = document.createElement("div");
+      pessoa.className = "pessoa-rsvp";
+
+      pessoa.innerHTML = `
+        <p><strong>${convidado.nome}</strong></p>
+
+        <label>
+          <input
+            type="radio"
+            name="resposta-${convidado.grupo}-${convidado.nome}"
+            value="Confirmado"
+          >
+          Sim, estarei presente
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            name="resposta-${convidado.grupo}-${convidado.nome}"
+            value="Não irá"
+          >
+          Não poderei comparecer
+        </label>
+      `;
+
+      familiaRSVP.appendChild(pessoa);
+    });
+
+  } catch (erro) {
+    console.error(erro);
+    mensagemRSVP.textContent =
+      "Não foi possível consultar o convite. Tente novamente.";
+  }
+}
 </script>
   
 </body>
