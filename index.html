@@ -558,11 +558,50 @@ Mas, caso queira nos presentear, preparamos algumas
 sugestões com carinho.
 </p>
 
-<a class="botao" href="#">
+<a class="botao" href="#lista-presentes">
 Ver lista de presentes
 </a>
 
 </div>
+</section>
+  <section class="lista-presentes" id="lista-presentes">
+  <div class="container">
+
+    <h2 class="titulo">Escolha um presente</h2>
+
+    <p class="texto">
+      Escolhemos algumas sugestões com carinho.
+      Você pode comprar o presente diretamente pela loja
+      ou nos presentear via Pix. 💚
+    </p>
+
+    <div id="presentes-grid">
+
+      <div class="presente-card">
+        <h3>Presente 1</h3>
+        <p>R$ 100,00</p>
+
+        <a class="botao" href="#" target="_blank">
+          Comprar presente
+        </a>
+
+        <button class="botao" type="button" onclick="mostrarPix()">
+  Presentear via Pix
+</button>
+
+<div id="area-pix" style="display:none; margin-top:20px;">
+  <p><strong>Chave Pix:</strong></p>
+  <p id="chave-pix">edilsonsilva060189@gmail.com</p>
+
+  <button class="botao" type="button" onclick="copiarPix()">
+    Copiar chave Pix
+  </button>
+</div>
+      </div>
+
+    </div>
+
+  </div>
 </section>
 
 
@@ -773,7 +812,27 @@ async function enviarConfirmacoes() {
     alert("Não foi possível enviar a confirmação. Tente novamente.");
   }
 }
-  
+  function mostrarPix() {
+  const areaPix = document.getElementById("area-pix");
+
+  if (areaPix.style.display === "none") {
+    areaPix.style.display = "block";
+  } else {
+    areaPix.style.display = "none";
+  }
+}
+
+function copiarPix() {
+  const chavePix = document.getElementById("chave-pix").textContent.trim();
+
+  navigator.clipboard.writeText(chavePix)
+    .then(() => {
+      alert("Chave Pix copiada! 💚");
+    })
+    .catch(() => {
+      alert("Não foi possível copiar automaticamente. Chave Pix: " + chavePix);
+    });
+}
 </script>
   
 </body>
