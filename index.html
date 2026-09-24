@@ -564,116 +564,892 @@ Ver lista de presentes
 
 </div>
 </section>
-  <section class="lista-presentes" id="lista-presentes">
-  <div class="container">
+<!-- ==================================================
+     LISTA DE PRESENTES - EDUARDA & EDILSON
+================================================== -->
 
-    <h2 class="titulo">Escolha um presente</h2>
+<section class="lista-presentes" id="lista-presentes">
 
-    <p class="texto">
-      Escolhemos algumas sugestões com carinho.
-      Você pode comprar o presente diretamente pela loja
-      ou nos presentear via Pix. 💚
-    </p>
+<style>
+.lista-presentes{
+  padding:80px 20px;
+  background:#faf8f5;
+}
 
-    <div id="presentes-grid">
+.lista-presentes-container{
+  max-width:1200px;
+  margin:auto;
+}
 
-      <div class="presente-card presente-pix">
-  <h3>Patrocínio oficial da lua de mel 😂</h3>
-  <p class="preco-presente">R$ 100.000,00</p>
-  <p>Para quem sempre quis bancar uma lua de mel e só estava esperando a oportunidade.</p>
-  <button class="botao" type="button" onclick="abrirPresentePix('Patrocínio oficial da lua de mel', 'R$ 100.000,00')">
-    Presentear
-  </button>
+.lista-presentes h2{
+  text-align:center;
+  font-family:Georgia,serif;
+  font-size:38px;
+  font-weight:400;
+  margin:0 0 12px;
+}
+
+.lista-subtitulo{
+  text-align:center;
+  color:#777;
+  max-width:650px;
+  margin:0 auto 45px;
+  line-height:1.6;
+}
+
+.presentes-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
+}
+
+.presente-card{
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 5px 22px rgba(0,0,0,.07);
+  transition:.25s;
+  display:flex;
+  flex-direction:column;
+}
+
+.presente-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 9px 28px rgba(0,0,0,.11);
+}
+
+.presente-card img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  background:#f3f3f3;
+}
+
+.presente-info{
+  padding:22px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+
+.presente-info h3{
+  font-family:Georgia,serif;
+  font-size:20px;
+  font-weight:400;
+  margin:0 0 10px;
+  line-height:1.3;
+}
+
+.presente-preco{
+  font-size:18px;
+  font-weight:600;
+  margin:0 0 18px;
+}
+
+.presente-descricao{
+  color:#777;
+  font-size:14px;
+  line-height:1.5;
+  margin:-5px 0 18px;
+}
+
+.botao-presente{
+  display:block;
+  width:100%;
+  box-sizing:border-box;
+  border:0;
+  border-radius:30px;
+  padding:13px 18px;
+  background:#536451;
+  color:white;
+  text-decoration:none;
+  text-align:center;
+  font:inherit;
+  cursor:pointer;
+  margin-top:auto;
+}
+
+.botao-presente:hover{
+  opacity:.88;
+}
+
+.presente-pix{
+  background:#fffaf5;
+}
+
+.presente-pix .botao-presente{
+  background:#b76731;
+}
+
+/* MODAL PIX */
+.modal-pix{
+  display:none;
+  position:fixed;
+  z-index:9999;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.modal-pix-conteudo{
+  background:white;
+  width:100%;
+  max-width:440px;
+  border-radius:22px;
+  padding:30px;
+  position:relative;
+  text-align:center;
+  box-sizing:border-box;
+}
+
+.modal-pix-conteudo h3{
+  font-family:Georgia,serif;
+  font-size:25px;
+  font-weight:400;
+  margin:0 25px 8px;
+}
+
+.modal-pix-valor{
+  font-size:21px;
+  font-weight:600;
+  margin:8px 0 22px;
+}
+
+.fechar-pix{
+  position:absolute;
+  right:18px;
+  top:12px;
+  border:0;
+  background:none;
+  font-size:30px;
+  cursor:pointer;
+}
+
+.chave-pix{
+  background:#f6f4f0;
+  padding:13px;
+  border-radius:10px;
+  word-break:break-all;
+  margin:8px 0 12px;
+}
+
+.modal-pix input,
+.modal-pix textarea{
+  width:100%;
+  box-sizing:border-box;
+  padding:12px 14px;
+  margin:6px 0 12px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  font:inherit;
+}
+
+.modal-pix label{
+  display:block;
+  text-align:left;
+  font-size:14px;
+  margin-top:8px;
+}
+
+.modal-pix .botao-presente{
+  margin-top:10px;
+}
+
+@media(max-width:900px){
+  .presentes-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px){
+  .lista-presentes{
+    padding:55px 16px;
+  }
+
+  .presentes-grid{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+
+  .presente-card img{
+    height:290px;
+  }
+
+  .lista-presentes h2{
+    font-size:31px;
+  }
+}
+</style>
+
+
+<div class="lista-presentes-container">
+
+<h2>Lista de Presentes</h2>
+
+<p class="lista-subtitulo">
+  Preparamos nossa lista com muito carinho. Escolha um presente
+  para fazer parte do início da nossa vida juntos. 🤍
+</p>
+
+<div class="presentes-grid" id="presentes-grid"></div>
+
 </div>
 
-<div class="presente-card presente-pix">
-  <h3>Uma diária da nossa lua de mel 🏝️</h3>
-  <p class="preco-presente">R$ 500,00</p>
-  <p>Ajude os recém-casados a acordarem no paraíso por mais um dia.</p>
-  <button class="botao" type="button" onclick="abrirPresentePix('Uma diária da nossa lua de mel', 'R$ 500,00')">
-    Presentear
-  </button>
+
+<!-- MODAL PIX -->
+<div class="modal-pix" id="modalPix">
+
+<div class="modal-pix-conteudo">
+
+<button class="fechar-pix" type="button" onclick="fecharPix()">×</button>
+
+<h3 id="pixTitulo">Presentear os noivos</h3>
+
+<div class="modal-pix-valor" id="pixValor"></div>
+
+<p>Faça o Pix utilizando a chave:</p>
+
+<div class="chave-pix">
+  edilsonsilva060189@gmail.com
 </div>
 
-<div class="presente-card presente-pix">
-  <h3>Uma ajudinha nas passagens da lua de mel ✈️</h3>
-  <p class="preco-presente">R$ 1.000,00</p>
-  <p>Porque até o paraíso fica um pouquinho longe de casa.</p>
-  <button class="botao" type="button" onclick="abrirPresentePix('Uma ajudinha nas passagens da lua de mel', 'R$ 1.000,00')">
-    Presentear
-  </button>
-</div>
+<button class="botao-presente" type="button" onclick="copiarChavePix()">
+  Copiar chave Pix
+</button>
 
-<div class="presente-card presente-pix">
-  <h3>Um camarão na praia para os recém-casados 🍤</h3>
-  <p class="preco-presente">R$ 150,00</p>
-  <p>Porque lua de mel sem camarão na praia não conta.</p>
-  <button class="botao" type="button" onclick="abrirPresentePix('Um camarão na praia para os recém-casados', 'R$ 150,00')">
-    Presentear
-  </button>
-</div>
+<label for="nomeConvidado">Seu nome</label>
+<input id="nomeConvidado" type="text" placeholder="Digite seu nome">
 
-<div class="presente-card presente-pix">
-  <h3>Fundo de Investimento Le Creuset da Eduarda 😂</h3>
-  <p class="preco-presente">R$ 80,00</p>
-  <p>Toda contribuição aproxima Eduarda de uma panela que custa mais do que deveria.</p>
-  <button class="botao" type="button" onclick="abrirPresentePix('Fundo de Investimento Le Creuset da Eduarda', 'R$ 80,00')">
-    Presentear
-  </button>
-</div>
+<label for="recadoConvidado">Deixe um recadinho para nós 🤍</label>
+<textarea id="recadoConvidado" rows="4"
+placeholder="Escreva sua mensagem..."></textarea>
+
+<button class="botao-presente" type="button" onclick="confirmarPresentePix()">
+  Já fiz o Pix 🤍
+</button>
 
 </div>
 </div>
-</section>
 
-<!-- JANELA PARA PRESENTEAR VIA PIX -->
-<div id="modal-presente" class="modal-presente" style="display:none;">
-  <div class="modal-presente-conteudo">
 
-    <button type="button" class="fechar-modal" onclick="fecharPresentePix()">×</button>
+<script>
 
-    <h2>Presentear os noivos 🤍</h2>
+const presentes = [
 
-    <p id="modal-nome-presente"></p>
-    <p id="modal-valor-presente"></p>
+/* PIX */
+{
+nome:"Fundo de Investimento Le Creuset da Eduarda 🧡",
+preco:"R$ 80,00",
+imagem:"presentes/le-creuset-laranja.jpg",
+descricao:"Toda contribuição aproxima Eduarda de uma panela que custa mais do que deveria. 😂",
+tipo:"pix"
+},
 
-    <div class="pix-modal">
-      <p><strong>Chave Pix:</strong></p>
-      <p id="pix-modal-chave">edilsonsilva060189@gmail.com</p>
+{
+nome:"Um camarão na praia para os recém-casados 🍤",
+preco:"R$ 150,00",
+imagem:"presentes/camarao-praia.jpg",
+descricao:"Porque lua de mel sem camarão na praia não conta.",
+tipo:"pix"
+},
 
-      <button class="botao" type="button" onclick="copiarPixModal()">
-        Copiar chave Pix
+/* PRODUTOS */
+{
+nome:"Jogo com 6 Copos Diamond",
+preco:"R$ 36,99",
+imagem:"presentes/copos-diamond.jpg",
+link:"https://link.amazon/B04HtasRU"
+},
+
+{
+nome:"Jogo com 6 Copos Canelados",
+preco:"R$ 38,99",
+imagem:"presentes/copos-canelados.jpg",
+link:"https://link.amazon/B03KjvGVk"
+},
+
+{
+nome:"Jogo com 6 Taças Graffiato",
+preco:"R$ 42,23",
+imagem:"presentes/tacas-graffiato.jpg",
+link:"https://meli.la/2ziq4w4"
+},
+
+{
+nome:"Kit com 6 Bowls",
+preco:"R$ 43,86",
+imagem:"presentes/bowls.jpg",
+link:"https://meli.la/2YFjy3m"
+},
+
+{
+nome:"Conjunto com 6 Taças de Sobremesa",
+preco:"R$ 49,90",
+imagem:"presentes/tacas-sobremesa.jpg",
+link:"https://link.amazon/B03nJdeAM"
+},
+
+{
+nome:"Frigideira Grande em Cerâmica",
+preco:"R$ 59,90",
+imagem:"presentes/frigideira-ceramica.jpg",
+link:"https://link.amazon/B0bKp4Eek"
+},
+
+{
+nome:"Jogo de Talheres Tramontina Búzios – 24 Peças",
+preco:"R$ 66,70",
+imagem:"presentes/faqueiro-buzios.jpg",
+link:"https://link.amazon/B02PpATnp"
+},
+
+{
+nome:"Conjunto de Bowls em Inox – 5 Peças",
+preco:"R$ 66,90",
+imagem:"presentes/bowls-inox.jpg",
+link:"https://meli.la/1q1ThJK"
+},
+
+{
+nome:"Faqueiro LYOR em Aço Inox – 24 Peças",
+preco:"R$ 77,47",
+imagem:"presentes/faqueiro-lyor.jpg",
+link:"https://link.amazon/B0iNtD4Pb"
+},
+
+{
+nome:"Faqueiro LYOR Gastro Dourado – 24 Peças",
+preco:"R$ 78,90",
+imagem:"presentes/faqueiro-dourado.jpg",
+link:"https://link.amazon/B04351uT4"
+},
+
+{
+nome:"Bandeja de Bambu",
+preco:"R$ 78,24",
+imagem:"presentes/bandeja-bambu.jpg",
+link:"https://link.amazon/B03qG4qmC"
+},
+
+{
+nome:"Kit de Potes Herméticos Electrolux – 12 Peças",
+preco:"R$ 89,91",
+imagem:"presentes/potes-electrolux.jpg",
+link:"https://link.amazon/B0hnvEORp"
+},
+
+{
+nome:"Jogo com 6 Taças para Drinks e Sobremesas",
+preco:"R$ 99,00",
+imagem:"presentes/tacas-drinks.jpg",
+link:"https://link.amazon/B0iWgRBfN"
+},
+
+{
+nome:"Utensílios Tramontina Utility – 5 Peças",
+preco:"R$ 101,54",
+imagem:"presentes/utensilios-tramontina.jpg",
+link:"https://link.amazon/B0eqnqPPD"
+},
+
+{
+nome:"Conjunto de Utensílios de Cozinha – 12 Peças",
+preco:"R$ 112,00",
+imagem:"presentes/utensilios-cozinha.jpg",
+link:"https://link.amazon/B0byCdse4"
+},
+
+{
+nome:"Boleira de Vidro com Tampa",
+preco:"R$ 115,20",
+imagem:"presentes/boleira.jpg",
+link:"https://link.amazon/B0ah61ZmK"
+},
+
+{
+nome:"Jogo com 6 Taças Bohemia para Vinho",
+preco:"R$ 129,90",
+imagem:"presentes/tacas-bohemia.jpg",
+link:"https://meli.la/1nvNgk8"
+},
+
+{
+nome:"Jogo com 6 Taças Bohemia Bordeaux 650 ml",
+preco:"R$ 129,90",
+imagem:"presentes/tacas-bordeaux.jpg",
+link:"https://link.amazon/B01CcLPM8"
+},
+
+{
+nome:"Taças Bohemia para Espumante",
+preco:"R$ 129,00",
+imagem:"presentes/tacas-espumante.jpg",
+link:"https://link.amazon/B0dXebiIL"
+},
+
+{
+nome:"Conjunto de Assadeiras Marinex com Tampa – 6 Peças",
+preco:"R$ 130,85",
+imagem:"presentes/assadeiras-marinex.jpg",
+link:"https://meli.la/2J7CK25"
+},
+
+{
+nome:"Jogo de Facas Tramontina com Cepo – 6 Peças",
+preco:"R$ 139,90",
+imagem:"presentes/facas-tramontina.jpg",
+link:"https://meli.la/3448usv"
+},
+
+{
+nome:"Taças Bohemia Titanium para Vinho – 6 Peças",
+preco:"R$ 139,31",
+imagem:"presentes/tacas-titanium.jpg",
+link:"https://meli.la/1Q7myFj"
+},
+
+{
+nome:"Taças Flute de Cristal para Espumante – 6 Peças",
+preco:"R$ 159,99",
+imagem:"presentes/tacas-flute.jpg",
+link:"https://meli.la/2Be8jEr"
+},
+
+{
+nome:"Aparelho Wolff para Sobremesa – 13 Peças",
+preco:"R$ 159,00",
+imagem:"presentes/wolff-sobremesa.jpg",
+link:"https://meli.la/2xxHmhe"
+},
+
+{
+nome:"Tábua de Madeira Teca com Canaleta",
+preco:"R$ 172,12",
+imagem:"presentes/tabua-teca.jpg",
+link:"https://link.amazon/B00DqGsZV"
+},
+
+{
+nome:"Faqueiro Tramontina para Churrasco – 36 Peças",
+preco:"R$ 174,00",
+imagem:"presentes/faqueiro-churrasco.jpg",
+link:"https://link.amazon/B02DekTdD"
+},
+
+{
+nome:"Panela de Arroz Elétrica Electrolux",
+preco:"R$ 179,91",
+imagem:"presentes/panela-arroz.jpg",
+link:"https://magazineluiza.onelink.me/589508454/b99n76ch"
+},
+
+{
+nome:"Taças Bohemia 650 ml – 6 Peças",
+preco:"R$ 179,99",
+imagem:"presentes/tacas-bohemia-650.jpg",
+link:"https://meli.la/1fUDHQ1"
+},
+
+{
+nome:"Jogo de Taças Bohemia Titanium 480 ml",
+preco:"R$ 188,26",
+imagem:"presentes/tacas-bohemia-480.jpg",
+link:"https://meli.la/1e3uYpu"
+},
+
+{
+nome:"Aspirador Vertical Electrolux 2 em 1",
+preco:"R$ 189,90",
+imagem:"presentes/aspirador-vertical.jpg"
+},
+
+{
+nome:"Panela de Pressão Ceramic Life 4,2 L",
+preco:"R$ 198,37",
+imagem:"presentes/panela-pressao.jpg",
+link:"https://link.amazon/B00boGZr7"
+},
+
+{
+nome:"Panela Elétrica Oster para Fondue",
+preco:"R$ 208,90",
+imagem:"presentes/fondue-oster.jpg",
+link:"https://link.amazon/B03pLpBQL"
+},
+
+{
+nome:"Ferro a Vapor Arno",
+preco:"R$ 229,00",
+imagem:"presentes/ferro-arno.jpg",
+link:"https://link.amazon/B05JqGGC0"
+},
+
+{
+nome:"Aparelho de Jantar Opaline Branco – 20 Peças",
+preco:"R$ 249,90",
+imagem:"presentes/jantar-opaline.jpg",
+link:"https://link.amazon/B0imQZDHP"
+},
+
+{
+nome:"Jogo para Churrasco Tramontina – 12 Peças",
+preco:"R$ 248,05",
+imagem:"presentes/churrasco-tramontina.jpg",
+link:"https://meli.la/1FjNs2i"
+},
+
+{
+nome:"Jogo de Toalhas Karsten Unika – 5 Peças",
+preco:"R$ 252,46",
+imagem:"presentes/toalhas-karsten.jpg",
+link:"https://meli.la/1pTS2Pt"
+},
+
+{
+nome:"Ninja Food Power Chopper",
+preco:"R$ 258,11",
+imagem:"presentes/ninja-chopper.jpg",
+link:"https://link.amazon/B0dt8k6h9"
+},
+
+{
+nome:"Multiprocessador Philips Walita",
+preco:"R$ 262,11",
+imagem:"presentes/processador-walita.jpg",
+link:"https://magazineluiza.onelink.me/589508454/ryr6e4p6"
+},
+
+{
+nome:"Jogo de Panelas Mimo Style Cerâmica – 7 Peças",
+preco:"R$ 287,50",
+imagem:"presentes/panelas-mimo.jpg",
+link:"https://meli.la/2UpP5Kf"
+},
+
+{
+nome:"Jogo de Lençol Buddemeyer Queen – 4 Peças",
+preco:"R$ 368,51",
+imagem:"presentes/lencol-buddemeyer.jpg",
+link:"https://meli.la/14DZkff"
+},
+
+{
+nome:"Jogo de Toalhas Gigante Buddemeyer – 5 Peças",
+preco:"R$ 370,31",
+imagem:"presentes/toalhas-buddemeyer.jpg",
+link:"https://magazineluiza.onelink.me/589508454/vt1hpo1e"
+},
+
+{
+nome:"Edredom Queen Buddemeyer",
+preco:"R$ 385,90",
+imagem:"presentes/edredom-buddemeyer.jpg",
+link:"https://link.amazon/B04gYUFz5"
+},
+
+{
+nome:"Panela de Pressão Elétrica Electrolux Rita Lobo 5 L",
+preco:"R$ 389,90",
+imagem:"presentes/pressao-eletrica.jpg"
+},
+
+{
+nome:"Batedeira Planetária Oster",
+preco:"R$ 418,00",
+imagem:"presentes/batedeira-oster.jpg",
+link:"https://magazineluiza.onelink.me/589508454/e8q4qs6e"
+},
+
+{
+nome:"Jogo de Cama Queen Buddemeyer Sintra – 200 Fios",
+preco:"R$ 479,90",
+imagem:"presentes/cama-sintra.jpg",
+link:"https://link.amazon/B0h72MOUJ"
+},
+
+{
+nome:"Aparelho de Jantar Porto Brasil – 30 Peças",
+preco:"R$ 488,60",
+imagem:"presentes/jantar-porto-brasil.jpg",
+link:"https://link.amazon/B0eqmYITw"
+},
+
+{
+nome:"Jogo de Cama Queen Buddemeyer – 300 Fios",
+preco:"R$ 514,50",
+imagem:"presentes/cama-buddemeyer.jpg",
+link:"https://link.amazon/B0ebAykkr"
+},
+
+{
+nome:"Faqueiro Tramontina – 72 Peças",
+preco:"R$ 515,21",
+imagem:"presentes/faqueiro-72.jpg",
+link:"https://link.amazon/B044dcN2h"
+},
+
+{
+nome:"Aparelho de Jantar Orgânico – 30 Peças",
+preco:"R$ 519,90",
+imagem:"presentes/jantar-organico.jpg",
+link:"https://meli.la/12oTD8g"
+},
+
+{
+nome:"Air Fryer Forno Mondial Oven 12 L",
+preco:"R$ 522,41",
+imagem:"presentes/air-fryer-mondial.jpg",
+link:"https://link.amazon/B089wtH2i"
+},
+
+/* PIX */
+{
+nome:"Uma diária da nossa lua de mel 🏝️",
+preco:"R$ 500,00",
+imagem:"presentes/diaria-lua-de-mel.jpg",
+descricao:"Ajude os recém-casados a acordarem mais um dia no paraíso.",
+tipo:"pix"
+},
+
+{
+nome:"Máquina de Gelo",
+preco:"R$ 524,21",
+imagem:"presentes/maquina-gelo.jpg",
+link:"https://link.amazon/B0h3G2rQ8"
+},
+
+{
+nome:"Serviço de Jantar em Porcelana – 42 Peças",
+preco:"R$ 569,03",
+imagem:"presentes/jantar-42.jpg",
+link:"https://link.amazon/B0hfidDmr"
+},
+
+{
+nome:"Aspirador Robô Electrolux",
+preco:"R$ 579,90",
+imagem:"presentes/robo-electrolux.jpg",
+link:"https://link.amazon/B05Q2Kcgs"
+},
+
+{
+nome:"Kit Edredom Queen + Jogo de Lençol",
+preco:"R$ 657,90",
+imagem:"presentes/kit-edredom.jpg",
+link:"https://meli.la/11VeS2S"
+},
+
+{
+nome:"Jogo de Panelas Tramontina Solar – 6 Peças",
+preco:"R$ 720,00",
+imagem:"presentes/panelas-tramontina.jpg",
+link:"https://link.amazon/B05cMeMSo"
+},
+
+{
+nome:"Forno Elétrico Fischer Gourmet Grill 44 L",
+preco:"R$ 784,69",
+imagem:"presentes/forno-fischer.jpg",
+link:"https://link.amazon/B06gPkSOk"
+},
+
+/* PIX */
+{
+nome:"Uma ajudinha nas passagens da lua de mel ✈️",
+preco:"R$ 1.000,00",
+imagem:"presentes/passagem-lua-de-mel.jpg",
+descricao:"Porque até o paraíso fica um pouquinho longe de casa.",
+tipo:"pix"
+},
+
+{
+nome:"Cervejeira Consul Titanium",
+preco:"R$ 1.886,00",
+imagem:"presentes/cervejeira-consul.jpg",
+link:"https://magazineluiza.onelink.me/589508454/2ouxnclx"
+},
+
+{
+nome:'Smart TV Samsung 55" 4K',
+preco:"R$ 2.899,00",
+imagem:"presentes/tv-samsung.jpg",
+link:"https://magazineluiza.onelink.me/589508454/7m8qeyel"
+},
+
+{
+nome:"Lava-louças Brastemp Inox – 15 Serviços",
+preco:"R$ 3.979,00",
+imagem:"presentes/lava-loucas-brastemp.jpg"
+},
+
+/* PIX DA ZOEIRA 😂 */
+{
+nome:"Patrocínio oficial da nossa lua de mel 😂",
+preco:"R$ 100.000,00",
+imagem:"presentes/lua-de-mel.jpg",
+descricao:"Para quem sempre quis bancar uma lua de mel e só estava esperando a oportunidade.",
+tipo:"pix"
+}
+
+];
+
+
+/* CRIA OS CARDS AUTOMATICAMENTE */
+
+const grid = document.getElementById("presentes-grid");
+
+presentes.forEach((presente) => {
+
+  const card = document.createElement("div");
+  card.className = presente.tipo === "pix"
+    ? "presente-card presente-pix"
+    : "presente-card";
+
+  let botao;
+
+  if(presente.tipo === "pix"){
+
+    botao = `
+      <button
+        class="botao-presente"
+        type="button"
+        onclick='abrirPix(${JSON.stringify(presente.nome)}, ${JSON.stringify(presente.preco)})'>
+        Presentear via Pix
       </button>
+    `;
+
+  } else if(presente.link){
+
+    botao = `
+      <a
+        class="botao-presente"
+        href="${presente.link}"
+        target="_blank"
+        rel="noopener noreferrer">
+        Comprar presente
+      </a>
+    `;
+
+  } else {
+
+    botao = `
+      <button class="botao-presente" type="button"
+      onclick='abrirPix(${JSON.stringify(presente.nome)}, ${JSON.stringify(presente.preco)})'>
+        Presentear via Pix
+      </button>
+    `;
+  }
+
+  card.innerHTML = `
+    <img
+      src="${presente.imagem}"
+      alt="${presente.nome}"
+      loading="lazy"
+      onerror="this.src='ALX_0481.jpg';"
+    >
+
+    <div class="presente-info">
+
+      <h3>${presente.nome}</h3>
+
+      <p class="presente-preco">${presente.preco}</p>
+
+      ${presente.descricao
+        ? `<p class="presente-descricao">${presente.descricao}</p>`
+        : ""}
+
+      ${botao}
+
     </div>
+  `;
 
-    <div class="campos-presente">
+  grid.appendChild(card);
+});
 
-      <label for="nome-presenteador">Seu nome</label>
-      <input
-        type="text"
-        id="nome-presenteador"
-        placeholder="Digite seu nome"
-      >
 
-      <label for="recado-presente">Deixe um recado para nós 💚</label>
-      <textarea
-        id="recado-presente"
-        rows="4"
-        placeholder="Escreva sua mensagem..."
-      ></textarea>
+/* PIX */
 
-    </div>
+let presenteAtual = "";
+let valorAtual = "";
 
-    <button class="botao" type="button" onclick="registrarPresentePix()">
-      Já fiz o Pix
-    </button>
+function abrirPix(nome, valor){
 
-    <p class="aviso-presente">
-      Após realizar o Pix, clique no botão acima para nos avisar.
-    </p>
+  presenteAtual = nome;
+  valorAtual = valor;
 
-  </div>
-</div>
+  document.getElementById("pixTitulo").textContent = nome;
+  document.getElementById("pixValor").textContent = valor;
+
+  document.getElementById("nomeConvidado").value = "";
+  document.getElementById("recadoConvidado").value = "";
+
+  document.getElementById("modalPix").style.display = "flex";
+}
+
+function fecharPix(){
+  document.getElementById("modalPix").style.display = "none";
+}
+
+function copiarChavePix(){
+
+  const chave = "edilsonsilva060189@gmail.com";
+
+  navigator.clipboard.writeText(chave)
+  .then(() => {
+    alert("Chave Pix copiada! 🤍");
+  })
+  .catch(() => {
+    prompt("Copie a chave Pix:", chave);
+  });
+}
+
+function confirmarPresentePix(){
+
+  const nome =
+    document.getElementById("nomeConvidado").value.trim();
+
+  const recado =
+    document.getElementById("recadoConvidado").value.trim();
+
+  if(!nome){
+    alert("Digite seu nome para avisar os noivos. 🤍");
+    return;
+  }
+
+  /*
+   Na próxima etapa conectaremos estes dados
+   à planilha:
+   nome
+   presenteAtual
+   valorAtual
+   recado
+  */
+
+  alert(
+    "Obrigada, " + nome +
+    "! 🤍 Recebemos seu aviso de presente."
+  );
+
+  fecharPix();
+}
+
+
+/* FECHA O MODAL CLICANDO FORA */
+
+document.getElementById("modalPix")
+.addEventListener("click", function(event){
+
+  if(event.target === this){
+    fecharPix();
+  }
+
+});
+
+</script>
+
+</section>
 <section class="galeria">
 <div class="container">
 
