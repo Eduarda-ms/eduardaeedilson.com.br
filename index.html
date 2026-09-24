@@ -577,33 +577,103 @@ Ver lista de presentes
 
     <div id="presentes-grid">
 
-      <div class="presente-card">
-        
-
-        <a class="botao" href="#" target="_blank">
-          Comprar presente
-        </a>
-
-        <button class="botao" type="button" onclick="mostrarPix()">
-  Presentear via Pix
-</button>
-
-<div id="area-pix" style="display:none; margin-top:20px;">
-  <p><strong>Chave Pix:</strong></p>
-  <p id="chave-pix">edilsonsilva060189@gmail.com</p>
-
-  <button class="botao" type="button" onclick="copiarPix()">
-    Copiar chave Pix
+      <div class="presente-card presente-pix">
+  <h3>Patrocínio oficial da lua de mel 😂</h3>
+  <p class="preco-presente">R$ 100.000,00</p>
+  <p>Para quem sempre quis bancar uma lua de mel e só estava esperando a oportunidade.</p>
+  <button class="botao" type="button" onclick="abrirPresentePix('Patrocínio oficial da lua de mel', 'R$ 100.000,00')">
+    Presentear
   </button>
 </div>
-      </div>
+
+<div class="presente-card presente-pix">
+  <h3>Uma diária da nossa lua de mel 🏝️</h3>
+  <p class="preco-presente">R$ 500,00</p>
+  <p>Ajude os recém-casados a acordarem no paraíso por mais um dia.</p>
+  <button class="botao" type="button" onclick="abrirPresentePix('Uma diária da nossa lua de mel', 'R$ 500,00')">
+    Presentear
+  </button>
+</div>
+
+<div class="presente-card presente-pix">
+  <h3>Uma ajudinha nas passagens da lua de mel ✈️</h3>
+  <p class="preco-presente">R$ 1.000,00</p>
+  <p>Porque até o paraíso fica um pouquinho longe de casa.</p>
+  <button class="botao" type="button" onclick="abrirPresentePix('Uma ajudinha nas passagens da lua de mel', 'R$ 1.000,00')">
+    Presentear
+  </button>
+</div>
+
+<div class="presente-card presente-pix">
+  <h3>Um camarão na praia para os recém-casados 🍤</h3>
+  <p class="preco-presente">R$ 150,00</p>
+  <p>Porque lua de mel sem camarão na praia não conta.</p>
+  <button class="botao" type="button" onclick="abrirPresentePix('Um camarão na praia para os recém-casados', 'R$ 150,00')">
+    Presentear
+  </button>
+</div>
+
+<div class="presente-card presente-pix">
+  <h3>Fundo de Investimento Le Creuset da Eduarda 😂</h3>
+  <p class="preco-presente">R$ 80,00</p>
+  <p>Toda contribuição aproxima Eduarda de uma panela que custa mais do que deveria.</p>
+  <button class="botao" type="button" onclick="abrirPresentePix('Fundo de Investimento Le Creuset da Eduarda', 'R$ 80,00')">
+    Presentear
+  </button>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- JANELA PARA PRESENTEAR VIA PIX -->
+<div id="modal-presente" class="modal-presente" style="display:none;">
+  <div class="modal-presente-conteudo">
+
+    <button type="button" class="fechar-modal" onclick="fecharPresentePix()">×</button>
+
+    <h2>Presentear os noivos 🤍</h2>
+
+    <p id="modal-nome-presente"></p>
+    <p id="modal-valor-presente"></p>
+
+    <div class="pix-modal">
+      <p><strong>Chave Pix:</strong></p>
+      <p id="pix-modal-chave">edilsonsilva060189@gmail.com</p>
+
+      <button class="botao" type="button" onclick="copiarPixModal()">
+        Copiar chave Pix
+      </button>
+    </div>
+
+    <div class="campos-presente">
+
+      <label for="nome-presenteador">Seu nome</label>
+      <input
+        type="text"
+        id="nome-presenteador"
+        placeholder="Digite seu nome"
+      >
+
+      <label for="recado-presente">Deixe um recado para nós 💚</label>
+      <textarea
+        id="recado-presente"
+        rows="4"
+        placeholder="Escreva sua mensagem..."
+      ></textarea>
 
     </div>
 
+    <button class="botao" type="button" onclick="registrarPresentePix()">
+      Já fiz o Pix
+    </button>
+
+    <p class="aviso-presente">
+      Após realizar o Pix, clique no botão acima para nos avisar.
+    </p>
+
   </div>
-</section>
-
-
+</div>
 <section class="galeria">
 <div class="container">
 
@@ -831,6 +901,48 @@ function copiarPix() {
     .catch(() => {
       alert("Não foi possível copiar automaticamente. Chave Pix: " + chavePix);
     });
+}let presenteSelecionado = "";
+let valorPresenteSelecionado = "";
+
+function abrirPresentePix(presente, valor) {
+  presenteSelecionado = presente;
+  valorPresenteSelecionado = valor;
+
+  document.getElementById("modal-nome-presente").textContent = presente;
+  document.getElementById("modal-valor-presente").textContent = valor;
+
+  document.getElementById("modal-presente").style.display = "flex";
+}
+
+function fecharPresentePix() {
+  document.getElementById("modal-presente").style.display = "none";
+}
+
+function copiarPixModal() {
+  const chave = "edilsonsilva060189@gmail.com";
+
+  navigator.clipboard.writeText(chave).then(() => {
+    alert("Chave Pix copiada! 💚");
+  });
+}
+
+function registrarPresentePix() {
+  const nome = document.getElementById("nome-presenteador").value.trim();
+  const recado = document.getElementById("recado-presente").value.trim();
+
+  if (!nome) {
+    alert("Por favor, informe seu nome.");
+    return;
+  }
+
+  if (!recado) {
+    alert("Escreva um recadinho para os noivos. 💚");
+    return;
+  }
+
+  alert("Obrigada pelo presente! 🤍 Seu recado foi enviado.");
+
+  fecharPresentePix();
 }
 </script>
   
