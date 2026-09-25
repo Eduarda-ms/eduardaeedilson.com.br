@@ -558,9 +558,9 @@ Mas, caso queira nos presentear, preparamos algumas
 sugestões com carinho.
 </p>
 
-<a class="botao" href="#lista-presentes">
-Ver lista de presentes
-</a>
+<button class="botao" type="button" onclick="mostrarListaPresentes()">
+VER LISTA DE PRESENTES
+</button>
 
 </div>
 </section>
@@ -572,6 +572,7 @@ Ver lista de presentes
 
 <style>
 .lista-presentes{
+  display:none;
   padding:80px 20px;
   background:#faf8f5;
 }
@@ -671,6 +672,32 @@ Ver lista de presentes
 
 .botao-presente:hover{
   opacity:.88;
+}
+
+.acoes-presente{
+  display:flex;
+  gap:10px;
+  margin-top:auto;
+}
+.acoes-presente .botao-presente{
+  width:50%;
+  margin-top:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  padding:11px 10px;
+  font-size:11px;
+  line-height:1.25;
+}
+.botao-pix-secundario{ background:#b76731; }
+
+@media(max-width:420px){
+  .acoes-presente{ gap:7px; }
+  .acoes-presente .botao-presente{
+    font-size:9px;
+    padding:10px 6px;
+  }
 }
 
 .presente-pix{
@@ -901,7 +928,7 @@ link:"https://link.amazon/B0bKp4Eek"
 {
 nome:"Jogo de Talheres Tramontina Búzios – 24 Peças",
 preco:"R$ 66,70",
-imagem:"https://resources.sears.com.mx/medios-plazavip/t1/171595464861rSIxq3YjLjpg?qlty=75&scale=500",
+imagem:"https://tdc08h.vteximg.com.br/arquivos/ids/161426-1000-1000/1092980-faqueiro-tramontina-inox-buzios-24p-g.jpg?v=637789710308470000",
 link:"https://link.amazon/B02PpATnp"
 },
 
@@ -1208,7 +1235,7 @@ link:"https://link.amazon/B089wtH2i"
 {
 nome:"Uma diária da nossa lua de mel 🏝️",
 preco:"R$ 500,00",
-imagem:"https://tse1.mm.bing.net/th?q=Uma+di%C3%A1ria+da+nossa+lua+de+mel&w=700&h=700&c=7&rs=1&p=0",
+imagem:"https://www.unforgettablehoneymoons.com/wp-content/uploads/2020/02/Secrets-Cap-Cana-Resort-Junior-Suite-Swim-Out-King.jpg",
 descricao:"Ajude os recém-casados a acordarem mais um dia no paraíso.",
 tipo:"pix"
 },
@@ -1259,7 +1286,7 @@ link:"https://link.amazon/B06gPkSOk"
 {
 nome:"Uma ajudinha nas passagens da lua de mel ✈️",
 preco:"R$ 1.000,00",
-imagem:"https://tse1.mm.bing.net/th?q=Uma+ajudinha+nas+passagens+da+lua+de+mel&w=700&h=700&c=7&rs=1&p=0",
+imagem:"https://i.pinimg.com/originals/bc/40/8e/bc408e64268574e943bfdab17e9effbe.jpg",
 descricao:"Porque até o paraíso fica um pouquinho longe de casa.",
 tipo:"pix"
 },
@@ -1281,20 +1308,27 @@ link:"https://magazineluiza.onelink.me/589508454/7m8qeyel"
 {
 nome:"Lava-louças Brastemp Inox – 15 Serviços",
 preco:"R$ 3.979,00",
-imagem:"https://fastshopbr.vtexassets.com/arquivos/ids/4867248/2_2_675b42ea447c42f8bd09ef2f.jpg?v=639149861518270000"
+imagem:"https://cookeletroraro.vtexassets.com/arquivos/ids/196369/BLF61.jpg?v=639071309119770000",
+link:"https://www.brastemp.com.br/lava-loucas-15-servicos-inox-smart-sensor-blf61ar/p?idsku=326126035"
 },
 
 /* PIX DA ZOEIRA 😂 */
 {
-nome:"Patrocínio oficial da nossa lua de mel 😂",
+nome:"Ir junto na Lua de Mel",
 preco:"R$ 100.000,00",
-imagem:"https://tse1.mm.bing.net/th?q=Patroc%C3%ADnio+oficial+da+nossa+lua+de+mel&w=700&h=700&c=7&rs=1&p=0",
-descricao:"Para quem sempre quis bancar uma lua de mel e só estava esperando a oportunidade.",
+imagem:"ALX_0268.jpg",
+descricao:"Para quem quiser participar dessa aventura com a gente — pelo menos no orçamento. 😂",
 tipo:"pix"
 }
 
 ];
 
+
+function mostrarListaPresentes(){
+  const lista = document.getElementById("lista-presentes");
+  lista.style.display = "block";
+  setTimeout(() => lista.scrollIntoView({behavior:"smooth", block:"start"}), 50);
+}
 
 /* CRIA OS CARDS AUTOMATICAMENTE */
 
@@ -1310,34 +1344,29 @@ presentes.forEach((presente) => {
   let botao;
 
   if(presente.tipo === "pix"){
-
-    botao = `
-      <button
-        class="botao-presente"
-        type="button"
-        onclick='abrirPix(${JSON.stringify(presente.nome)}, ${JSON.stringify(presente.preco)})'>
-        Presentear via Pix
-      </button>
-    `;
-
-  } else if(presente.link){
-
-    botao = `
-      <a
-        class="botao-presente"
-        href="${presente.link}"
-        target="_blank"
-        rel="noopener noreferrer">
-        Comprar presente
-      </a>
-    `;
-
-  } else {
-
     botao = `
       <button class="botao-presente" type="button"
-      onclick='abrirPix(${JSON.stringify(presente.nome)}, ${JSON.stringify(presente.preco)})'>
-        Presentear via Pix
+        onclick='abrirPix(${JSON.stringify(presente.nome)}, ${JSON.stringify(presente.preco)})'>
+        PRESENTEAR COM PIX
+      </button>
+    `;
+  } else if(presente.link){
+    botao = `
+      <div class="acoes-presente">
+        <a class="botao-presente" href="${presente.link}" target="_blank" rel="noopener noreferrer">
+          PRESENTEAR
+        </a>
+        <button class="botao-presente botao-pix-secundario" type="button"
+          onclick='abrirPix(${JSON.stringify(presente.nome)}, ${JSON.stringify(presente.preco)})'>
+          PRESENTEAR COM PIX
+        </button>
+      </div>
+    `;
+  } else {
+    botao = `
+      <button class="botao-presente" type="button"
+        onclick='abrirPix(${JSON.stringify(presente.nome)}, ${JSON.stringify(presente.preco)})'>
+        PRESENTEAR COM PIX
       </button>
     `;
   }
