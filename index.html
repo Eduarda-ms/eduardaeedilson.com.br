@@ -74,17 +74,30 @@ background-position: center;
   width:100%;
   height:100%;
   object-fit:cover;
-  z-index:-2;
-  display:none;
+  object-position:center;
+  z-index:0;
+  display:block;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(247,244,238,.28);
+  z-index:1;
+  pointer-events:none;
 }
 
 .hero::before{
   content:"";
   position:absolute;
   inset:0;
-  background:
-  linear-gradient(rgba(248,246,241,.30),rgba(248,246,241,.50)),
-  radial-gradient(circle at center,#ffffff 0%,#eee9df 100%);
+  background:transparent;
   z-index:-1;
 }
 
@@ -416,7 +429,7 @@ section:not(.hero){
 
 <section class="hero" id="inicio">
 
-<video class="hero-video" autoplay muted loop playsinline>
+<video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="ALX_0481.jpg">
 <source src="video-pre-wedding.mp4" type="video/mp4">
 </video>
 
@@ -470,12 +483,15 @@ ROLE PARA BAIXO<br><br>↓
 <h2 class="titulo">Nossa História</h2>
 
 <p class="texto">
-Nossa história começou há muitos anos e, desde então,
-construímos juntos uma vida cheia de sonhos, aprendizados
-e momentos que nos trouxeram até aqui.
+Nossa história começou em <strong>28 de maio de 2011</strong>, quando ainda éramos muito jovens e tínhamos uma vida inteira pela frente. O que a gente não sabia era que viveríamos boa parte dela lado a lado.
 <br><br>
-Agora chegou o momento de celebrarmos um novo capítulo
-ao lado das pessoas que fazem parte da nossa história.
+Nesses <strong>15 anos</strong>, crescemos juntos, mudamos muito, construímos sonhos, colecionamos histórias e aprendemos a dividir a vida. Foram muitas fases, algumas mudanças de planos e uma quantidade considerável de paciência para chegarmos até aqui.
+<br><br>
+Depois de todo esse tempo de namoro, achamos que já estava na hora de casar, né?
+<br><br>
+No dia <strong>28 de novembro de 2026</strong>, vamos celebrar o nosso sim e continuar fazendo o que já fazemos há tanto tempo: <strong>escolher um ao outro e construir a nossa história juntos.</strong>
+<br><br>
+E sim, depois de 15 anos, achamos melhor não adiar mais.
 </p>
 
 </div>
