@@ -1,0 +1,2552 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Eduarda & Edilson | 28.11.2026</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#f7f4ee;
+  color:#34483b;
+  font-family:'Montserrat',sans-serif;
+}
+
+h1,h2,h3{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:400;
+}
+
+nav{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:10;
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  padding:28px 20px;
+}
+
+nav a{
+  color:#34483b;
+  text-decoration:none;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:10px;
+}
+
+.hero{
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
+  background-image: linear-gradient(rgba(0,0,0,0.08), rgba(0,0,0,0.08)), url("ALX_0481.jpg");
+background-size: cover;
+background-position: center;
+}
+
+/* Futuramente colocaremos o vídeo aqui */
+.hero-video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  z-index:0;
+  display:block;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(247,244,238,.28);
+  z-index:1;
+  pointer-events:none;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:transparent;
+  z-index:-1;
+}
+
+.hero-content{
+  padding:120px 20px 50px;
+  width:100%;
+}
+
+.monograma{
+  font-family:'Cormorant Garamond',serif;
+  font-size:38px;
+  margin-bottom:25px;
+}
+
+.hero h1{
+  font-size:clamp(55px,8vw,95px);
+  line-height:1;
+}
+
+.frase{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:24px;
+  margin:22px 0;
+}
+
+.data{
+  letter-spacing:7px;
+  font-size:15px;
+}
+
+.contador-titulo{
+  margin:40px 0 20px;
+  letter-spacing:5px;
+  font-size:11px;
+}
+
+.contador{
+  display:flex;
+  justify-content:center;
+  gap:40px;
+}
+
+.numero{
+  display:block;
+  font-family:'Cormorant Garamond',serif;
+  font-size:38px;
+}
+
+.rotulo{
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:8px;
+}
+
+.scroll{
+  display:block;
+  margin-top:45px;
+  color:#34483b;
+  text-decoration:none;
+  letter-spacing:3px;
+  font-size:9px;
+}
+
+section:not(.hero){
+  padding:110px 20px;
+}
+
+.container{
+  max-width:1000px;
+  margin:auto;
+  text-align:center;
+}
+
+.titulo{
+  font-size:52px;
+  margin-bottom:25px;
+}
+
+.texto{
+  max-width:700px;
+  margin:auto;
+  line-height:1.9;
+  font-size:14px;
+}
+
+.historia{
+  background:#fffdf9;
+}
+
+.grande-dia{
+  background:#e8ebe5;
+}
+
+.cards{
+  display:flex;
+  gap:30px;
+  justify-content:center;
+  margin-top:50px;
+  flex-wrap:wrap;
+}
+
+.card{
+  background:#fff;
+  padding:45px 30px;
+  width:320px;
+}
+
+.card h3{
+  font-size:32px;
+  margin-bottom:15px;
+}
+
+.botao{
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 25px;
+  border:1px solid #34483b;
+  color:#34483b;
+  text-decoration:none;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:9px;
+}
+
+.rsvp{
+  background:#f7f4ee;
+  /* ===== RSVP ===== */
+
+#busca-rsvp {
+  max-width: 850px;
+  margin: 35px auto 0;
+}
+
+#busca-rsvp input {
+  width: 58%;
+  padding: 16px 18px;
+  border: 1px solid #c8c4b8;
+  border-radius: 8px;
+  background: #fffdf8;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  outline: none;
+}
+
+#btn-buscar {
+  width: 38%;
+  padding: 16px 20px;
+  margin-left: 8px;
+  border: none;
+  border-radius: 8px;
+  background: #34483b;
+  color: white;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#mensagem-rsvp {
+  margin: 35px 0 15px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 27px;
+  color: #34483b;
+  text-align: center;
+}
+
+#familia-rsvp {
+  max-width: 850px;
+  margin: 20px auto;
+}
+
+.pessoa-rsvp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+
+  margin: 28px 0;
+  padding: 25px 30px;
+
+  border: 1px solid #d8d2c5;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.35);
+}
+
+.pessoa-rsvp strong {
+  min-width: 180px;
+  text-align: left;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 28px;
+  color: #34483b;
+}
+
+.opcoes-rsvp {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.opcoes-rsvp label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.opcoes-rsvp input[type="radio"] {
+  width: 19px;
+  height: 19px;
+  accent-color: #34483b;
+}
+
+#btn-confirmar-rsvp {
+  display: block;
+  width: 100%;
+  max-width: 850px;
+  margin: 25px auto 0;
+  padding: 17px;
+
+  border: none;
+  border-radius: 8px;
+  background: #34483b;
+  color: white;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#btn-confirmar-rsvp:hover,
+#btn-buscar:hover {
+  opacity: .9;
+}
+
+@media (max-width: 700px) {
+
+  #busca-rsvp input,
+  #btn-buscar {
+    width: 100%;
+    margin: 6px 0;
+  }
+
+  .pessoa-rsvp {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 22px;
+  }
+
+  .pessoa-rsvp strong {
+    min-width: auto;
+    font-size: 25px;
+  }
+}
+}
+
+.presentes{
+  background:#fffdf9;
+}
+
+.galeria{
+  background:#e8ebe5;
+}
+
+.final{
+  min-height:55vh;
+  display:flex;
+  align-items:center;
+  background:#34483b;
+  color:#f7f4ee;
+}
+
+}
+  
+
+.final h2{
+  font-size:50px;
+}
+
+.final p{
+  margin-top:20px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;
+  font-style:italic;
+}
+
+@media(max-width:750px){
+
+  nav{
+    display:none;
+  }
+
+  .contador{
+    gap:18px;
+  }
+
+  .numero{
+    font-size:30px;
+  }
+
+  .titulo{
+    font-size:42px;
+  }
+
+  section:not(.hero){
+    padding:80px 20px;
+  }
+
+}
+
+
+.monograma-img{
+  display:block;
+  width:min(300px, 55vw);
+  max-height:300px;
+  object-fit:contain;
+  margin:0 auto 12px;
+  filter:drop-shadow(0 2px 8px rgba(247,244,238,.55));
+  opacity:.95;
+  
+}
+
+@media(max-width:600px){
+  .monograma-img{
+    width:min(220px, 58vw);
+    max-height:220px;
+    margin-bottom:8px;
+  }
+}
+
+
+/* ===== IDENTIDADE VISUAL EDUARDA & EDILSON ===== */
+:root{
+  --ee-verde:#34483b;
+  --ee-off:#f7f4ee;
+  --ee-terracota:#c97868;
+  --ee-rosa:#b85f72;
+  --ee-bege:#e8ddd2;
+}
+
+.site-identidade{
+  background:var(--ee-off);
+  color:var(--ee-verde);
+}
+
+/* Faixas decorativas entre os grandes blocos */
+.site-identidade .historia,
+.site-identidade .evento,
+.site-identidade .presentes,
+.site-identidade .lista-presentes,
+.site-identidade .galeria,
+.site-identidade .final{
+  position:relative;
+  isolation:isolate;
+}
+
+.site-identidade .historia::before,
+.site-identidade .evento::before,
+.site-identidade .presentes::before,
+.site-identidade .galeria::before{
+  content:"";
+  display:block;
+  width:100%;
+  height:105px;
+  background-image:
+    linear-gradient(rgba(247,244,238,.16),rgba(247,244,238,.16)),
+    url("identidade-visual.webp");
+  background-size:520px auto;
+  background-position:center;
+  border-top:1px solid rgba(52,72,59,.08);
+  border-bottom:1px solid rgba(52,72,59,.08);
+}
+
+/* Nossa História: limpa no centro, identidade nas laterais */
+.site-identidade .historia{
+  background:
+    linear-gradient(90deg,
+      rgba(247,244,238,.90) 0%,
+      rgba(247,244,238,.98) 22%,
+      rgba(247,244,238,1) 50%,
+      rgba(247,244,238,.98) 78%,
+      rgba(247,244,238,.90) 100%),
+    url("identidade-visual.webp");
+  background-size:auto, 680px auto;
+}
+
+.site-identidade .historia .container{
+  max-width:850px;
+  background:rgba(247,244,238,.90);
+  border:1px solid rgba(201,120,104,.20);
+  border-radius:24px;
+  padding:48px 44px;
+  box-shadow:0 16px 45px rgba(52,72,59,.055);
+}
+
+/* Títulos com pequenos ornamentos, mantendo o verde */
+.site-identidade .titulo{
+  color:var(--ee-verde);
+  position:relative;
+  padding-bottom:18px;
+}
+
+.site-identidade .titulo::after{
+  content:"";
+  display:block;
+  width:62px;
+  height:2px;
+  margin:16px auto 0;
+  background:linear-gradient(90deg,var(--ee-terracota),var(--ee-rosa));
+  border-radius:999px;
+}
+
+/* Grande Dia: bloco elegante sobre textura muito suave */
+.site-identidade .evento{
+  background:
+    linear-gradient(rgba(247,244,238,.92),rgba(247,244,238,.92)),
+    url("identidade-visual.webp");
+  background-size:auto, 760px auto;
+}
+
+.site-identidade .evento .container{
+  background:rgba(255,255,255,.58);
+  border:1px solid rgba(52,72,59,.10);
+  border-radius:26px;
+  padding:46px 38px;
+  box-shadow:0 18px 50px rgba(52,72,59,.06);
+}
+
+/* Bloco introdutório da lista */
+.site-identidade .presentes{
+  background:var(--ee-off);
+}
+
+/* Lista de presentes: padrão quase imperceptível, cards continuam limpos */
+.site-identidade .lista-presentes{
+  background:
+    linear-gradient(rgba(247,244,238,.955),rgba(247,244,238,.955)),
+    url("identidade-visual.webp");
+  background-size:auto, 700px auto;
+}
+
+.site-identidade .presente-card{
+  background:rgba(255,255,255,.96);
+  border:1px solid rgba(52,72,59,.10);
+  box-shadow:0 12px 34px rgba(52,72,59,.075);
+}
+
+.site-identidade .presente-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 17px 40px rgba(52,72,59,.11);
+}
+
+.site-identidade .botao-presente,
+.site-identidade .botao{
+  border-radius:999px;
+}
+
+.site-identidade .botao-pix-secundario{
+  background:var(--ee-terracota);
+}
+
+/* Galeria com identidade discreta */
+.site-identidade .galeria{
+  background:
+    linear-gradient(rgba(247,244,238,.94),rgba(247,244,238,.94)),
+    url("identidade-visual.webp");
+  background-size:auto, 760px auto;
+}
+
+/* Rodapé mais marcante, como fechamento do convite */
+.site-identidade .final{
+  background:
+    linear-gradient(rgba(247,244,238,.78),rgba(247,244,238,.78)),
+    url("identidade-visual.webp");
+  background-size:620px auto;
+  border-top:1px solid rgba(52,72,59,.10);
+}
+
+.site-identidade .final .container{
+  background:rgba(247,244,238,.80);
+  border-radius:24px;
+  padding:38px 28px;
+  backdrop-filter:blur(2px);
+}
+
+/* Detalhe fino terracota nos links */
+.site-identidade a:not(.botao):not(.botao-presente){
+  text-decoration-color:rgba(201,120,104,.55);
+}
+
+@media(max-width:700px){
+  .site-identidade .historia::before,
+  .site-identidade .evento::before,
+  .site-identidade .presentes::before,
+  .site-identidade .galeria::before{
+    height:72px;
+    background-size:390px auto;
+  }
+
+  .site-identidade .historia .container,
+  .site-identidade .evento .container{
+    padding:34px 22px;
+    border-radius:20px;
+  }
+
+  .site-identidade .historia{
+    background-size:auto, 480px auto;
+  }
+
+  .site-identidade .lista-presentes,
+  .site-identidade .galeria{
+    background-size:auto, 500px auto;
+  }
+
+  .site-identidade .final{
+    background-size:450px auto;
+  }
+}
+
+
+/* ===== PALETA CORAL + FUNDO COM IDENTIDADE VISUAL ===== */
+:root{
+  --ee-creme:#fbf3ed;
+  --ee-creme-2:#f7e9df;
+  --ee-coral-claro:#efb7a8;
+  --ee-coral-medio:#cf7867;
+  --ee-coral-escuro:#9f5043;
+  --ee-rosa:#c8798c;
+  --ee-linha:rgba(159,80,67,.18);
+}
+
+.site-identidade{
+  color:var(--ee-coral-escuro);
+  background-color:var(--ee-creme);
+}
+
+/* O "fundo do fundo": a arte de vocês aparece discreta atrás dos blocos */
+.site-identidade .historia,
+.site-identidade .evento,
+.site-identidade .presentes,
+.site-identidade .lista-presentes,
+.site-identidade .galeria,
+.site-identidade .final{
+  background-image:
+    linear-gradient(rgba(251,243,237,.86),rgba(251,243,237,.86)),
+    url("identidade-visual.webp") !important;
+  background-size:auto, 470px auto !important;
+  background-repeat:repeat, repeat !important;
+  background-position:center, center !important;
+}
+
+/* Caixas de conteúdo limpas sobre o fundo estampado */
+.site-identidade .historia .container,
+.site-identidade .evento .container,
+.site-identidade .presentes .container,
+.site-identidade .galeria .container{
+  background:rgba(255,249,245,.90);
+  border:1px solid var(--ee-linha);
+  border-radius:26px;
+  box-shadow:0 16px 42px rgba(159,80,67,.07);
+  padding:46px 40px;
+  backdrop-filter:blur(1.5px);
+}
+
+/* Faixas entre seções usando a própria identidade visual */
+.site-identidade .historia::before,
+.site-identidade .evento::before,
+.site-identidade .presentes::before,
+.site-identidade .galeria::before{
+  background-image:
+    linear-gradient(rgba(251,243,237,.30),rgba(251,243,237,.30)),
+    url("identidade-visual.webp") !important;
+  background-size:auto, 400px auto !important;
+  border-color:rgba(159,80,67,.10) !important;
+}
+
+/* Tipografia principal coral escuro */
+.site-identidade .titulo,
+.site-identidade h1,
+.site-identidade h2,
+.site-identidade h3,
+.site-identidade .texto,
+.site-identidade p{
+  color:var(--ee-coral-escuro);
+}
+
+.site-identidade .titulo::after{
+  background:linear-gradient(90deg,var(--ee-coral-claro),var(--ee-coral-medio)) !important;
+}
+
+/* Cards da lista: claros, para fotos e textos respirarem */
+.site-identidade .presente-card{
+  background:rgba(255,250,247,.97) !important;
+  border:1px solid rgba(207,120,103,.18) !important;
+  box-shadow:0 12px 32px rgba(159,80,67,.08) !important;
+}
+
+.site-identidade .presente-card:hover{
+  box-shadow:0 17px 40px rgba(159,80,67,.13) !important;
+}
+
+/* Botões */
+.site-identidade .botao,
+.site-identidade .botao-presente{
+  background:var(--ee-coral-escuro) !important;
+  color:#fffaf7 !important;
+  border-color:var(--ee-coral-escuro) !important;
+}
+
+.site-identidade .botao-pix-secundario{
+  background:var(--ee-coral-medio) !important;
+  border-color:var(--ee-coral-medio) !important;
+}
+
+/* Links e pequenos acentos */
+.site-identidade a:not(.botao):not(.botao-presente){
+  color:var(--ee-coral-escuro);
+  text-decoration-color:rgba(207,120,103,.55);
+}
+
+/* Rodapé mais presente, sem perder legibilidade */
+.site-identidade .final{
+  background-image:
+    linear-gradient(rgba(251,243,237,.76),rgba(251,243,237,.76)),
+    url("identidade-visual.webp") !important;
+}
+
+.site-identidade .final .container{
+  background:rgba(255,249,245,.86) !important;
+  border:1px solid var(--ee-linha);
+}
+
+/* Monograma da capa: coral escuro, com halo creme sutil sobre o vídeo */
+.monograma-img{
+  filter:drop-shadow(0 2px 9px rgba(251,243,237,.82)) !important;
+}
+
+/* Mantém a capa cinematográfica; só harmoniza elementos de interface */
+.hero .botao{
+  background:rgba(159,80,67,.90) !important;
+  color:#fffaf7 !important;
+}
+
+@media(max-width:700px){
+  .site-identidade .historia,
+  .site-identidade .evento,
+  .site-identidade .presentes,
+  .site-identidade .lista-presentes,
+  .site-identidade .galeria,
+  .site-identidade .final{
+    background-size:auto, 350px auto !important;
+  }
+
+  .site-identidade .historia .container,
+  .site-identidade .evento .container,
+  .site-identidade .presentes .container,
+  .site-identidade .galeria .container{
+    padding:32px 20px;
+    border-radius:20px;
+  }
+}
+
+
+/* ===== IDENTIDADE VISUAL EM TODO O SITE ===== */
+
+/* A estampa acompanha toda a página, inclusive os espaços entre seções */
+html{
+  background:#fbf3ed;
+}
+
+body.site-identidade{
+  background-color:#fbf3ed !important;
+  background-image:
+    linear-gradient(rgba(251,243,237,.88),rgba(251,243,237,.88)),
+    url("identidade-visual.webp") !important;
+  background-size:auto, 470px auto !important;
+  background-repeat:repeat, repeat !important;
+  background-attachment:scroll, scroll;
+}
+
+/* As seções deixam o mesmo fundo aparecer continuamente */
+.site-identidade .historia,
+.site-identidade .evento,
+.site-identidade .presentes,
+.site-identidade .lista-presentes,
+.site-identidade .galeria,
+.site-identidade .final{
+  background-color:transparent !important;
+  background-image:
+    linear-gradient(rgba(251,243,237,.08),rgba(251,243,237,.08)) !important;
+}
+
+/* Também aplica a identidade nas áreas auxiliares do site */
+.site-identidade section:not(.hero){
+  position:relative;
+}
+
+/* A capa continua com o vídeo; a identidade começa logo abaixo dela */
+.site-identidade .hero{
+  background-image:none !important;
+}
+
+/* Cards/caixas ficam claros para não perder leitura */
+.site-identidade .container{
+  position:relative;
+  z-index:1;
+}
+
+@media(max-width:700px){
+  body.site-identidade{
+    background-size:auto, 350px auto !important;
+  }
+}
+
+
+/* ===== ESTÉTICA FINAL: PAPELARIA CORAL ===== */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Italiana&family=Parisienne&display=swap');
+
+:root{
+  --creme:#fbf2eb;
+  --creme-caixa:rgba(255,249,245,.91);
+  --coral-claro:#efb4a6;
+  --coral-medio:#cf7867;
+  --coral-escuro:#9f5043;
+  --rosa:#c8798c;
+}
+
+body.site-identidade{
+  color:var(--coral-escuro) !important;
+  background-color:var(--creme) !important;
+  background-image:
+    linear-gradient(rgba(251,242,235,.88),rgba(251,242,235,.88)),
+    url("identidade-visual.webp") !important;
+  background-size:auto, 350px auto !important;
+  background-repeat:repeat,repeat !important;
+}
+
+body.site-identidade section:not(.hero){
+  background:transparent !important;
+}
+
+body.site-identidade .historia::before,
+body.site-identidade .evento::before,
+body.site-identidade .presentes::before,
+body.site-identidade .galeria::before{
+  display:none !important;
+}
+
+.site-identidade nav,
+.site-identidade nav a{
+  font-family:"Italiana", Georgia, serif;
+  letter-spacing:.08em;
+}
+
+.site-identidade .titulo,
+.site-identidade h2,
+.site-identidade h3{
+  font-family:"Cormorant Garamond", Georgia, serif;
+  color:var(--coral-escuro) !important;
+}
+
+.site-identidade .titulo{
+  font-size:clamp(36px,5vw,54px);
+  font-weight:500;
+  letter-spacing:.02em;
+}
+
+.site-identidade .titulo::after{
+  width:74px;
+  height:1px;
+  background:var(--coral-medio) !important;
+}
+
+.site-identidade .texto,
+.site-identidade p,
+.site-identidade span{
+  font-family:"Cormorant Garamond", Georgia, serif;
+}
+
+.site-identidade .texto{
+  font-size:20px;
+  line-height:1.72;
+}
+
+/* Caixas como papelaria */
+.site-identidade .convite-box{
+  max-width:900px;
+  margin-left:auto;
+  margin-right:auto;
+  background:var(--creme-caixa) !important;
+  border:1px solid rgba(159,80,67,.17) !important;
+  border-radius:28px !important;
+  padding:52px 48px !important;
+  box-shadow:0 18px 48px rgba(159,80,67,.065) !important;
+  backdrop-filter:blur(1px);
+}
+
+/* Seções respiram e deixam a estampa contínua aparecer */
+.site-identidade .historia,
+.site-identidade .grande-dia,
+.site-identidade .rsvp,
+.site-identidade .presentes,
+.site-identidade .informacoes,
+.site-identidade .galeria{
+  padding:72px 20px !important;
+}
+
+/* Alguns blocos recebem uma camada da própria estampa um pouco mais presente,
+   sempre na mesma escala, sem aumentar os desenhos */
+.site-identidade .historia,
+.site-identidade .presentes{
+  position:relative;
+}
+.site-identidade .historia::after,
+.site-identidade .presentes::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background-image:url("identidade-visual.webp");
+  background-size:350px auto;
+  background-repeat:repeat;
+  opacity:.035;
+}
+
+/* Botões */
+.site-identidade .botao,
+.site-identidade .botao-presente,
+.site-identidade #btn-buscar{
+  font-family:"Italiana", Georgia, serif !important;
+  letter-spacing:.08em;
+  border-radius:999px !important;
+  background:var(--coral-escuro) !important;
+  color:#fffaf7 !important;
+  border:1px solid var(--coral-escuro) !important;
+}
+
+/* Informações / paleta das madrinhas */
+.site-identidade .informacoes{
+  position:relative;
+}
+
+.secao-kicker{
+  margin:0 0 4px !important;
+  text-align:center;
+  font-family:"Italiana", Georgia, serif !important;
+  font-size:13px !important;
+  letter-spacing:.28em;
+  color:var(--coral-medio) !important;
+}
+
+.site-identidade .titulo-script{
+  font-family:"Parisienne", cursive !important;
+  font-size:clamp(46px,7vw,68px) !important;
+  font-weight:400 !important;
+  margin-top:8px;
+  margin-bottom:22px;
+}
+
+.recado-madrinhas{
+  max-width:700px;
+  margin:0 auto;
+  text-align:center;
+}
+
+.paleta-madrinhas{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:14px;
+  margin:28px auto 10px;
+}
+
+.amostra{
+  width:48px;
+  height:48px;
+  display:block;
+  border-radius:50%;
+  border:5px solid rgba(255,249,245,.95);
+  box-shadow:0 3px 13px rgba(159,80,67,.15);
+}
+
+.cor-191{background:#d84f83;}
+.cor-291{background:#e8879b;}
+.cor-220{background:#e97355;}
+.cor-246{background:#f04b22;}
+
+.legenda-paleta{
+  text-align:center;
+  margin:8px 0 0 !important;
+  font-size:15px !important;
+  letter-spacing:.08em;
+  color:rgba(159,80,67,.72) !important;
+}
+
+/* Lista de presentes mantém o mesmo universo visual */
+.site-identidade .lista-presentes{
+  background:transparent !important;
+}
+.site-identidade .lista-presentes-container{
+  max-width:1200px;
+}
+.site-identidade .presente-card{
+  border-radius:22px !important;
+  background:rgba(255,249,245,.96) !important;
+  border:1px solid rgba(159,80,67,.14) !important;
+}
+
+@media(max-width:700px){
+  body.site-identidade{
+    background-size:auto, 285px auto !important;
+  }
+  .site-identidade .convite-box{
+    padding:34px 22px !important;
+    border-radius:22px !important;
+  }
+  .site-identidade .historia,
+  .site-identidade .grande-dia,
+  .site-identidade .rsvp,
+  .site-identidade .presentes,
+  .site-identidade .informacoes,
+  .site-identidade .galeria{
+    padding:46px 16px !important;
+  }
+  .amostra{
+    width:42px;
+    height:42px;
+  }
+}
+
+
+/* ===== TRAJE: recado aparece somente ao clicar ===== */
+.site-identidade .traje-secao{
+  padding:72px 20px !important;
+  background:transparent !important;
+  position:relative;
+}
+
+.site-identidade .traje-card{
+  text-align:center;
+  max-width:900px;
+}
+
+.site-identidade .traje-resumo{
+  max-width:650px;
+  margin:0 auto 24px;
+}
+
+.traje-toggle{
+  appearance:none;
+  border:1px solid rgba(159,80,67,.34);
+  background:transparent;
+  color:#9f5043;
+  border-radius:999px;
+  padding:12px 24px;
+  font-family:"Italiana", Georgia, serif;
+  font-size:12px;
+  letter-spacing:.10em;
+  cursor:pointer;
+  transition:.2s ease;
+}
+
+.traje-toggle:hover{
+  background:#9f5043;
+  color:#fffaf7;
+}
+
+.traje-detalhes{
+  max-width:700px;
+  margin:0 auto;
+  animation:trajeAbrir .28s ease;
+}
+
+.traje-divisor{
+  width:70px;
+  height:1px;
+  margin:30px auto 24px;
+  background:rgba(207,120,103,.48);
+}
+
+.traje-detalhes .recado-madrinhas{
+  margin:0 auto;
+  text-align:center;
+}
+
+.paleta-madrinhas{
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  gap:18px;
+  margin:27px auto 8px;
+}
+
+.amostra-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:7px;
+  color:#9f5043;
+  font-family:"Cormorant Garamond", Georgia, serif;
+}
+
+.amostra-wrap small{
+  font-size:13px;
+}
+
+.amostra{
+  width:46px;
+  height:46px;
+  display:block;
+  border-radius:50%;
+  border:4px solid rgba(255,249,245,.96);
+  box-shadow:0 3px 12px rgba(159,80,67,.14);
+}
+
+.cor-191{background:#d84f83;}
+.cor-291{background:#e8879b;}
+.cor-220{background:#e97355;}
+.cor-246{background:#f04b22;}
+
+.legenda-paleta{
+  margin:7px 0 0 !important;
+  text-align:center;
+  font-size:14px !important;
+  letter-spacing:.07em;
+  color:rgba(159,80,67,.68) !important;
+}
+
+@keyframes trajeAbrir{
+  from{opacity:0;transform:translateY(-5px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@media(max-width:700px){
+  .site-identidade .traje-secao{
+    padding:46px 16px !important;
+  }
+  .paleta-madrinhas{gap:10px}
+  .amostra{width:40px;height:40px}
+}
+
+</style>
+</head>
+
+<body class="site-identidade">
+
+<nav>
+<a href="#inicio">Início</a>
+<a href="#historia">Nossa história</a>
+<a href="#grande-dia">O grande dia</a>
+<a href="#rsvp">Confirme sua presença</a>
+<a href="#traje">Traje</a>
+<a href="#presentes">Lista de presentes</a>
+
+</nav>
+
+
+<section class="hero" id="inicio">
+
+<video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="ALX_0481.jpg">
+<source src="video-pre-wedding.mp4" type="video/mp4">
+</video>
+
+<div class="hero-content">
+
+<img class="monograma-img" src="monograma-ee-coral.png" alt="Monograma Eduarda e Edilson">
+
+<h1>Eduarda & Edilson</h1>
+
+<p class="frase">“Até aqui Deus nos sustentou.”</p>
+
+<p class="data">28 • 11 • 2026</p>
+
+<p class="contador-titulo">FALTAM</p>
+
+<div class="contador">
+
+<div>
+<span class="numero" id="dias">00</span>
+<span class="rotulo">dias</span>
+</div>
+
+<div>
+<span class="numero" id="horas">00</span>
+<span class="rotulo">horas</span>
+</div>
+
+<div>
+<span class="numero" id="minutos">00</span>
+<span class="rotulo">minutos</span>
+</div>
+
+<div>
+<span class="numero" id="segundos">00</span>
+<span class="rotulo">segundos</span>
+</div>
+
+</div>
+
+<a class="scroll" href="#historia">
+ROLE PARA BAIXO<br><br>↓
+</a>
+
+</div>
+</section>
+
+
+<section class="historia" id="historia">
+<div class="container convite-box">
+
+<h2 class="titulo">Nossa História</h2>
+
+<p class="texto">
+Nossa história começou em <strong>28 de maio de 2011</strong>, quando ainda éramos muito jovens e tínhamos uma vida inteira pela frente. O que a gente não sabia era que viveríamos boa parte dela lado a lado.
+<br><br>
+Nesses <strong>15 anos</strong>, crescemos juntos, mudamos muito, construímos sonhos, colecionamos histórias e aprendemos a dividir a vida. Foram muitas fases, algumas mudanças de planos e uma quantidade considerável de paciência para chegarmos até aqui.
+<br><br>
+Depois de todo esse tempo de namoro, achamos que já estava na hora de casar, né?
+<br><br>
+No dia <strong>28 de novembro de 2026</strong>, vamos celebrar o nosso sim e continuar fazendo o que já fazemos há tanto tempo: <strong>escolher um ao outro e construir a nossa história juntos.</strong>
+<br><br>
+E sim, depois de 15 anos, achamos melhor não adiar mais.
+</p>
+
+</div>
+</section>
+
+
+<section class="grande-dia" id="grande-dia">
+<div class="container convite-box">
+
+<h2 class="titulo">O Grande Dia</h2>
+
+<p class="texto">28 de novembro de 2026</p>
+
+<div class="cards">
+
+<div class="card">
+<h3>Cerimônia</h3>
+<p>16:30h</p>
+<p>Igreja São Geraldo</p>
+
+<a class="botao" href="https://maps.app.goo.gl/MnmGyV19tTUfixa68?g_st=com.google.maps.preview.copy" target="_blank">
+Como chegar
+</a>
+</div>
+
+<div class="card">
+<h3>Recepção</h3>
+<p>Após a cerimônia</p>
+<p>Sítio Águas de Março</p>
+
+<a class="botao" href="https://maps.app.goo.gl/annpbGPDtLq1NgzP6?g_st=com.google.maps.preview.copy" target="_blank">
+Como chegar
+</a>
+</div>
+
+</div>
+</div>
+</section>
+
+
+
+<section class="rsvp" id="rsvp">
+<div class="container convite-box">
+
+<h2 class="titulo">Confirme sua presença</h2>
+
+<p class="texto">
+Sua presença tornará esse momento ainda mais especial.
+Pedimos que confirme sua presença para que possamos
+preparar tudo com muito carinho.
+</p>
+
+<div id="busca-rsvp">
+
+  <input
+    type="text"
+    id="nome-convidado"
+    placeholder="Digite seu nome"
+    autocomplete="off"
+  >
+
+  <button type="button" id="btn-buscar">
+    Buscar meu convite
+  </button>
+
+  <p id="mensagem-rsvp"></p>
+
+  <div id="familia-rsvp"></div>
+
+</div>
+
+
+
+<section class="traje-secao" id="traje">
+  <div class="container convite-box traje-card">
+    <p class="secao-kicker">TRAJE</p>
+    <h2 class="titulo titulo-script">Vista-se com a gente</h2>
+    <p class="texto traje-resumo">Queremos que vocês se sintam lindos e confortáveis. O traje sugerido é esporte fino.</p>
+
+    <button class="traje-toggle" type="button" aria-expanded="false" aria-controls="traje-detalhes">
+      Ver detalhes do traje
+    </button>
+
+    <div class="traje-detalhes" id="traje-detalhes" hidden>
+      <div class="traje-divisor"></div>
+      <p class="texto recado-madrinhas">
+        Os tons de <strong>rosa, coral e laranja</strong> foram escolhidos especialmente para as nossas madrinhas.
+        Para que esse detalhe fique ainda mais especial no nosso grande dia, pedimos com carinho às nossas convidadas
+        que prefiram outras cores para seus looks.
+      </p>
+
+      <div class="paleta-madrinhas" aria-label="Paleta das madrinhas">
+        <div class="amostra-wrap"><span class="amostra cor-191"></span><small>191</small></div>
+        <div class="amostra-wrap"><span class="amostra cor-291"></span><small>291</small></div>
+        <div class="amostra-wrap"><span class="amostra cor-220"></span><small>220</small></div>
+        <div class="amostra-wrap"><span class="amostra cor-246"></span><small>246</small></div>
+      </div>
+      <p class="legenda-paleta">Paleta das madrinhas</p>
+    </div>
+  </div>
+</section>
+
+<section class="presentes" id="presentes">
+<div class="container convite-box">
+
+<h2 class="titulo">Lista de Presentes</h2>
+
+<p class="texto">
+O maior presente será celebrar esse dia com você.
+Mas, caso queira nos presentear, preparamos algumas
+sugestões com carinho.
+</p>
+
+<button class="botao" type="button" onclick="mostrarListaPresentes()">
+VER LISTA DE PRESENTES
+</button>
+
+</div>
+</section>
+<!-- ==================================================
+     LISTA DE PRESENTES - EDUARDA & EDILSON
+================================================== -->
+
+<section class="lista-presentes" id="lista-presentes">
+
+<style>
+.lista-presentes{
+  display:none;
+  padding:80px 20px;
+  background:#faf8f5;
+}
+
+.lista-presentes-container{
+  max-width:1200px;
+  margin:auto;
+}
+
+.lista-presentes h2{
+  text-align:center;
+  font-family:Georgia,serif;
+  font-size:38px;
+  font-weight:400;
+  margin:0 0 12px;
+}
+
+.lista-subtitulo{
+  text-align:center;
+  color:#777;
+  max-width:650px;
+  margin:0 auto 45px;
+  line-height:1.6;
+}
+
+.presentes-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
+}
+
+.presente-card{
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 5px 22px rgba(0,0,0,.07);
+  transition:.25s;
+  display:flex;
+  flex-direction:column;
+}
+
+.presente-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 9px 28px rgba(0,0,0,.11);
+}
+
+.presente-card img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  background:#f3f3f3;
+}
+
+.presente-info{
+  padding:22px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+
+.presente-info h3{
+  font-family:Georgia,serif;
+  font-size:20px;
+  font-weight:400;
+  margin:0 0 10px;
+  line-height:1.3;
+}
+
+.presente-preco{
+  font-size:18px;
+  font-weight:600;
+  margin:0 0 18px;
+}
+
+.presente-descricao{
+  color:#777;
+  font-size:14px;
+  line-height:1.5;
+  margin:-5px 0 18px;
+}
+
+.botao-presente{
+  display:block;
+  width:100%;
+  box-sizing:border-box;
+  border:0;
+  border-radius:30px;
+  padding:13px 18px;
+  background:#536451;
+  color:white;
+  text-decoration:none;
+  text-align:center;
+  font:inherit;
+  cursor:pointer;
+  margin-top:auto;
+}
+
+.botao-presente:hover{
+  opacity:.88;
+}
+
+.acoes-presente{
+  display:flex;
+  gap:10px;
+  margin-top:auto;
+}
+.acoes-presente .botao-presente{
+  width:50%;
+  margin-top:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  padding:11px 10px;
+  font-size:11px;
+  line-height:1.25;
+}
+.botao-pix-secundario{ background:#b76731; }
+
+@media(max-width:420px){
+  .acoes-presente{ gap:7px; }
+  .acoes-presente .botao-presente{
+    font-size:9px;
+    padding:10px 6px;
+  }
+}
+
+.presente-pix{
+  background:#fffaf5;
+}
+
+.presente-pix .botao-presente{
+  background:#b76731;
+}
+
+/* MODAL PIX */
+.modal-pix{
+  display:none;
+  position:fixed;
+  z-index:9999;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.modal-pix-conteudo{
+  background:white;
+  width:100%;
+  max-width:440px;
+  border-radius:22px;
+  padding:30px;
+  position:relative;
+  text-align:center;
+  box-sizing:border-box;
+}
+
+.modal-pix-conteudo h3{
+  font-family:Georgia,serif;
+  font-size:25px;
+  font-weight:400;
+  margin:0 25px 8px;
+}
+
+.modal-pix-valor{
+  font-size:21px;
+  font-weight:600;
+  margin:8px 0 22px;
+}
+
+.fechar-pix{
+  position:absolute;
+  right:18px;
+  top:12px;
+  border:0;
+  background:none;
+  font-size:30px;
+  cursor:pointer;
+}
+
+.chave-pix{
+  background:#f6f4f0;
+  padding:13px;
+  border-radius:10px;
+  word-break:break-all;
+  margin:8px 0 12px;
+}
+
+.modal-pix input,
+.modal-pix textarea{
+  width:100%;
+  box-sizing:border-box;
+  padding:12px 14px;
+  margin:6px 0 12px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  font:inherit;
+}
+
+.modal-pix label{
+  display:block;
+  text-align:left;
+  font-size:14px;
+  margin-top:8px;
+}
+
+.modal-pix .botao-presente{
+  margin-top:10px;
+}
+
+@media(max-width:900px){
+  .presentes-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px){
+  .lista-presentes{
+    padding:55px 16px;
+  }
+
+  .presentes-grid{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+
+  .presente-card img{
+    height:290px;
+  }
+
+  .lista-presentes h2{
+    font-size:31px;
+  }
+}
+</style>
+
+
+<div class="lista-presentes-container">
+
+<h2>Lista de Presentes</h2>
+
+<p class="lista-subtitulo">
+  Preparamos nossa lista com muito carinho. Escolha um presente
+  para fazer parte do início da nossa vida juntos. 🤍
+</p>
+
+<div class="presentes-grid" id="presentes-grid"></div>
+
+</div>
+
+
+<!-- MODAL PIX -->
+<div class="modal-pix" id="modalPix">
+
+<div class="modal-pix-conteudo">
+
+<button class="fechar-pix" type="button" onclick="fecharPix()">×</button>
+
+<h3 id="pixTitulo">Presentear os noivos</h3>
+
+<div class="modal-pix-valor" id="pixValor"></div>
+
+<p>Faça o Pix utilizando a chave:</p>
+
+<div class="chave-pix">
+  edilsonsilva060189@gmail.com
+</div>
+
+<button class="botao-presente" type="button" onclick="copiarChavePix()">
+  Copiar chave Pix
+</button>
+
+<label for="nomeConvidado">Seu nome</label>
+<input id="nomeConvidado" type="text" placeholder="Digite seu nome">
+
+<label for="recadoConvidado">Deixe um recadinho para nós 🤍</label>
+<textarea id="recadoConvidado" rows="4"
+placeholder="Escreva sua mensagem..."></textarea>
+
+<button class="botao-presente" type="button" onclick="confirmarPresentePix()">
+  Já fiz o Pix 🤍
+</button>
+
+</div>
+</div>
+
+
+<script>
+
+const presentes = [
+
+/* PIX */
+{
+nome:"Fundo de Investimento Le Creuset da Eduarda 🧡",
+preco:"R$ 80,00",
+imagem:"https://product.hstatic.net/200000636469/product/noi-gang-tron-le-creuset-signature-22cm-cam__19__a5303e4b77da47eb897a30217661654a.jpg",
+descricao:"Toda contribuição aproxima Eduarda de uma panela que custa mais do que deveria. 😂",
+tipo:"pix"
+},
+
+{
+nome:"Um camarão na praia para os recém-casados 🍤",
+preco:"R$ 150,00",
+imagem:"https://tse1.mm.bing.net/th?q=Um+camar%C3%A3o+na+praia+para+os+rec%C3%A9m-casados&w=700&h=700&c=7&rs=1&p=0",
+descricao:"Porque lua de mel sem camarão na praia não conta.",
+tipo:"pix"
+},
+
+/* PRODUTOS */
+{
+nome:"Jogo com 6 Copos Diamond",
+preco:"R$ 36,99",
+imagem:"https://tse1.mm.bing.net/th?q=Jogo+com+6+Copos+Diamond&w=700&h=700&c=7&rs=1&p=0",
+link:"https://link.amazon/B04HtasRU"
+},
+
+{
+nome:"Jogo com 6 Copos Canelados",
+preco:"R$ 38,99",
+imagem:"https://imgs.extra.com.br/1565593226/1xg.jpg",
+link:"https://link.amazon/B03KjvGVk"
+},
+
+{
+nome:"Jogo com 6 Taças Graffiato",
+preco:"R$ 42,23",
+imagem:"https://images.tcdn.com.br/img/img_prod/929266/cj_6_tacas_de_vidro_agua_vinho_370ml_graffiato_borda_dourada_hauskraft_29258_3_71b1b5fe4804a74cea33ecf4dacdfead.jpg",
+link:"https://meli.la/2ziq4w4"
+},
+
+{
+nome:"Kit com 6 Bowls",
+preco:"R$ 43,86",
+imagem:"https://i5.walmartimages.com/asr/6db43a4e-56ec-4151-85fc-fcc0c2e8bdf1.ffc577c12e86bd88f8865b89fc73e421.jpeg",
+link:"https://meli.la/2YFjy3m"
+},
+
+{
+nome:"Conjunto com 6 Taças de Sobremesa",
+preco:"R$ 49,90",
+imagem:"https://dcdn-us.mitiendanube.com/stores/534/398/products/539969a9-a607-49d7-800c-f947b50b6bb1-1822e41c4403adcae817269529687360-480-0.webp",
+link:"https://link.amazon/B03nJdeAM"
+},
+
+{
+nome:"Frigideira Grande em Cerâmica",
+preco:"R$ 59,90",
+imagem:"https://media.falabella.com/falabellaPE/882924052_1/w%3D800%2Ch%3D800%2Cfit%3Dpad",
+link:"https://link.amazon/B0bKp4Eek"
+},
+
+{
+nome:"Jogo de Talheres Tramontina Búzios – 24 Peças",
+preco:"R$ 66,70",
+imagem:"263839e2fb22bf054f169c501abe0788.png",
+link:"https://link.amazon/B02PpATnp"
+},
+
+{
+nome:"Conjunto de Bowls em Inox – 5 Peças",
+preco:"R$ 66,90",
+imagem:"https://oechsle.vteximg.com.br/arquivos/ids/23173822-1000-1000/imageUrl_1.jpg?v=638993586851270000",
+link:"https://meli.la/1q1ThJK"
+},
+
+{
+nome:"Faqueiro LYOR em Aço Inox – 24 Peças",
+preco:"R$ 77,47",
+imagem:"https://daju.fbitsstatic.net/img/p/faqueiro-gastro-em-aco-inox-24-pecas-lyor-103071/307358-5.jpg?h=1000&v=202603261227&w=1000",
+link:"https://link.amazon/B0iNtD4Pb"
+},
+
+{
+nome:"Faqueiro LYOR Gastro Dourado – 24 Peças",
+preco:"R$ 78,90",
+imagem:"https://tse1.mm.bing.net/th?q=Faqueiro+LYOR+Gastro+Dourado+24+Pe%C3%A7as&w=700&h=700&c=7&rs=1&p=0",
+link:"https://link.amazon/B04351uT4"
+},
+
+{
+nome:"Bandeja de Bambu",
+preco:"R$ 78,24",
+imagem:"https://tse1.mm.bing.net/th?q=Bandeja+de+Bambu&w=700&h=700&c=7&rs=1&p=0",
+link:"https://link.amazon/B03qG4qmC"
+},
+
+{
+nome:"Kit de Potes Herméticos Electrolux – 12 Peças",
+preco:"R$ 89,91",
+imagem:"https://tse1.mm.bing.net/th?q=Kit+de+Potes+Herm%C3%A9ticos+Electrolux+12+Pe%C3%A7as&w=700&h=700&c=7&rs=1&p=0",
+link:"https://link.amazon/B0hnvEORp"
+},
+
+{
+nome:"Jogo com 6 Taças para Drinks e Sobremesas",
+preco:"R$ 99,00",
+imagem:"https://tse1.mm.bing.net/th?q=Jogo+com+6+Ta%C3%A7as+para+Drinks+e+Sobremesas&w=700&h=700&c=7&rs=1&p=0",
+link:"https://link.amazon/B0iWgRBfN"
+},
+
+{
+nome:"Utensílios Tramontina Utility – 5 Peças",
+preco:"R$ 101,54",
+imagem:"https://tse1.mm.bing.net/th?q=Utens%C3%ADlios+Tramontina+Utility+5+Pe%C3%A7as&w=700&h=700&c=7&rs=1&p=0",
+link:"https://link.amazon/B0eqnqPPD"
+},
+
+{
+nome:"Conjunto de Utensílios de Cozinha – 12 Peças",
+preco:"R$ 112,00",
+imagem:"https://tse1.mm.bing.net/th?q=Conjunto+de+Utens%C3%ADlios+de+Cozinha+12+Pe%C3%A7as&w=700&h=700&c=7&rs=1&p=0",
+link:"https://link.amazon/B0byCdse4"
+},
+
+{
+nome:"Boleira de Vidro com Tampa",
+preco:"R$ 115,20",
+imagem:"https://tse1.mm.bing.net/th?q=Boleira+de+Vidro+com+Tampa&w=700&h=700&c=7&rs=1&p=0",
+link:"https://link.amazon/B0ah61ZmK"
+},
+
+{
+nome:"Jogo com 6 Taças Bohemia para Vinho",
+preco:"R$ 129,90",
+imagem:"https://tse1.mm.bing.net/th?q=Jogo+com+6+Ta%C3%A7as+Bohemia+para+Vinho&w=700&h=700&c=7&rs=1&p=0",
+link:"https://meli.la/1nvNgk8"
+},
+
+{
+nome:"Jogo com 6 Taças Bohemia Bordeaux 650 ml",
+preco:"R$ 129,90",
+imagem:"https://tse1.mm.bing.net/th?q=Jogo+com+6+Ta%C3%A7as+Bohemia+Bordeaux+650+ml&w=700&h=700&c=7&rs=1&p=0",
+link:"https://link.amazon/B01CcLPM8"
+},
+
+{
+nome:"Taças Bohemia para Espumante",
+preco:"R$ 129,00",
+imagem:"https://tse1.mm.bing.net/th?q=Ta%C3%A7as+Bohemia+para+Espumante&w=700&h=700&c=7&rs=1&p=0",
+link:"https://link.amazon/B0dXebiIL"
+},
+
+{
+nome:"Conjunto de Assadeiras Marinex com Tampa – 6 Peças",
+preco:"R$ 130,85",
+imagem:"https://tse1.mm.bing.net/th?q=Conjunto+de+Assadeiras+Marinex+com+Tampa+6+Pe%C3%A7as&w=700&h=700&c=7&rs=1&p=0",
+link:"https://meli.la/2J7CK25"
+},
+
+{
+nome:"Jogo de Facas Tramontina com Cepo – 6 Peças",
+preco:"R$ 139,90",
+imagem:"https://tse1.mm.bing.net/th?q=Jogo+de+Facas+Tramontina+com+Cepo+6+Pe%C3%A7as&w=700&h=700&c=7&rs=1&p=0",
+link:"https://meli.la/3448usv"
+},
+
+{
+nome:"Taças Bohemia Titanium para Vinho – 6 Peças",
+preco:"R$ 139,31",
+imagem:"https://tse1.mm.bing.net/th?q=Ta%C3%A7as+Bohemia+Titanium+para+Vinho+6+Pe%C3%A7as&w=700&h=700&c=7&rs=1&p=0",
+link:"https://meli.la/1Q7myFj"
+},
+
+{
+nome:"Taças Flute de Cristal para Espumante – 6 Peças",
+preco:"R$ 159,99",
+imagem:"https://tse1.mm.bing.net/th?q=Ta%C3%A7as+Flute+de+Cristal+para+Espumante+6+Pe%C3%A7as&w=700&h=700&c=7&rs=1&p=0",
+link:"https://meli.la/2Be8jEr"
+},
+
+{
+nome:"Aparelho Wolff para Sobremesa – 13 Peças",
+preco:"R$ 159,00",
+imagem:"https://tse1.mm.bing.net/th?q=Aparelho+Wolff+para+Sobremesa+13+Pe%C3%A7as&w=700&h=700&c=7&rs=1&p=0",
+link:"https://meli.la/2xxHmhe"
+},
+
+{
+nome:"Tábua de Madeira Teca com Canaleta",
+preco:"R$ 172,12",
+imagem:"https://tse1.mm.bing.net/th?q=T%C3%A1bua+de+Madeira+Teca+com+Canaleta&w=700&h=700&c=7&rs=1&p=0",
+link:"https://link.amazon/B00DqGsZV"
+},
+
+{
+nome:"Faqueiro Tramontina para Churrasco – 36 Peças",
+preco:"R$ 174,00",
+imagem:"https://tse1.mm.bing.net/th?q=Faqueiro+Tramontina+para+Churrasco+36+Pe%C3%A7as&w=700&h=700&c=7&rs=1&p=0",
+link:"https://link.amazon/B02DekTdD"
+},
+
+{
+nome:"Panela de Arroz Elétrica Electrolux",
+preco:"R$ 179,91",
+imagem:"https://tse1.mm.bing.net/th?q=Panela+de+Arroz+El%C3%A9trica+Electrolux&w=700&h=700&c=7&rs=1&p=0",
+link:"https://magazineluiza.onelink.me/589508454/b99n76ch"
+},
+
+{
+nome:"Taças Bohemia 650 ml – 6 Peças",
+preco:"R$ 179,99",
+imagem:"https://tse1.mm.bing.net/th?q=Ta%C3%A7as+Bohemia+650+ml+6+Pe%C3%A7as&w=700&h=700&c=7&rs=1&p=0",
+link:"https://meli.la/1fUDHQ1"
+},
+
+{
+nome:"Jogo de Taças Bohemia Titanium 480 ml",
+preco:"R$ 188,26",
+imagem:"https://tse1.mm.bing.net/th?q=Jogo+de+Ta%C3%A7as+Bohemia+Titanium+480+ml&w=700&h=700&c=7&rs=1&p=0",
+link:"https://meli.la/1e3uYpu"
+},
+
+{
+nome:"Aspirador Vertical Electrolux 2 em 1",
+preco:"R$ 189,90",
+imagem:"https://tse1.mm.bing.net/th?q=Aspirador+Vertical+Electrolux+2+em+1&w=700&h=700&c=7&rs=1&p=0"
+},
+
+{
+nome:"Panela de Pressão Ceramic Life 4,2 L",
+preco:"R$ 198,37",
+imagem:"https://tse1.mm.bing.net/th?q=Panela+de+Press%C3%A3o+Ceramic+Life+4%2C2+L&w=700&h=700&c=7&rs=1&p=0",
+link:"https://link.amazon/B00boGZr7"
+},
+
+{
+nome:"Panela Elétrica Oster para Fondue",
+preco:"R$ 208,90",
+imagem:"https://tse1.mm.bing.net/th?q=Panela+El%C3%A9trica+Oster+para+Fondue&w=700&h=700&c=7&rs=1&p=0",
+link:"https://link.amazon/B03pLpBQL"
+},
+
+{
+nome:"Ferro a Vapor Arno",
+preco:"R$ 229,00",
+imagem:"https://tse1.mm.bing.net/th?q=Ferro+a+Vapor+Arno&w=700&h=700&c=7&rs=1&p=0",
+link:"https://link.amazon/B05JqGGC0"
+},
+
+{
+nome:"Aparelho de Jantar Opaline Branco – 20 Peças",
+preco:"R$ 249,90",
+imagem:"https://tse1.mm.bing.net/th?q=Aparelho+de+Jantar+Opaline+Branco+20+Pe%C3%A7as&w=700&h=700&c=7&rs=1&p=0",
+link:"https://link.amazon/B0imQZDHP"
+},
+
+{
+nome:"Jogo para Churrasco Tramontina – 12 Peças",
+preco:"R$ 248,05",
+imagem:"https://tse1.mm.bing.net/th?q=Jogo+para+Churrasco+Tramontina+12+Pe%C3%A7as&w=700&h=700&c=7&rs=1&p=0",
+link:"https://meli.la/1FjNs2i"
+},
+
+{
+nome:"Jogo de Toalhas Karsten Unika – 5 Peças",
+preco:"R$ 252,46",
+imagem:"https://tse1.mm.bing.net/th?q=Jogo+de+Toalhas+Karsten+Unika+5+Pe%C3%A7as&w=700&h=700&c=7&rs=1&p=0",
+link:"https://meli.la/1pTS2Pt"
+},
+
+{
+nome:"Ninja Food Power Chopper",
+preco:"R$ 258,11",
+imagem:"https://tse1.mm.bing.net/th?q=Ninja+Food+Power+Chopper&w=700&h=700&c=7&rs=1&p=0",
+link:"https://link.amazon/B0dt8k6h9"
+},
+
+{
+nome:"Multiprocessador Philips Walita",
+preco:"R$ 262,11",
+imagem:"https://tse1.mm.bing.net/th?q=Multiprocessador+Philips+Walita&w=700&h=700&c=7&rs=1&p=0",
+link:"https://magazineluiza.onelink.me/589508454/ryr6e4p6"
+},
+
+{
+nome:"Jogo de Panelas Mimo Style Cerâmica – 7 Peças",
+preco:"R$ 287,50",
+imagem:"https://tse1.mm.bing.net/th?q=Jogo+de+Panelas+Mimo+Style+Cer%C3%A2mica+7+Pe%C3%A7as&w=700&h=700&c=7&rs=1&p=0",
+link:"https://meli.la/2UpP5Kf"
+},
+
+{
+nome:"Jogo de Lençol Buddemeyer Queen – 4 Peças",
+preco:"R$ 368,51",
+imagem:"https://tse1.mm.bing.net/th?q=Jogo+de+Len%C3%A7ol+Buddemeyer+Queen+4+Pe%C3%A7as&w=700&h=700&c=7&rs=1&p=0",
+link:"https://meli.la/14DZkff"
+},
+
+{
+nome:"Jogo de Toalhas Gigante Buddemeyer – 5 Peças",
+preco:"R$ 370,31",
+imagem:"https://tse1.mm.bing.net/th?q=Jogo+de+Toalhas+Gigante+Buddemeyer+5+Pe%C3%A7as&w=700&h=700&c=7&rs=1&p=0",
+link:"https://magazineluiza.onelink.me/589508454/vt1hpo1e"
+},
+
+{
+nome:"Edredom Queen Buddemeyer",
+preco:"R$ 385,90",
+imagem:"https://tse1.mm.bing.net/th?q=Edredom+Queen+Buddemeyer&w=700&h=700&c=7&rs=1&p=0",
+link:"https://link.amazon/B04gYUFz5"
+},
+
+{
+nome:"Panela de Pressão Elétrica Electrolux Rita Lobo 5 L",
+preco:"R$ 389,90",
+imagem:"https://tse1.mm.bing.net/th?q=Panela+de+Press%C3%A3o+El%C3%A9trica+Electrolux+Rita+Lobo+5+L&w=700&h=700&c=7&rs=1&p=0"
+},
+
+{
+nome:"Batedeira Planetária Oster",
+preco:"R$ 418,00",
+imagem:"https://tse1.mm.bing.net/th?q=Batedeira+Planet%C3%A1ria+Oster&w=700&h=700&c=7&rs=1&p=0",
+link:"https://magazineluiza.onelink.me/589508454/e8q4qs6e"
+},
+
+{
+nome:"Jogo de Cama Queen Buddemeyer Sintra – 200 Fios",
+preco:"R$ 479,90",
+imagem:"https://tse1.mm.bing.net/th?q=Jogo+de+Cama+Queen+Buddemeyer+Sintra+200+Fios&w=700&h=700&c=7&rs=1&p=0",
+link:"https://link.amazon/B0h72MOUJ"
+},
+
+{
+nome:"Aparelho de Jantar Porto Brasil – 30 Peças",
+preco:"R$ 488,60",
+imagem:"https://tse1.mm.bing.net/th?q=Aparelho+de+Jantar+Porto+Brasil+30+Pe%C3%A7as&w=700&h=700&c=7&rs=1&p=0",
+link:"https://link.amazon/B0eqmYITw"
+},
+
+{
+nome:"Jogo de Cama Queen Buddemeyer – 300 Fios",
+preco:"R$ 514,50",
+imagem:"https://tse1.mm.bing.net/th?q=Jogo+de+Cama+Queen+Buddemeyer+300+Fios&w=700&h=700&c=7&rs=1&p=0",
+link:"https://link.amazon/B0ebAykkr"
+},
+
+{
+nome:"Faqueiro Tramontina – 72 Peças",
+preco:"R$ 515,21",
+imagem:"https://tse1.mm.bing.net/th?q=Faqueiro+Tramontina+72+Pe%C3%A7as&w=700&h=700&c=7&rs=1&p=0",
+link:"https://link.amazon/B044dcN2h"
+},
+
+{
+nome:"Aparelho de Jantar Orgânico – 30 Peças",
+preco:"R$ 519,90",
+imagem:"https://tse1.mm.bing.net/th?q=Aparelho+de+Jantar+Org%C3%A2nico+30+Pe%C3%A7as&w=700&h=700&c=7&rs=1&p=0",
+link:"https://meli.la/12oTD8g"
+},
+
+{
+nome:"Air Fryer Forno Mondial Oven 12 L",
+preco:"R$ 522,41",
+imagem:"https://m.media-amazon.com/images/I/61hEBlwT8AL._AC_SL1500_.jpg",
+link:"https://link.amazon/B089wtH2i"
+},
+
+/* PIX */
+{
+nome:"Uma diária da nossa lua de mel 🏝️",
+preco:"R$ 500,00",
+imagem:"https://www.unforgettablehoneymoons.com/wp-content/uploads/2020/02/Secrets-Cap-Cana-Resort-Junior-Suite-Swim-Out-King.jpg",
+descricao:"Ajude os recém-casados a acordarem mais um dia no paraíso.",
+tipo:"pix"
+},
+
+{
+nome:"Máquina de Gelo",
+preco:"R$ 524,21",
+imagem:"https://tse1.mm.bing.net/th?q=M%C3%A1quina+de+Gelo&w=700&h=700&c=7&rs=1&p=0",
+link:"https://link.amazon/B0h3G2rQ8"
+},
+
+{
+nome:"Serviço de Jantar em Porcelana – 42 Peças",
+preco:"R$ 569,03",
+imagem:"https://tse1.mm.bing.net/th?q=Servi%C3%A7o+de+Jantar+em+Porcelana+42+Pe%C3%A7as&w=700&h=700&c=7&rs=1&p=0",
+link:"https://link.amazon/B0hfidDmr"
+},
+
+{
+nome:"Aspirador Robô Electrolux",
+preco:"R$ 579,90",
+imagem:"https://tse1.mm.bing.net/th?q=Aspirador+Rob%C3%B4+Electrolux&w=700&h=700&c=7&rs=1&p=0",
+link:"https://link.amazon/B05Q2Kcgs"
+},
+
+{
+nome:"Kit Edredom Queen + Jogo de Lençol",
+preco:"R$ 657,90",
+imagem:"https://tse1.mm.bing.net/th?q=Kit+Edredom+Queen+Jogo+de+Len%C3%A7ol&w=700&h=700&c=7&rs=1&p=0",
+link:"https://meli.la/11VeS2S"
+},
+
+{
+nome:"Jogo de Panelas Tramontina Solar – 6 Peças",
+preco:"R$ 720,00",
+imagem:"https://tse1.mm.bing.net/th?q=Jogo+de+Panelas+Tramontina+Solar+6+Pe%C3%A7as&w=700&h=700&c=7&rs=1&p=0",
+link:"https://link.amazon/B05cMeMSo"
+},
+
+{
+nome:"Forno Elétrico Fischer Gourmet Grill 44 L",
+preco:"R$ 784,69",
+imagem:"https://tse1.mm.bing.net/th?q=Forno+El%C3%A9trico+Fischer+Gourmet+Grill+44+L&w=700&h=700&c=7&rs=1&p=0",
+link:"https://link.amazon/B06gPkSOk"
+},
+
+/* PIX */
+{
+nome:"Uma ajudinha nas passagens da lua de mel ✈️",
+preco:"R$ 1.000,00",
+imagem:"https://i.pinimg.com/originals/bc/40/8e/bc408e64268574e943bfdab17e9effbe.jpg",
+descricao:"Porque até o paraíso fica um pouquinho longe de casa.",
+tipo:"pix"
+},
+
+{
+nome:"Cervejeira Consul Titanium",
+preco:"R$ 1.886,00",
+imagem:"https://carrefourbr.vtexassets.com/arquivos/ids/167518392/70f3cec1260f4d3f9614d75c7b89c5ce.jpg?v=638583772265900000",
+link:"https://magazineluiza.onelink.me/589508454/2ouxnclx"
+},
+
+{
+nome:'Smart TV Samsung 55" 4K',
+preco:"R$ 2.899,00",
+imagem:"https://tse1.mm.bing.net/th?q=Smart+TV+Samsung+55+4K&w=700&h=700&c=7&rs=1&p=0",
+link:"https://magazineluiza.onelink.me/589508454/7m8qeyel"
+},
+
+{
+nome:"Lava-louças Brastemp Inox – 15 Serviços",
+preco:"R$ 3.979,00",
+imagem:"https://cookeletroraro.vtexassets.com/arquivos/ids/196369/BLF61.jpg?v=639071309119770000",
+link:"https://www.brastemp.com.br/lava-loucas-15-servicos-inox-smart-sensor-blf61ar/p?idsku=326126035"
+},
+
+/* PIX DA ZOEIRA 😂 */
+{
+nome:"Ir junto na Lua de Mel",
+preco:"R$ 100.000,00",
+imagem:"ALX_0268.jpg",
+descricao:"Para quem quiser participar dessa aventura com a gente — pelo menos no orçamento. 😂",
+tipo:"pix"
+}
+
+];
+
+
+function mostrarListaPresentes(){
+  const lista = document.getElementById("lista-presentes");
+  lista.style.display = "block";
+  setTimeout(() => lista.scrollIntoView({behavior:"smooth", block:"start"}), 50);
+}
+
+/* CRIA OS CARDS AUTOMATICAMENTE */
+
+const grid = document.getElementById("presentes-grid");
+
+presentes.forEach((presente) => {
+
+  const card = document.createElement("div");
+  card.className = presente.tipo === "pix"
+    ? "presente-card presente-pix"
+    : "presente-card";
+
+  let botao;
+
+  if(presente.tipo === "pix"){
+    botao = `
+      <button class="botao-presente" type="button"
+        onclick='abrirPix(${JSON.stringify(presente.nome)}, ${JSON.stringify(presente.preco)})'>
+        PRESENTEAR COM PIX
+      </button>
+    `;
+  } else if(presente.link){
+    botao = `
+      <div class="acoes-presente">
+        <a class="botao-presente" href="${presente.link}" target="_blank" rel="noopener noreferrer">
+          PRESENTEAR
+        </a>
+        <button class="botao-presente botao-pix-secundario" type="button"
+          onclick='abrirPix(${JSON.stringify(presente.nome)}, ${JSON.stringify(presente.preco)})'>
+          PRESENTEAR COM PIX
+        </button>
+      </div>
+    `;
+  } else {
+    botao = `
+      <button class="botao-presente" type="button"
+        onclick='abrirPix(${JSON.stringify(presente.nome)}, ${JSON.stringify(presente.preco)})'>
+        PRESENTEAR COM PIX
+      </button>
+    `;
+  }
+
+  card.innerHTML = `
+    <img
+      src="${presente.imagem}"
+      alt="${presente.nome}"
+      loading="lazy"
+      onerror="this.src='ALX_0481.jpg';"
+    >
+
+    <div class="presente-info">
+
+      <h3>${presente.nome}</h3>
+
+      <p class="presente-preco">${presente.preco}</p>
+
+      ${presente.descricao
+        ? `<p class="presente-descricao">${presente.descricao}</p>`
+        : ""}
+
+      ${botao}
+
+    </div>
+  `;
+
+  grid.appendChild(card);
+});
+
+
+/* PIX */
+
+let presenteAtual = "";
+let valorAtual = "";
+
+function abrirPix(nome, valor){
+
+  presenteAtual = nome;
+  valorAtual = valor;
+
+  document.getElementById("pixTitulo").textContent = nome;
+  document.getElementById("pixValor").textContent = valor;
+
+  document.getElementById("nomeConvidado").value = "";
+  document.getElementById("recadoConvidado").value = "";
+
+  document.getElementById("modalPix").style.display = "flex";
+}
+
+function fecharPix(){
+  document.getElementById("modalPix").style.display = "none";
+}
+
+function copiarChavePix(){
+
+  const chave = "edilsonsilva060189@gmail.com";
+
+  navigator.clipboard.writeText(chave)
+  .then(() => {
+    alert("Chave Pix copiada! 🤍");
+  })
+  .catch(() => {
+    prompt("Copie a chave Pix:", chave);
+  });
+}
+
+function confirmarPresentePix(){
+
+  const nome =
+    document.getElementById("nomeConvidado").value.trim();
+
+  const recado =
+    document.getElementById("recadoConvidado").value.trim();
+
+  if(!nome){
+    alert("Digite seu nome para avisar os noivos. 🤍");
+    return;
+  }
+
+  /*
+   Na próxima etapa conectaremos estes dados
+   à planilha:
+   nome
+   presenteAtual
+   valorAtual
+   recado
+  */
+
+  alert(
+    "Obrigada, " + nome +
+    "! 🤍 Recebemos seu aviso de presente."
+  );
+
+  fecharPix();
+}
+
+
+/* FECHA O MODAL CLICANDO FORA */
+
+document.getElementById("modalPix")
+.addEventListener("click", function(event){
+
+  if(event.target === this){
+    fecharPix();
+  }
+
+});
+
+</script>
+
+</section>
+<section class="galeria">
+<div class="container convite-box">
+
+<h2 class="titulo">Nossos Momentos</h2>
+
+<p class="texto">
+Em breve, nossas fotos estarão por aqui. 🤍
+</p>
+
+</div>
+</section>
+
+
+<section class="final">
+<div class="container">
+
+
+<h2>Eduarda & Edilson</h2>
+
+<p>“O amor tudo crê, tudo espera...”</p>
+
+<br>
+
+<span>28 • 11 • 2026</span>
+
+</div>
+</section>
+
+
+<script>
+
+const casamento =
+new Date("2026-11-28T16:30:00-03:00").getTime();
+
+function atualizarContador(){
+
+const agora = new Date().getTime();
+const distancia = casamento - agora;
+
+if(distancia <= 0){
+document.querySelector(".contador-titulo").innerText =
+"CHEGOU O NOSSO GRANDE DIA";
+document.querySelector(".contador").style.display="none";
+return;
+}
+
+const dias =
+Math.floor(distancia/(1000*60*60*24));
+
+const horas =
+Math.floor((distancia%(1000*60*60*24))/(1000*60*60));
+
+const minutos =
+Math.floor((distancia%(1000*60*60))/(1000*60));
+
+const segundos =
+Math.floor((distancia%(1000*60))/1000);
+
+document.getElementById("dias").innerText=dias;
+document.getElementById("horas").innerText=
+String(horas).padStart(2,"0");
+document.getElementById("minutos").innerText=
+String(minutos).padStart(2,"0");
+document.getElementById("segundos").innerText=
+String(segundos).padStart(2,"0");
+
+}
+
+atualizarContador();
+setInterval(atualizarContador,1000);
+
+</script>
+  
+<script>
+const RSVP_API = "https://script.google.com/macros/s/AKfycbzGuK02Xs-wZVPfMnoS1-AL60cNx71QP78-auSB2QdN_523mFzP2PHYot9428GVaqVt9Q/exec";
+  const campoNome = document.getElementById("nome-convidado");
+const botaoBuscar = document.getElementById("btn-buscar");
+const mensagemRSVP = document.getElementById("mensagem-rsvp");
+const familiaRSVP = document.getElementById("familia-rsvp");
+
+botaoBuscar.addEventListener("click", buscarConvite);
+
+campoNome.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    buscarConvite();
+  }
+});
+
+async function buscarConvite() {
+  const nome = campoNome.value.trim();
+
+  familiaRSVP.innerHTML = "";
+
+  if (!nome) {
+    mensagemRSVP.textContent = "Digite seu nome para localizar o convite.";
+    return;
+  }
+
+  mensagemRSVP.textContent = "Buscando seu convite...";
+
+  try {
+    const url =
+      RSVP_API +
+      "?acao=buscar&nome=" +
+      encodeURIComponent(nome);
+
+    const resposta = await fetch(url);
+    const dados = await resposta.json();
+
+    if (!dados.sucesso) {
+      mensagemRSVP.textContent =
+        dados.mensagem || "Não foi possível localizar o convite.";
+      return;
+    }
+
+    mensagemRSVP.textContent =
+      "Encontramos seu convite! Confirme a presença de cada pessoa:";
+
+    dados.convidados.forEach(function(convidado) {
+  const pessoa = document.createElement("div");
+  pessoa.className = "pessoa-rsvp";
+
+  pessoa.innerHTML = `
+    <p class="nome-rsvp"><strong>${convidado.nome}</strong></p>
+
+    <div class="opcoes-rsvp">
+      <label>
+        <input
+          type="radio"
+          name="resposta-${convidado.grupo}-${convidado.nome}"
+          value="Confirmado"
+        >
+        <span>Sim, estarei presente</span>
+      </label>
+
+      <label>
+        <input
+          type="radio"
+          name="resposta-${convidado.grupo}-${convidado.nome}"
+          value="Não irá"
+        >
+        <span>Não poderei comparecer</span>
+      </label>
+    </div>
+  `;
+
+  familiaRSVP.appendChild(pessoa);
+});
+    const botaoConfirmar = document.createElement("button");
+botaoConfirmar.type = "button";
+botaoConfirmar.className = "botao";
+botaoConfirmar.textContent = "Enviar confirmação";
+botaoConfirmar.style.marginTop = "25px";
+botaoConfirmar.addEventListener("click", enviarConfirmacoes);
+
+familiaRSVP.appendChild(botaoConfirmar);
+
+  } catch (erro) {
+    console.error(erro);
+    mensagemRSVP.textContent =
+      "Não foi possível consultar o convite. Tente novamente.";
+  }
+}
+async function enviarConfirmacoes() {
+  const respostas = [];
+
+  document.querySelectorAll(".pessoa-rsvp").forEach(pessoa => {
+    const nome = pessoa.querySelector(".nome-rsvp").textContent.trim();
+    const selecionado = pessoa.querySelector('input[type="radio"]:checked');
+    const grupo = selecionado ? selecionado.name.split("-")[1] : "";
+
+    if (selecionado) {
+      respostas.push({
+        grupo: grupo,
+        nome: nome,
+        resposta: selecionado.value
+      });
+    }
+  });
+
+  if (respostas.length === 0) {
+    alert("Por favor, confirme a presença de cada pessoa.");
+    return;
+  }
+
+  try {
+    const resposta = await fetch(RSVP_API, {
+      method: "POST",
+      body: JSON.stringify({
+        acao: "confirmar",
+        respostas: respostas
+      })
+    });
+
+    const dados = await resposta.json();
+
+    if (dados.sucesso) {
+      alert("Presença confirmada com sucesso! 💚");
+    } else {
+      alert(dados.mensagem || "Não foi possível enviar a confirmação.");
+    }
+
+  } catch (erro) {
+    console.error(erro);
+    alert("Não foi possível enviar a confirmação. Tente novamente.");
+  }
+}
+  function mostrarPix() {
+  const areaPix = document.getElementById("area-pix");
+
+  if (areaPix.style.display === "none") {
+    areaPix.style.display = "block";
+  } else {
+    areaPix.style.display = "none";
+  }
+}
+
+function copiarPix() {
+  const chavePix = document.getElementById("chave-pix").textContent.trim();
+
+  navigator.clipboard.writeText(chavePix)
+    .then(() => {
+      alert("Chave Pix copiada! 💚");
+    })
+    .catch(() => {
+      alert("Não foi possível copiar automaticamente. Chave Pix: " + chavePix);
+    });
+}let presenteSelecionado = "";
+let valorPresenteSelecionado = "";
+
+function abrirPresentePix(presente, valor) {
+  presenteSelecionado = presente;
+  valorPresenteSelecionado = valor;
+
+  document.getElementById("modal-nome-presente").textContent = presente;
+  document.getElementById("modal-valor-presente").textContent = valor;
+
+  document.getElementById("modal-presente").style.display = "flex";
+}
+
+function fecharPresentePix() {
+  document.getElementById("modal-presente").style.display = "none";
+}
+
+function copiarPixModal() {
+  const chave = "edilsonsilva060189@gmail.com";
+
+  navigator.clipboard.writeText(chave).then(() => {
+    alert("Chave Pix copiada! 💚");
+  });
+}
+
+function registrarPresentePix() {
+  const nome = document.getElementById("nome-presenteador").value.trim();
+  const recado = document.getElementById("recado-presente").value.trim();
+
+  if (!nome) {
+    alert("Por favor, informe seu nome.");
+    return;
+  }
+
+  if (!recado) {
+    alert("Escreva um recadinho para os noivos. 💚");
+    return;
+  }
+
+  alert("Obrigada pelo presente! 🤍 Seu recado foi enviado.");
+
+  fecharPresentePix();
+}
+</script>
+  
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const btn = document.querySelector(".traje-toggle");
+  const detalhes = document.getElementById("traje-detalhes");
+  if(btn && detalhes){
+    btn.addEventListener("click", function(){
+      const aberto = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!aberto));
+      detalhes.hidden = aberto;
+      btn.textContent = aberto ? "Ver detalhes do traje" : "Ocultar detalhes do traje";
+    });
+  }
+});
+</script>
+
+</body>
+</html>
