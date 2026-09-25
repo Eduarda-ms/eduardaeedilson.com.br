@@ -1731,10 +1731,127 @@ body #fotos .ornamental-card::after{
   }
 }
 
+
+/* ===== IDENTIDADE VISUAL: VERSÃO REFINADA ===== */
+
+/* A arte oficial permanece como fundo contínuo, agora mais visível. */
+body{
+  position:relative!important;
+  background-color:#fbf1ea!important;
+  background-image:
+    linear-gradient(rgba(251,241,234,.48),rgba(251,241,234,.48)),
+    url("identidade-visual.webp")!important;
+  background-repeat:repeat,repeat!important;
+  background-size:auto,520px auto!important;
+  background-position:0 0,center top!important;
+}
+
+/* Monogramas EE reais, escurecidos e distribuídos pelo fundo. */
+.monogramas-fundo{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:0;
+}
+.mono-fundo{
+  position:absolute;
+  width:145px;
+  height:auto;
+  opacity:.46;
+  mix-blend-mode:multiply;
+  filter:contrast(1.25) saturate(1.18);
+}
+.mono-1{top:9%;left:1.5%;transform:rotate(-4deg)}
+.mono-2{top:34%;right:1%;transform:rotate(3deg)}
+.mono-3{top:61%;left:2%;transform:rotate(2deg)}
+.mono-4{top:83%;right:2%;transform:rotate(-3deg)}
+
+body section{position:relative;z-index:1}
+body section:not(.hero),
+body .papel-section,
+body .lista-presentes,
+body .galeria{background:transparent!important}
+
+/* Caixas limpas, com os elementos REAIS da identidade dentro delas. */
+body .convite-box.ornamental-card{
+  position:relative!important;
+  overflow:hidden!important;
+  background:rgba(255,249,245,.93)!important;
+  isolation:isolate;
+}
+
+/* Desliga definitivamente os ornamentos genéricos antigos. */
+body .ornamental-card::before,
+body .ornamental-card::after{
+  display:none!important;
+  content:none!important;
+}
+
+.elemento-identidade{
+  position:absolute;
+  z-index:-1;
+  width:105px;
+  height:auto;
+  opacity:.26;
+  mix-blend-mode:multiply;
+  filter:contrast(1.13) saturate(1.08);
+  pointer-events:none;
+}
+.elemento-identidade.elem-esq{
+  left:8px;
+  bottom:7px;
+  transform:rotate(-4deg);
+}
+.elemento-identidade.elem-dir{
+  right:8px;
+  top:8px;
+  transform:rotate(4deg);
+}
+
+/* Destaques alternados: alguns elementos aparecem mais fortes, como solicitado. */
+#historia .elem-esq,
+#grande-dia .elem-dir,
+#presentes .elem-dir,
+#informacoes .elem-esq,
+#rsvp .elem-dir,
+#fotos .elem-esq{
+  opacity:.58!important;
+  filter:contrast(1.28) saturate(1.18)!important;
+}
+#historia .elem-dir,
+#grande-dia .elem-esq,
+#presentes .elem-esq,
+#informacoes .elem-dir,
+#rsvp .elem-esq,
+#fotos .elem-dir{
+  opacity:.23!important;
+}
+
+/* Alguns elementos maiores para dar ritmo sem repetir tudo igual. */
+#grande-dia .elem-esq{width:128px}
+#presentes .elem-dir{width:92px}
+#informacoes .elem-esq{width:86px}
+#fotos .elem-dir{width:135px}
+
+@media(max-width:700px){
+  body{background-size:auto,390px auto!important}
+  .mono-fundo{width:92px;opacity:.36}
+  .elemento-identidade{width:72px}
+  #grande-dia .elem-esq,#fotos .elem-dir{width:88px}
+}
+
 </style>
 </head>
 
 <body class="site-identidade">
+<div class="monogramas-fundo" aria-hidden="true">
+  <img src="monograma-ee.png" class="mono-fundo mono-1" alt="">
+  <img src="monograma-ee.png" class="mono-fundo mono-2" alt="">
+  <img src="monograma-ee.png" class="mono-fundo mono-3" alt="">
+  <img src="monograma-ee.png" class="mono-fundo mono-4" alt="">
+</div>
+
 
 <nav class="nav-elegante">
 <a href="#inicio">Início</a><a href="#historia">Nossa história</a><a href="#grande-dia">O grande dia</a>
@@ -1814,7 +1931,7 @@ ROLE PARA BAIXO<br><br>↓
 ================================================== -->
 
 <section class="historia papel-section" id="historia">
-  <div class="container convite-box ornamental-card">
+  <div class="container convite-box ornamental-card"><img class="elemento-identidade elem-esq" src="cachorro.png" alt="" aria-hidden="true"><img class="elemento-identidade elem-dir" src="alho.png" alt="" aria-hidden="true">
     <p class="secao-kicker">NOSSA HISTÓRIA</p>
     <h2 class="titulo titulo-brittany">Tudo no tempo certo</h2>
     <p class="texto historia-chamada">De encontros, planos, viagens e muitos sonhos...</p>
@@ -1840,7 +1957,7 @@ ROLE PARA BAIXO<br><br>↓
   </div>
 </section>
 <section class="grande-dia papel-section" id="grande-dia">
-  <div class="container convite-box ornamental-card">
+  <div class="container convite-box ornamental-card"><img class="elemento-identidade elem-esq" src="pesca.png" alt="" aria-hidden="true"><img class="elemento-identidade elem-dir" src="chapeu.png" alt="" aria-hidden="true">
     <p class="secao-kicker">O GRANDE DIA</p>
     <h2 class="titulo titulo-brittany">Nosso dia</h2>
     <div class="dia-grid novo-dia-grid">
@@ -1882,7 +1999,7 @@ ROLE PARA BAIXO<br><br>↓
   </div>
 </section>
 <section class="presentes papel-section" id="presentes">
-  <div class="container convite-box ornamental-card">
+  <div class="container convite-box ornamental-card"><img class="elemento-identidade elem-esq" src="mala.png" alt="" aria-hidden="true"><img class="elemento-identidade elem-dir" src="aperol.png" alt="" aria-hidden="true">
     <p class="secao-kicker">LISTA DE PRESENTES</p>
     <h2 class="titulo titulo-brittany">Nosso novo lar</h2>
     <p class="texto presentes-chamada">
@@ -2814,7 +2931,7 @@ document.getElementById("modalPix")
 
 
 <section class="informacoes papel-section" id="informacoes">
-  <div class="container convite-box ornamental-card">
+  <div class="container convite-box ornamental-card"><img class="elemento-identidade elem-esq" src="alho.png" alt="" aria-hidden="true"><img class="elemento-identidade elem-dir" src="ferradura.png" alt="" aria-hidden="true">
     <p class="secao-kicker">INFORMAÇÕES</p>
     <h2 class="titulo titulo-brittany">Tudo o que você precisa saber</h2>
 
@@ -2901,7 +3018,7 @@ document.getElementById("modalPix")
   </div>
 </section>
 <section class="rsvp papel-section" id="rsvp">
-  <div class="container convite-box ornamental-card">
+  <div class="container convite-box ornamental-card"><img class="elemento-identidade elem-esq" src="aperol.png" alt="" aria-hidden="true"><img class="elemento-identidade elem-dir" src="cachorro.png" alt="" aria-hidden="true">
     <p class="secao-kicker">CONFIRME SUA PRESENÇA</p>
     <h2 class="titulo titulo-brittany">Contamos com você</h2>
     <p class="texto">Sua presença tornará o nosso dia ainda mais especial!</p>
@@ -2922,7 +3039,7 @@ document.getElementById("modalPix")
   </div>
 </section>
 <section class="galeria papel-section" id="fotos">
-  <div class="container convite-box ornamental-card">
+  <div class="container convite-box ornamental-card"><img class="elemento-identidade elem-esq" src="chapeu.png" alt="" aria-hidden="true"><img class="elemento-identidade elem-dir" src="pesca.png" alt="" aria-hidden="true">
     <p class="secao-kicker">NOSSAS FOTOS</p>
     <div class="fotos-grid">
       <img src="ALX_0268.jpg" alt="Eduarda e Edilson">
