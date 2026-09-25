@@ -765,6 +765,275 @@ section:not(.hero){
   }
 }
 
+
+/* ===== IDENTIDADE VISUAL EM TODO O SITE ===== */
+
+/* A estampa acompanha toda a página, inclusive os espaços entre seções */
+html{
+  background:#fbf3ed;
+}
+
+body.site-identidade{
+  background-color:#fbf3ed !important;
+  background-image:
+    linear-gradient(rgba(251,243,237,.88),rgba(251,243,237,.88)),
+    url("identidade-visual.webp") !important;
+  background-size:auto, 470px auto !important;
+  background-repeat:repeat, repeat !important;
+  background-attachment:scroll, scroll;
+}
+
+/* As seções deixam o mesmo fundo aparecer continuamente */
+.site-identidade .historia,
+.site-identidade .evento,
+.site-identidade .presentes,
+.site-identidade .lista-presentes,
+.site-identidade .galeria,
+.site-identidade .final{
+  background-color:transparent !important;
+  background-image:
+    linear-gradient(rgba(251,243,237,.08),rgba(251,243,237,.08)) !important;
+}
+
+/* Também aplica a identidade nas áreas auxiliares do site */
+.site-identidade section:not(.hero){
+  position:relative;
+}
+
+/* A capa continua com o vídeo; a identidade começa logo abaixo dela */
+.site-identidade .hero{
+  background-image:none !important;
+}
+
+/* Cards/caixas ficam claros para não perder leitura */
+.site-identidade .container{
+  position:relative;
+  z-index:1;
+}
+
+@media(max-width:700px){
+  body.site-identidade{
+    background-size:auto, 350px auto !important;
+  }
+}
+
+
+/* ===== ESTÉTICA FINAL: PAPELARIA CORAL ===== */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Italiana&family=Parisienne&display=swap');
+
+:root{
+  --creme:#fbf2eb;
+  --creme-caixa:rgba(255,249,245,.91);
+  --coral-claro:#efb4a6;
+  --coral-medio:#cf7867;
+  --coral-escuro:#9f5043;
+  --rosa:#c8798c;
+}
+
+body.site-identidade{
+  color:var(--coral-escuro) !important;
+  background-color:var(--creme) !important;
+  background-image:
+    linear-gradient(rgba(251,242,235,.88),rgba(251,242,235,.88)),
+    url("identidade-visual.webp") !important;
+  background-size:auto, 350px auto !important;
+  background-repeat:repeat,repeat !important;
+}
+
+body.site-identidade section:not(.hero){
+  background:transparent !important;
+}
+
+body.site-identidade .historia::before,
+body.site-identidade .evento::before,
+body.site-identidade .presentes::before,
+body.site-identidade .galeria::before{
+  display:none !important;
+}
+
+.site-identidade nav,
+.site-identidade nav a{
+  font-family:"Italiana", Georgia, serif;
+  letter-spacing:.08em;
+}
+
+.site-identidade .titulo,
+.site-identidade h2,
+.site-identidade h3{
+  font-family:"Cormorant Garamond", Georgia, serif;
+  color:var(--coral-escuro) !important;
+}
+
+.site-identidade .titulo{
+  font-size:clamp(36px,5vw,54px);
+  font-weight:500;
+  letter-spacing:.02em;
+}
+
+.site-identidade .titulo::after{
+  width:74px;
+  height:1px;
+  background:var(--coral-medio) !important;
+}
+
+.site-identidade .texto,
+.site-identidade p,
+.site-identidade span{
+  font-family:"Cormorant Garamond", Georgia, serif;
+}
+
+.site-identidade .texto{
+  font-size:20px;
+  line-height:1.72;
+}
+
+/* Caixas como papelaria */
+.site-identidade .convite-box{
+  max-width:900px;
+  margin-left:auto;
+  margin-right:auto;
+  background:var(--creme-caixa) !important;
+  border:1px solid rgba(159,80,67,.17) !important;
+  border-radius:28px !important;
+  padding:52px 48px !important;
+  box-shadow:0 18px 48px rgba(159,80,67,.065) !important;
+  backdrop-filter:blur(1px);
+}
+
+/* Seções respiram e deixam a estampa contínua aparecer */
+.site-identidade .historia,
+.site-identidade .grande-dia,
+.site-identidade .rsvp,
+.site-identidade .presentes,
+.site-identidade .informacoes,
+.site-identidade .galeria{
+  padding:72px 20px !important;
+}
+
+/* Alguns blocos recebem uma camada da própria estampa um pouco mais presente,
+   sempre na mesma escala, sem aumentar os desenhos */
+.site-identidade .historia,
+.site-identidade .presentes{
+  position:relative;
+}
+.site-identidade .historia::after,
+.site-identidade .presentes::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background-image:url("identidade-visual.webp");
+  background-size:350px auto;
+  background-repeat:repeat;
+  opacity:.035;
+}
+
+/* Botões */
+.site-identidade .botao,
+.site-identidade .botao-presente,
+.site-identidade #btn-buscar{
+  font-family:"Italiana", Georgia, serif !important;
+  letter-spacing:.08em;
+  border-radius:999px !important;
+  background:var(--coral-escuro) !important;
+  color:#fffaf7 !important;
+  border:1px solid var(--coral-escuro) !important;
+}
+
+/* Informações / paleta das madrinhas */
+.site-identidade .informacoes{
+  position:relative;
+}
+
+.secao-kicker{
+  margin:0 0 4px !important;
+  text-align:center;
+  font-family:"Italiana", Georgia, serif !important;
+  font-size:13px !important;
+  letter-spacing:.28em;
+  color:var(--coral-medio) !important;
+}
+
+.site-identidade .titulo-script{
+  font-family:"Parisienne", cursive !important;
+  font-size:clamp(46px,7vw,68px) !important;
+  font-weight:400 !important;
+  margin-top:8px;
+  margin-bottom:22px;
+}
+
+.recado-madrinhas{
+  max-width:700px;
+  margin:0 auto;
+  text-align:center;
+}
+
+.paleta-madrinhas{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:14px;
+  margin:28px auto 10px;
+}
+
+.amostra{
+  width:48px;
+  height:48px;
+  display:block;
+  border-radius:50%;
+  border:5px solid rgba(255,249,245,.95);
+  box-shadow:0 3px 13px rgba(159,80,67,.15);
+}
+
+.cor-191{background:#d84f83;}
+.cor-291{background:#e8879b;}
+.cor-220{background:#e97355;}
+.cor-246{background:#f04b22;}
+
+.legenda-paleta{
+  text-align:center;
+  margin:8px 0 0 !important;
+  font-size:15px !important;
+  letter-spacing:.08em;
+  color:rgba(159,80,67,.72) !important;
+}
+
+/* Lista de presentes mantém o mesmo universo visual */
+.site-identidade .lista-presentes{
+  background:transparent !important;
+}
+.site-identidade .lista-presentes-container{
+  max-width:1200px;
+}
+.site-identidade .presente-card{
+  border-radius:22px !important;
+  background:rgba(255,249,245,.96) !important;
+  border:1px solid rgba(159,80,67,.14) !important;
+}
+
+@media(max-width:700px){
+  body.site-identidade{
+    background-size:auto, 285px auto !important;
+  }
+  .site-identidade .convite-box{
+    padding:34px 22px !important;
+    border-radius:22px !important;
+  }
+  .site-identidade .historia,
+  .site-identidade .grande-dia,
+  .site-identidade .rsvp,
+  .site-identidade .presentes,
+  .site-identidade .informacoes,
+  .site-identidade .galeria{
+    padding:46px 16px !important;
+  }
+  .amostra{
+    width:42px;
+    height:42px;
+  }
+}
+
 </style>
 </head>
 
@@ -776,6 +1045,7 @@ section:not(.hero){
 <a href="#grande-dia">O grande dia</a>
 <a href="#rsvp">Confirme sua presença</a>
 <a href="#presentes">Lista de presentes</a>
+<a href="#informacoes">Informações</a>
 </nav>
 
 
@@ -830,7 +1100,7 @@ ROLE PARA BAIXO<br><br>↓
 
 
 <section class="historia" id="historia">
-<div class="container">
+<div class="container convite-box">
 
 <h2 class="titulo">Nossa História</h2>
 
@@ -851,7 +1121,7 @@ E sim, depois de 15 anos, achamos melhor não adiar mais.
 
 
 <section class="grande-dia" id="grande-dia">
-<div class="container">
+<div class="container convite-box">
 
 <h2 class="titulo">O Grande Dia</h2>
 
@@ -884,8 +1154,30 @@ Como chegar
 </section>
 
 
+
+<section class="informacoes" id="informacoes">
+  <div class="container convite-box">
+    <p class="secao-kicker">INFORMAÇÕES</p>
+    <h2 class="titulo titulo-script">Um detalhe especial</h2>
+
+    <p class="texto recado-madrinhas">
+      Os tons de <strong>rosa, coral e laranja</strong> foram escolhidos especialmente para as nossas madrinhas.
+      Para que esse detalhe fique ainda mais especial no nosso grande dia, pedimos com carinho às nossas convidadas
+      que prefiram outras cores para seus looks.
+    </p>
+
+    <div class="paleta-madrinhas" aria-label="Paleta reservada às madrinhas">
+      <span class="amostra cor-191" title="Rosa intenso"></span>
+      <span class="amostra cor-291" title="Rosa"></span>
+      <span class="amostra cor-220" title="Coral"></span>
+      <span class="amostra cor-246" title="Laranja"></span>
+    </div>
+    <p class="legenda-paleta">Paleta das madrinhas</p>
+  </div>
+</section>
+
 <section class="rsvp" id="rsvp">
-<div class="container">
+<div class="container convite-box">
 
 <h2 class="titulo">Confirme sua presença</h2>
 
@@ -916,7 +1208,7 @@ preparar tudo com muito carinho.
 
 
 <section class="presentes" id="presentes">
-<div class="container">
+<div class="container convite-box">
 
 <h2 class="titulo">Lista de Presentes</h2>
 
@@ -1848,7 +2140,7 @@ document.getElementById("modalPix")
 
 </section>
 <section class="galeria">
-<div class="container">
+<div class="container convite-box">
 
 <h2 class="titulo">Nossos Momentos</h2>
 
