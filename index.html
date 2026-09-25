@@ -1841,16 +1841,57 @@ body .ornamental-card::after{
   #grande-dia .elem-esq,#fotos .elem-dir{width:88px}
 }
 
+
+/* ===== FUNDO MAIS FORTE + ELEMENTOS SEM FUNDO BRANCO ===== */
+body{
+  background-color:#f8e8df!important;
+  background-image:
+    linear-gradient(rgba(248,232,223,.20),rgba(248,232,223,.20)),
+    url("identidade-visual.webp")!important;
+  background-repeat:repeat,repeat!important;
+  background-size:auto,500px auto!important;
+  background-position:0 0,center top!important;
+}
+
+/* Não usar mais monogramas em caixas/retângulos separados no fundo */
+.monogramas-fundo,.mono-fundo{
+  display:none!important;
+}
+
+/* Elementos das caixas agora são PNGs transparentes, sem bloco branco */
+.elemento-identidade{
+  background:transparent!important;
+  mix-blend-mode:multiply!important;
+  opacity:.48!important;
+  filter:contrast(1.22) saturate(1.14)!important;
+}
+#historia .elem-esq,
+#grande-dia .elem-dir,
+#presentes .elem-dir,
+#informacoes .elem-esq,
+#rsvp .elem-dir,
+#fotos .elem-esq{
+  opacity:.76!important;
+  filter:contrast(1.38) saturate(1.24)!important;
+}
+#historia .elem-dir,
+#grande-dia .elem-esq,
+#presentes .elem-esq,
+#informacoes .elem-dir,
+#rsvp .elem-esq,
+#fotos .elem-dir{
+  opacity:.36!important;
+}
+
+/* As caixas permanecem claras, mas não opacas demais */
+body .convite-box.ornamental-card{
+  background:rgba(255,248,243,.90)!important;
+}
+
 </style>
 </head>
 
 <body class="site-identidade">
-<div class="monogramas-fundo" aria-hidden="true">
-  <img src="monograma-ee.png" class="mono-fundo mono-1" alt="">
-  <img src="monograma-ee.png" class="mono-fundo mono-2" alt="">
-  <img src="monograma-ee.png" class="mono-fundo mono-3" alt="">
-  <img src="monograma-ee.png" class="mono-fundo mono-4" alt="">
-</div>
 
 
 <nav class="nav-elegante">
