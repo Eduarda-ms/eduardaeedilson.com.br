@@ -1650,6 +1650,87 @@ body #fotos .ornamental-card::after{background-position:96% 30%!important}
   body .ornamental-card::after{right:-14px!important}
 }
 
+
+/* ===== REFINAMENTO DA IDENTIDADE VISUAL ===== */
+
+/* Fundo: identidade um pouco mais aparente, inclusive os monogramas */
+body{
+  background-image:
+    linear-gradient(rgba(251,241,234,.60),rgba(251,241,234,.60)),
+    url("identidade-visual.webp")!important;
+  background-repeat:repeat,repeat!important;
+  background-size:auto,540px auto!important;
+  background-position:0 0,center top!important;
+}
+
+/* Alguns elementos ficam propositalmente mais marcados, sem escurecer tudo */
+body::before,
+body::after{
+  content:"";
+  position:fixed;
+  z-index:-1;
+  pointer-events:none;
+  background-image:url("identidade-visual.webp");
+  background-repeat:no-repeat;
+  background-size:620px auto;
+  opacity:.36;
+  filter:saturate(1.16) contrast(1.12);
+}
+body::before{
+  width:145px;
+  height:180px;
+  left:1.5vw;
+  top:24vh;
+  background-position:3% 42%;
+}
+body::after{
+  width:150px;
+  height:190px;
+  right:1.5vw;
+  top:63vh;
+  background-position:96% 77%;
+}
+
+/* Detalhes laterais das caixas: alternância de intensidade.
+   Assim ora um elemento chama mais atenção, ora outro. */
+body .ornamental-card::before,
+body .ornamental-card::after{
+  filter:saturate(1.10) contrast(1.08)!important;
+}
+body #historia .ornamental-card::before,
+body #presentes .ornamental-card::after,
+body #rsvp .ornamental-card::before{
+  opacity:.88!important;
+  filter:saturate(1.28) contrast(1.20)!important;
+}
+body #historia .ornamental-card::after,
+body #grande-dia .ornamental-card::before,
+body #informacoes .ornamental-card::after,
+body #fotos .ornamental-card::before{
+  opacity:.54!important;
+}
+body #grande-dia .ornamental-card::after,
+body #presentes .ornamental-card::before,
+body #informacoes .ornamental-card::before,
+body #rsvp .ornamental-card::after,
+body #fotos .ornamental-card::after{
+  opacity:.74!important;
+  filter:saturate(1.18) contrast(1.13)!important;
+}
+
+@media(max-width:700px){
+  body{
+    background-size:auto,390px auto!important;
+  }
+  body::before,
+  body::after{
+    width:95px;
+    height:125px;
+    background-size:440px auto;
+    opacity:.27;
+  }
+}
+
 </style>
 </head>
 
@@ -2847,7 +2928,6 @@ document.getElementById("modalPix")
       <img src="ALX_0268.jpg" alt="Eduarda e Edilson">
       <img src="ALX_0481.jpg" alt="Eduarda e Edilson">
     </div>
-    <p class="nota-info">Mais momentos nossos por aqui em breve.</p>
   </div>
 </section>
 <section class="final">
