@@ -1034,18 +1034,356 @@ body.site-identidade .galeria::before{
   }
 }
 
+
+/* ===== TRAJE: recado aparece somente ao clicar ===== */
+.site-identidade .traje-secao{
+  padding:72px 20px !important;
+  background:transparent !important;
+  position:relative;
+}
+
+.site-identidade .traje-card{
+  text-align:center;
+  max-width:900px;
+}
+
+.site-identidade .traje-resumo{
+  max-width:650px;
+  margin:0 auto 24px;
+}
+
+.traje-toggle{
+  appearance:none;
+  border:1px solid rgba(159,80,67,.34);
+  background:transparent;
+  color:#9f5043;
+  border-radius:999px;
+  padding:12px 24px;
+  font-family:"Italiana", Georgia, serif;
+  font-size:12px;
+  letter-spacing:.10em;
+  cursor:pointer;
+  transition:.2s ease;
+}
+
+.traje-toggle:hover{
+  background:#9f5043;
+  color:#fffaf7;
+}
+
+.traje-detalhes{
+  max-width:700px;
+  margin:0 auto;
+  animation:trajeAbrir .28s ease;
+}
+
+.traje-divisor{
+  width:70px;
+  height:1px;
+  margin:30px auto 24px;
+  background:rgba(207,120,103,.48);
+}
+
+.traje-detalhes .recado-madrinhas{
+  margin:0 auto;
+  text-align:center;
+}
+
+.paleta-madrinhas{
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  gap:18px;
+  margin:27px auto 8px;
+}
+
+.amostra-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:7px;
+  color:#9f5043;
+  font-family:"Cormorant Garamond", Georgia, serif;
+}
+
+.amostra-wrap small{
+  font-size:13px;
+}
+
+.amostra{
+  width:46px;
+  height:46px;
+  display:block;
+  border-radius:50%;
+  border:4px solid rgba(255,249,245,.96);
+  box-shadow:0 3px 12px rgba(159,80,67,.14);
+}
+
+.cor-191{background:#d84f83;}
+.cor-291{background:#e8879b;}
+.cor-220{background:#e97355;}
+.cor-246{background:#f04b22;}
+
+.legenda-paleta{
+  margin:7px 0 0 !important;
+  text-align:center;
+  font-size:14px !important;
+  letter-spacing:.07em;
+  color:rgba(159,80,67,.68) !important;
+}
+
+@keyframes trajeAbrir{
+  from{opacity:0;transform:translateY(-5px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@media(max-width:700px){
+  .site-identidade .traje-secao{
+    padding:46px 16px !important;
+  }
+  .paleta-madrinhas{gap:10px}
+  .amostra{width:40px;height:40px}
+}
+
+
+/* ===== REDESIGN FIEL À REFERÊNCIA ===== */
+:root{--coral:#c95f49;--coral2:#de846d;--ink:#72534b;--cream:#fff6ef;--line:rgba(201,95,73,.25)}
+body.site-identidade{background:#fdf0e7!important;background-image:linear-gradient(rgba(255,242,233,.72),rgba(255,242,233,.72)),url("identidade-visual.webp")!important;background-size:auto,390px auto!important;background-repeat:repeat!important;color:var(--ink)!important}
+.nav-elegante{height:86px!important;position:absolute!important;top:0;left:0;right:0;z-index:50;display:flex!important;align-items:center;justify-content:center;gap:31px!important;background:rgba(255,246,239,.90)!important;border-bottom:1px solid rgba(201,95,73,.14);padding:0 24px!important}
+.nav-elegante a{font-family:Montserrat,sans-serif!important;font-size:10px!important;font-weight:500!important;letter-spacing:.08em!important;text-transform:uppercase;color:var(--coral)!important;text-decoration:none!important;white-space:nowrap}.nav-monograma{width:58px;height:58px;object-fit:contain;margin:0 16px}
+.hero{height:620px!important;min-height:620px!important;margin-top:0!important}.hero-video{width:100%!important;height:100%!important;object-fit:cover!important}.hero::after{background:linear-gradient(90deg,rgba(44,26,20,.10),rgba(255,239,226,.12),rgba(255,239,226,.28))!important}.hero::before{display:none!important}.hero-content{width:48%!important;margin-left:auto!important;margin-right:4%!important;text-align:center!important;color:#b65442!important}.hero-content .monograma-img{display:none!important}.hero h1{font-family:'Cormorant Garamond',serif!important;font-size:58px!important;line-height:.92!important;font-weight:500!important;text-transform:uppercase!important;color:#b65442!important;letter-spacing:.03em!important}.hero .frase{font-family:Montserrat,sans-serif!important;font-size:10px!important;letter-spacing:.32em!important;text-transform:uppercase!important;font-style:normal!important}.hero .data{font-family:'Cormorant Garamond',serif!important;font-size:22px!important;letter-spacing:.30em!important;color:#9f6659!important}.contador-titulo,.contador,.scroll{display:none!important}
+.papel-section{padding:22px 18px!important;background:transparent!important}.convite-box.ornamental-card{position:relative;max-width:940px!important;background:rgba(255,248,242,.88)!important;border:1px solid rgba(201,95,73,.27)!important;border-radius:28px!important;padding:38px 58px!important;box-shadow:0 10px 32px rgba(149,83,64,.055)!important;overflow:hidden}.ornamental-card:before,.ornamental-card:after{content:'❧';position:absolute;color:#df806a;font-family:Georgia,serif;font-size:62px;opacity:.82;top:50%;transform:translateY(-50%)}.ornamental-card:before{left:24px}.ornamental-card:after{right:24px;transform:translateY(-50%) scaleX(-1)}
+.secao-kicker{font-family:Montserrat,sans-serif!important;font-size:11px!important;letter-spacing:.26em!important;font-weight:500!important;color:var(--coral)!important;text-align:center;margin:0 0 4px!important}.titulo,.titulo-script{font-family:'Cormorant Garamond',serif!important;font-size:44px!important;font-weight:500!important;color:var(--coral)!important;margin:3px 0 16px!important;line-height:1.1!important}.titulo:after{display:none!important}.texto{font-family:'Cormorant Garamond',serif!important;color:var(--ink)!important;font-size:18px!important;line-height:1.48!important}.botao,.traje-toggle,#btn-buscar{background:linear-gradient(180deg,#d36c56,#bd503e)!important;color:white!important;border:0!important;border-radius:999px!important;padding:12px 25px!important;font-family:Montserrat,sans-serif!important;font-size:9px!important;letter-spacing:.16em!important;box-shadow:none!important;text-transform:uppercase!important}
+.historia-resumo{max-width:620px!important}.historia-completa{max-width:720px;margin:0 auto;padding-top:4px}.dia-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:20px}.dia-item{padding:7px 24px;min-height:130px;border-right:1px solid var(--line)}.dia-item:last-child{border-right:0}.dia-item .icone{font-size:31px;color:var(--coral);margin-bottom:8px}.dia-item h3{font-family:'Cormorant Garamond',serif!important;color:var(--coral)!important;font-size:17px!important;letter-spacing:.06em;margin:0 0 6px}.dia-item p,.dia-item a{font-family:'Cormorant Garamond',serif!important;font-size:12px!important;letter-spacing:.08em;color:var(--ink)!important;text-decoration:none}.traje-card{max-width:940px!important}.traje-resumo{max-width:570px!important}.traje-detalhes{border-top:1px solid var(--line);margin-top:25px!important;padding-top:20px!important}.traje-divisor{display:none!important}.paleta-madrinhas{gap:30px!important}.amostra{width:48px!important;height:48px!important;border:0!important;box-shadow:none!important}.amostra-wrap small{font-family:'Cormorant Garamond',serif!important;color:var(--ink)!important}.presentes .texto{max-width:560px!important}.lista-presentes{background:transparent!important;padding-top:25px!important}.presente-card{background:rgba(255,249,244,.96)!important;border:1px solid var(--line)!important;border-radius:22px!important;box-shadow:0 8px 25px rgba(149,83,64,.06)!important}.informacoes .ornamental-card:before,.informacoes .ornamental-card:after,.rsvp .ornamental-card:before,.rsvp .ornamental-card:after{content:'❦';font-size:45px}.info-grid{display:grid;grid-template-columns:repeat(4,1fr);margin-top:22px}.info-grid>*{display:flex;flex-direction:column;gap:4px;align-items:center;padding:10px 18px;border-right:1px solid var(--line);text-decoration:none;color:var(--ink)}.info-grid>*:last-child{border-right:0}.info-grid b{font-size:27px;color:var(--coral);font-weight:400}.info-grid strong{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--coral);letter-spacing:.04em}.info-grid span{font-size:13px}.rsvp #busca-rsvp{max-width:570px!important;margin:18px auto 0!important}.rsvp #nome-convidado{background:#fffaf6!important;border:1px solid var(--line)!important}.galeria{display:none!important}.final{background:transparent!important;padding:35px 20px 70px!important}.final .container{background:transparent!important}.final h2{font-family:'Cormorant Garamond',serif!important;color:var(--coral)!important;font-size:44px!important;font-weight:500!important}
+@media(max-width:760px){.nav-elegante{height:64px!important;gap:10px!important;padding:0 8px!important;overflow-x:auto;justify-content:flex-start}.nav-elegante a{font-size:8px!important}.nav-monograma{width:40px;height:40px;margin:0 5px}.hero{height:540px!important;min-height:540px!important}.hero-content{width:72%!important;margin-right:3%!important}.hero h1{font-size:38px!important}.hero .frase{font-size:8px!important}.convite-box.ornamental-card{padding:31px 26px!important;border-radius:22px!important}.ornamental-card:before,.ornamental-card:after{font-size:34px;opacity:.45}.ornamental-card:before{left:8px}.ornamental-card:after{right:8px}.titulo,.titulo-script{font-size:39px!important}.texto{font-size:16px!important}.dia-grid{grid-template-columns:1fr}.dia-item{border-right:0;border-bottom:1px solid var(--line);padding:16px}.dia-item:last-child{border-bottom:0}.info-grid{grid-template-columns:1fr 1fr}.info-grid>*{border-right:0;border-bottom:1px solid var(--line)}.paleta-madrinhas{gap:14px!important}}
+
+
+.grande-dia-titulo{
+  font-size:52px!important;
+  letter-spacing:.08em!important;
+  margin:0 0 24px!important;
+}
+@media(max-width:760px){
+  .grande-dia-titulo{font-size:43px!important;}
+}
+
+
+/* Visual das duas caixas conforme referência, sem mudar conteúdo */
+#historia .container,#dia .container{
+ position:relative;overflow:hidden;background:rgba(255,247,241,.95)!important;
+ border:1px solid rgba(201,95,76,.28)!important;border-radius:30px!important;
+ box-shadow:0 10px 28px rgba(169,79,64,.05)!important;padding:42px 82px 46px!important
+}
+#historia .kicker,#historia .secao-kicker,#dia .kicker,#dia .secao-kicker{
+ font-family:Montserrat,sans-serif!important;color:#c95f4c!important;font-size:13px!important;
+ font-weight:500!important;letter-spacing:.24em!important;text-transform:uppercase!important
+}
+#historia h2,#dia h2,#historia .titulo,#dia .titulo,.grande-dia-titulo{
+ font-family:"Cormorant Garamond",Georgia,serif!important;color:#c95f4c!important;
+ font-size:clamp(40px,5vw,58px)!important;font-weight:500!important;line-height:1.05!important;
+ letter-spacing:.015em!important;margin:7px 0 24px!important
+}
+#historia .texto,#historia p{max-width:700px;margin-left:auto;margin-right:auto;color:#6d5149!important;
+ font-family:"Cormorant Garamond",Georgia,serif!important;font-size:19px!important;line-height:1.62!important}
+#dia .cards{display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:0!important;margin-top:14px!important}
+#dia .card{min-width:0!important;padding:20px 24px 12px!important;border:0!important;background:transparent!important;box-shadow:none!important}
+#dia .card+.card{border-left:1px solid rgba(201,95,76,.25)!important}
+#dia .card h3{font-family:"Cormorant Garamond",Georgia,serif!important;color:#a94f40!important;font-size:22px!important;
+ text-transform:uppercase;letter-spacing:.05em;margin:8px 0!important}
+#dia .card p{font-family:"Cormorant Garamond",Georgia,serif!important;color:#6d5149!important;font-size:15px!important;
+ letter-spacing:.07em;text-transform:uppercase;line-height:1.45}
+#historia .container:before,#historia .container:after,#dia .container:before,#dia .container:after{
+ content:"";position:absolute;bottom:-15px;width:70px;height:190px;opacity:.38;
+ background:url("identidade-visual.webp") no-repeat;background-size:340px auto;pointer-events:none}
+#historia .container:before,#dia .container:before{left:4px;background-position:3% 45%}
+#historia .container:after,#dia .container:after{right:4px;transform:scaleX(-1);background-position:3% 45%}
+#historia .container>*,#dia .container>*{position:relative;z-index:2}
+@media(max-width:700px){
+ #historia .container,#dia .container{padding:34px 25px 38px!important;border-radius:24px!important}
+ #historia h2,#dia h2,#historia .titulo,#dia .titulo,.grande-dia-titulo{font-size:40px!important}
+ #dia .cards{grid-template-columns:1fr!important}
+ #dia .card+.card{border-left:0!important;border-top:1px solid rgba(201,95,76,.25)!important}
+}
+
+
+/* ===== TIPOGRAFIA IGUAL À REFERÊNCIA ===== */
+
+/* Rótulos: NOSSA HISTÓRIA / O GRANDE DIA / LISTA DE PRESENTES / INFORMAÇÕES */
+#historia .kicker,
+#historia .secao-kicker,
+#dia .kicker,
+#dia .secao-kicker,
+#presentes .kicker,
+#presentes .secao-kicker,
+#rsvp .kicker,
+#rsvp .secao-kicker{
+  font-family:"Montserrat",Arial,sans-serif!important;
+  font-size:13px!important;
+  font-weight:500!important;
+  letter-spacing:.25em!important;
+  line-height:1.2!important;
+  text-transform:uppercase!important;
+  color:#c95f4c!important;
+}
+
+/* Títulos grandes da referência: caligrafia coral */
+#historia h2,
+#historia .titulo{
+  font-family:"Brittany Signature","Brush Script MT",cursive!important;
+  font-size:clamp(50px,6.3vw,72px)!important;
+  font-weight:400!important;
+  line-height:1!important;
+  letter-spacing:0!important;
+  color:#c95f4c!important;
+  text-transform:none!important;
+  margin:5px 0 25px!important;
+}
+
+/* O GRANDE DIA permanece como título principal, mas com a mesma caligrafia visual */
+#dia h2,
+#dia .titulo,
+#dia .grande-dia-titulo{
+  font-family:"Brittany Signature","Brush Script MT",cursive!important;
+  font-size:clamp(50px,6.3vw,72px)!important;
+  font-weight:400!important;
+  line-height:1!important;
+  letter-spacing:0!important;
+  color:#c95f4c!important;
+  text-transform:none!important;
+  margin:4px 0 28px!important;
+}
+
+/* Títulos das demais caixas no mesmo padrão manuscrito da imagem */
+#presentes h2,
+#presentes .titulo,
+#rsvp h2,
+#rsvp .titulo{
+  font-family:"Brittany Signature","Brush Script MT",cursive!important;
+  font-weight:400!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+  color:#c95f4c!important;
+}
+
+/* Textos corridos como na referência: serifado leve */
+#historia .texto,
+#historia p,
+#dia .card h3,
+#dia .card p{
+  font-family:"Cormorant Garamond",Georgia,serif!important;
+}
+
+/* Evita regra antiga sobrescrever a fonte manuscrita */
+#historia .titulo::after{display:none!important;}
+
+@media(max-width:700px){
+  #historia h2,#historia .titulo,
+  #dia h2,#dia .titulo,#dia .grande-dia-titulo{
+    font-size:49px!important;
+  }
+}
+
+
+/* ===== FONTE DOS TÍTULOS: BRITTANY SIGNATURE ===== */
+@font-face{
+  font-family:"Brittany Signature";
+  src:url("https://fonts.cdnfonts.com/s/58332/BrittanySignature.woff") format("woff");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+
+#historia h2,
+#historia .titulo,
+#dia h2,
+#dia .titulo,
+#dia .grande-dia-titulo,
+#presentes h2,
+#presentes .titulo,
+#rsvp h2,
+#rsvp .titulo{
+  font-family:"Brittany Signature","Brush Script MT",cursive!important;
+  font-weight:400!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+  color:#c95f4c!important;
+}
+
+/* Proporção semelhante à referência */
+#historia h2,#historia .titulo{
+  font-size:clamp(48px,6vw,70px)!important;
+  line-height:1.08!important;
+}
+#dia h2,#dia .titulo,#dia .grande-dia-titulo{
+  font-size:clamp(48px,6vw,70px)!important;
+  line-height:1.08!important;
+}
+
+
+/* ===== AJUSTES FINAIS SOLICITADOS ===== */
+.titulo-brittany{
+  font-family:"Brittany Signature","Brush Script MT",cursive!important;
+  font-weight:400!important;
+  text-transform:none!important;
+  letter-spacing:0!important;
+  color:var(--coral)!important;
+  font-size:clamp(50px,6vw,72px)!important;
+  line-height:1.05!important;
+  margin:8px 0 22px!important;
+}
+.secao-kicker{
+  font-family:Montserrat,sans-serif!important;
+  letter-spacing:.25em!important;
+  font-size:12px!important;
+  font-weight:500!important;
+  color:var(--coral)!important;
+}
+.historia-chamada{font-size:18px!important;margin-bottom:5px!important}
+.botao-interativo{border:0!important;background:var(--coral)!important;color:#fff!important;cursor:pointer!important}
+.historia-completa,.info-painel,#rsvpConteudo{margin-top:24px}
+.linha-delicada{width:72px;height:1px;background:var(--line);margin:26px auto}
+.icone-svg svg,.info-icon svg{width:46px;height:46px;fill:none;stroke:var(--coral);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.novo-dia-grid .dia-item{padding:12px 28px!important}
+.novo-dia-grid .dia-item h3{margin-top:10px!important}
+.info-grid-cinco{grid-template-columns:repeat(4,1fr)!important}
+.info-acao{appearance:none;border:0;background:transparent;cursor:pointer;text-decoration:none!important;color:var(--ink)!important;padding:14px 16px!important}
+.info-acao:hover{background:rgba(201,95,76,.05)}
+.info-icon{height:52px;display:flex;align-items:center;justify-content:center}
+.info-painel{max-width:760px;margin-left:auto;margin-right:auto}
+.info-painel h3{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--coral);font-weight:500}
+.locais-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.locais-grid>div{padding:20px}
+.mini-botao{display:inline-block;margin-top:12px;padding:10px 18px;border-radius:999px;background:var(--coral);color:#fff!important;text-decoration:none;font-size:10px;letter-spacing:.12em}
+.hoteis-lista{display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;margin:18px auto;max-width:620px}
+.hoteis-lista>div{padding:12px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.4)}
+.nota-info{font-size:12px!important;opacity:.75;margin-top:14px!important}
+.paleta-madrinhas{display:flex;justify-content:center;gap:20px;margin-top:22px}
+.amostra-wrap{display:flex;flex-direction:column;align-items:center;gap:6px}
+.amostra{display:block;width:44px!important;height:44px!important;border-radius:50%!important}
+.cor-191{background:#d84f83!important}.cor-291{background:#e8879b!important}.cor-220{background:#e97355!important}.cor-246{background:#f04b22!important}
+#rsvpConteudo #busca-rsvp{margin-top:0!important}
+.galeria{display:block!important;background:transparent!important}
+.fotos-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:25px}
+.fotos-grid img{width:100%;height:360px;object-fit:cover;border-radius:18px;border:1px solid var(--line)}
+@media(max-width:700px){
+ .titulo-brittany{font-size:48px!important}
+ .novo-dia-grid{grid-template-columns:1fr!important}
+ .novo-dia-grid .dia-item+.dia-item{border-left:0!important;border-top:1px solid var(--line)!important}
+ .info-grid-cinco{grid-template-columns:1fr 1fr!important}
+ .info-grid-cinco>*{border-right:0!important;border-bottom:1px solid var(--line)}
+ .locais-grid,.hoteis-lista,.fotos-grid{grid-template-columns:1fr}
+ .fotos-grid img{height:300px}
+}
+
 </style>
 </head>
 
 <body class="site-identidade">
 
-<nav>
-<a href="#inicio">Início</a>
-<a href="#historia">Nossa história</a>
-<a href="#grande-dia">O grande dia</a>
-<a href="#rsvp">Confirme sua presença</a>
-<a href="#presentes">Lista de presentes</a>
-<a href="#informacoes">Informações</a>
+<nav class="nav-elegante">
+<a href="#inicio">Início</a><a href="#historia">Nossa história</a><a href="#grande-dia">O grande dia</a>
+<img src="monograma-ee-coral.png" class="nav-monograma" alt="EE">
+<a href="#presentes">Lista de presentes</a><a href="#informacoes">Informações</a><a href="#rsvp">RSVP</a>
 </nav>
 
 
@@ -1099,135 +1437,88 @@ ROLE PARA BAIXO<br><br>↓
 </section>
 
 
-<section class="historia" id="historia">
-<div class="container convite-box">
-
-<h2 class="titulo">Nossa História</h2>
-
-<p class="texto">
-Nossa história começou em <strong>28 de maio de 2011</strong>, quando ainda éramos muito jovens e tínhamos uma vida inteira pela frente. O que a gente não sabia era que viveríamos boa parte dela lado a lado.
-<br><br>
-Nesses <strong>15 anos</strong>, crescemos juntos, mudamos muito, construímos sonhos, colecionamos histórias e aprendemos a dividir a vida. Foram muitas fases, algumas mudanças de planos e uma quantidade considerável de paciência para chegarmos até aqui.
-<br><br>
-Depois de todo esse tempo de namoro, achamos que já estava na hora de casar, né?
-<br><br>
-No dia <strong>28 de novembro de 2026</strong>, vamos celebrar o nosso sim e continuar fazendo o que já fazemos há tanto tempo: <strong>escolher um ao outro e construir a nossa história juntos.</strong>
-<br><br>
-E sim, depois de 15 anos, achamos melhor não adiar mais.
-</p>
-
-</div>
-</section>
-
-
-<section class="grande-dia" id="grande-dia">
-<div class="container convite-box">
-
-<h2 class="titulo">O Grande Dia</h2>
-
-<p class="texto">28 de novembro de 2026</p>
-
-<div class="cards">
-
-<div class="card">
-<h3>Cerimônia</h3>
-<p>16:30h</p>
-<p>Igreja São Geraldo</p>
-
-<a class="botao" href="https://maps.app.goo.gl/MnmGyV19tTUfixa68?g_st=com.google.maps.preview.copy" target="_blank">
-Como chegar
-</a>
-</div>
-
-<div class="card">
-<h3>Recepção</h3>
-<p>Após a cerimônia</p>
-<p>Sítio Águas de Março</p>
-
-<a class="botao" href="https://maps.app.goo.gl/annpbGPDtLq1NgzP6?g_st=com.google.maps.preview.copy" target="_blank">
-Como chegar
-</a>
-</div>
-
-</div>
-</div>
-</section>
 
 
 
-<section class="informacoes" id="informacoes">
-  <div class="container convite-box">
-    <p class="secao-kicker">INFORMAÇÕES</p>
-    <h2 class="titulo titulo-script">Um detalhe especial</h2>
-
-    <p class="texto recado-madrinhas">
-      Os tons de <strong>rosa, coral e laranja</strong> foram escolhidos especialmente para as nossas madrinhas.
-      Para que esse detalhe fique ainda mais especial no nosso grande dia, pedimos com carinho às nossas convidadas
-      que prefiram outras cores para seus looks.
-    </p>
-
-    <div class="paleta-madrinhas" aria-label="Paleta reservada às madrinhas">
-      <span class="amostra cor-191" title="Rosa intenso"></span>
-      <span class="amostra cor-291" title="Rosa"></span>
-      <span class="amostra cor-220" title="Coral"></span>
-      <span class="amostra cor-246" title="Laranja"></span>
-    </div>
-    <p class="legenda-paleta">Paleta das madrinhas</p>
-  </div>
-</section>
-
-<section class="rsvp" id="rsvp">
-<div class="container convite-box">
-
-<h2 class="titulo">Confirme sua presença</h2>
-
-<p class="texto">
-Sua presença tornará esse momento ainda mais especial.
-Pedimos que confirme sua presença para que possamos
-preparar tudo com muito carinho.
-</p>
-
-<div id="busca-rsvp">
-
-  <input
-    type="text"
-    id="nome-convidado"
-    placeholder="Digite seu nome"
-    autocomplete="off"
-  >
-
-  <button type="button" id="btn-buscar">
-    Buscar meu convite
-  </button>
-
-  <p id="mensagem-rsvp"></p>
-
-  <div id="familia-rsvp"></div>
-
-</div>
 
 
-<section class="presentes" id="presentes">
-<div class="container convite-box">
 
-<h2 class="titulo">Lista de Presentes</h2>
 
-<p class="texto">
-O maior presente será celebrar esse dia com você.
-Mas, caso queira nos presentear, preparamos algumas
-sugestões com carinho.
-</p>
 
-<button class="botao" type="button" onclick="mostrarListaPresentes()">
-VER LISTA DE PRESENTES
-</button>
 
-</div>
-</section>
+
+
+
+
+
+
+
 <!-- ==================================================
      LISTA DE PRESENTES - EDUARDA & EDILSON
 ================================================== -->
 
+<section class="historia papel-section" id="historia">
+  <div class="container convite-box ornamental-card">
+    <p class="secao-kicker">NOSSA HISTÓRIA</p>
+    <h2 class="titulo titulo-brittany">Tudo no tempo certo</h2>
+    <p class="texto historia-chamada">De encontros, planos, viagens e muitos sonhos...</p>
+
+    <button class="botao botao-interativo" type="button" id="historiaBtn">
+      CONHEÇA NOSSA HISTÓRIA
+    </button>
+
+    <div class="historia-completa" id="historiaCompleta" hidden>
+      <div class="linha-delicada"></div>
+      <p class="texto">
+        Nossa história começou em <strong>28 de maio de 2011</strong>, quando ainda éramos muito jovens e tínhamos uma vida inteira pela frente. O que a gente não sabia era que viveríamos boa parte dela lado a lado.
+        <br><br>
+        Nesses <strong>15 anos</strong>, crescemos juntos, mudamos muito, construímos sonhos, colecionamos histórias e aprendemos a dividir a vida. Foram muitas fases, algumas mudanças de planos e uma quantidade considerável de paciência para chegarmos até aqui.
+        <br><br>
+        Depois de 15 anos de namoro, achamos que já estava na hora de casar, né?
+        <br><br>
+        No dia <strong>28 de novembro de 2026</strong>, vamos celebrar o nosso sim e continuar fazendo o que já fazemos há tanto tempo: escolher um ao outro e construir a nossa história juntos.
+        <br><br>
+        E sim, depois de 15 anos, achamos melhor não adiar mais.
+      </p>
+    </div>
+  </div>
+</section>
+<section class="grande-dia papel-section" id="grande-dia">
+  <div class="container convite-box ornamental-card">
+    <p class="secao-kicker">O GRANDE DIA</p>
+    <h2 class="titulo titulo-brittany">Nosso dia</h2>
+    <div class="dia-grid novo-dia-grid">
+      <div class="dia-item">
+        <div class="icone-svg"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="10" y="15" width="44" height="39" rx="4"/><path d="M10 25h44M21 9v12M43 9v12"/><path d="M20 34h7M31 34h7M42 34h4M20 43h7M31 43h7M42 43h4"/></svg></div>
+        <h3>28 DE NOVEMBRO DE 2026</h3>
+        <p>SÁBADO, ÀS 16:30H</p>
+      </div>
+      <div class="dia-item">
+        <div class="icone-svg"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14 55h36M18 55V30l14-11 14 11v25M26 55V42h12v13M32 19V8M27 12h10"/><path d="M22 34h5v6h-5zM37 34h5v6h-5z"/></svg></div>
+        <h3>CERIMÔNIA</h3>
+        <p>IGREJA SÃO GERALDO</p>
+      </div>
+      <div class="dia-item">
+        <div class="icone-svg"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M13 12h17l-2 18c-.6 6-4.5 10-9 10s-8.4-4-9-10l3-18zM20 40v11M14 55h12"/><path d="M34 12h17l3 18c-.6 6-4.5 10-9 10s-8.4-4-9-10l-2-18zM44 40v11M38 55h12"/><path d="M28 18l9-4"/></svg></div>
+        <h3>RECEPÇÃO</h3>
+        <p>SÍTIO ÁGUAS DE MARÇO</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="presentes papel-section" id="presentes">
+  <div class="container convite-box ornamental-card">
+    <p class="secao-kicker">LISTA DE PRESENTES</p>
+    <h2 class="titulo titulo-brittany">Nosso novo lar</h2>
+    <p class="texto presentes-chamada">
+      O maior presente é ter vocês celebrando esse dia com a gente. Mas, caso queiram nos presentear,
+      preparamos uma lista com muito carinho para fazer parte do nosso novo lar e dessa nova fase da nossa vida.
+    </p>
+    <button class="botao botao-interativo" type="button" onclick="mostrarListaPresentes()">
+      LISTA DE PRESENTES
+    </button>
+  </div>
+</section>
 <section class="lista-presentes" id="lista-presentes">
 
 <style>
@@ -2139,19 +2430,112 @@ document.getElementById("modalPix")
 </script>
 
 </section>
-<section class="galeria">
-<div class="container convite-box">
 
-<h2 class="titulo">Nossos Momentos</h2>
 
-<p class="texto">
-Em breve, nossas fotos estarão por aqui. 🤍
-</p>
 
-</div>
+
+
+
+
+
+<section class="informacoes papel-section" id="informacoes">
+  <div class="container convite-box ornamental-card">
+    <p class="secao-kicker">INFORMAÇÕES</p>
+    <h2 class="titulo titulo-brittany">Tudo o que você precisa saber</h2>
+
+    <div class="info-grid info-grid-cinco">
+      <button class="info-acao" type="button" data-painel="locaisPainel">
+        <span class="info-icon"><svg viewBox="0 0 64 64"><path d="M32 57s17-17 17-32a17 17 0 1 0-34 0c0 15 17 32 17 32z"/><circle cx="32" cy="25" r="6"/></svg></span><strong>LOCAL</strong><span>Como chegar</span>
+      </button>
+      <button class="info-acao" type="button" data-painel="hospedagemPainel">
+        <span class="info-icon"><svg viewBox="0 0 64 64"><path d="M8 48V22M8 40h48v8M15 40V29h15c6 0 10 4 10 11M40 34h11c3 0 5 2 5 6M8 48v7M56 48v7"/></svg></span><strong>HOSPEDAGEM</strong><span>Onde ficar</span>
+      </button>
+      <button class="info-acao" type="button" data-painel="trajePainel">
+        <span class="info-icon"><svg viewBox="0 0 64 64"><path d="M27 9h10c0 8 3 13 8 18l9 28H10l9-28c5-5 8-10 8-18z"/><path d="M27 9c0 5 10 5 10 0"/></svg></span><strong>TRAJE</strong><span>Orientações</span>
+      </button>
+      <a class="info-acao" id="whatsappCerimonial" href="#" data-whatsapp-pendente="true">
+        <span class="info-icon"><svg viewBox="0 0 64 64"><path d="M9 12h46v33H31L18 55l3-10H9z"/><path d="M20 28h2M31 28h2M42 28h2"/></svg></span><strong>FALE CONOSCO</strong><span>Cerimonial</span>
+      </a>
+    </div>
+
+    <div class="info-painel" id="locaisPainel" hidden>
+      <div class="linha-delicada"></div>
+      <div class="locais-grid">
+        <div>
+          <h3>Local da Cerimônia</h3>
+          <p>Igreja São Geraldo</p>
+          <a class="mini-botao" href="https://maps.app.goo.gl/MnmGyV19tTUfixa68?g_st=com.google.maps.preview.copy" target="_blank" rel="noopener">COMO CHEGAR</a>
+        </div>
+        <div>
+          <h3>Local da Recepção</h3>
+          <p>Sítio Águas de Março</p>
+          <a class="mini-botao" href="https://maps.app.goo.gl/annpbGPDtLq1NgzP6?g_st=com.google.maps.preview.copy" target="_blank" rel="noopener">COMO CHEGAR</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-painel" id="hospedagemPainel" hidden>
+      <div class="linha-delicada"></div>
+      <h3>Onde ficar em São Gotardo</h3>
+      <div class="hoteis-lista">
+        <div><strong>Hotel San Diego Suites</strong></div>
+        <div><strong>Pousada Pôr do Sol</strong></div>
+        <div><strong>Hotel Primavera</strong></div>
+        <div><strong>Laercio Bomtempo Hotéis</strong></div>
+        <div><strong>Hotel Altas Horas</strong></div>
+      </div>
+      <p class="nota-info">Consulte diretamente os hotéis para disponibilidade e reservas.</p>
+    </div>
+
+    <div class="info-painel" id="trajePainel" hidden>
+      <div class="linha-delicada"></div>
+      <h3>Um carinho especial</h3>
+      <p class="texto">
+        Os tons de <strong>rosa, coral e laranja</strong> foram escolhidos especialmente para as nossas madrinhas.
+        Para que esse detalhe fique ainda mais especial no nosso grande dia, pedimos com carinho às nossas convidadas
+        que prefiram outras cores para seus looks.
+      </p>
+      <div class="paleta-madrinhas">
+        <span class="amostra-wrap"><i class="amostra cor-191"></i><small>191</small></span>
+        <span class="amostra-wrap"><i class="amostra cor-291"></i><small>291</small></span>
+        <span class="amostra-wrap"><i class="amostra cor-220"></i><small>220</small></span>
+        <span class="amostra-wrap"><i class="amostra cor-246"></i><small>246</small></span>
+      </div>
+    </div>
+  </div>
 </section>
+<section class="rsvp papel-section" id="rsvp">
+  <div class="container convite-box ornamental-card">
+    <p class="secao-kicker">CONFIRME SUA PRESENÇA</p>
+    <h2 class="titulo titulo-brittany">Contamos com você</h2>
+    <p class="texto">Sua presença tornará o nosso dia ainda mais especial!</p>
 
+    <button class="botao botao-interativo" type="button" id="abrirRsvp">
+      CONFIRME SUA PRESENÇA
+    </button>
 
+    <div id="rsvpConteudo" hidden>
+      <div class="linha-delicada"></div>
+      <div id="busca-rsvp">
+        <input type="text" id="nome-convidado" placeholder="Digite seu nome" autocomplete="off">
+        <button type="button" id="btn-buscar">BUSCAR MEU CONVITE</button>
+        <p id="mensagem-rsvp"></p>
+        <div id="familia-rsvp"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="galeria papel-section" id="fotos">
+  <div class="container convite-box ornamental-card">
+    <p class="secao-kicker">NOSSAS FOTOS</p>
+    <h2 class="titulo titulo-brittany">Um pouquinho de nós</h2>
+    <div class="fotos-grid">
+      <img src="ALX_0268.jpg" alt="Eduarda e Edilson">
+      <img src="ALX_0481.jpg" alt="Eduarda e Edilson">
+    </div>
+    <p class="nota-info">Mais momentos nossos por aqui em breve.</p>
+  </div>
+</section>
 <section class="final">
 <div class="container">
 
@@ -2411,5 +2795,68 @@ function registrarPresentePix() {
 }
 </script>
   
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const btn = document.querySelector(".traje-toggle");
+  const detalhes = document.getElementById("traje-detalhes");
+  if(btn && detalhes){
+    btn.addEventListener("click", function(){
+      const aberto = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!aberto));
+      detalhes.hidden = aberto;
+      btn.textContent = aberto ? "Ver detalhes do traje" : "Ocultar detalhes do traje";
+    });
+  }
+});
+</script>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const historiaBtn = document.getElementById("historiaBtn");
+  const historiaCompleta = document.getElementById("historiaCompleta");
+  if(historiaBtn && historiaCompleta){
+    historiaBtn.addEventListener("click", function(){
+      const vaiAbrir = historiaCompleta.hidden;
+      historiaCompleta.hidden = !vaiAbrir;
+      historiaBtn.textContent = vaiAbrir ? "OCULTAR NOSSA HISTÓRIA" : "CONHEÇA NOSSA HISTÓRIA";
+    });
+  }
+
+  document.querySelectorAll(".info-acao[data-painel]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      const alvo = document.getElementById(btn.dataset.painel);
+      document.querySelectorAll(".info-painel").forEach(function(p){
+        if(p !== alvo) p.hidden = true;
+      });
+      alvo.hidden = !alvo.hidden;
+    });
+  });
+
+  const abrirRsvp = document.getElementById("abrirRsvp");
+  const rsvpConteudo = document.getElementById("rsvpConteudo");
+  if(abrirRsvp && rsvpConteudo){
+    abrirRsvp.addEventListener("click", function(){
+      const vaiAbrir = rsvpConteudo.hidden;
+      rsvpConteudo.hidden = !vaiAbrir;
+      abrirRsvp.textContent = vaiAbrir ? "OCULTAR CONFIRMAÇÃO" : "CONFIRME SUA PRESENÇA";
+      if(vaiAbrir){
+        setTimeout(function(){ const i=document.getElementById("nome-convidado"); if(i) i.focus(); },100);
+      }
+    });
+  }
+
+  const whats = document.getElementById("whatsappCerimonial");
+  if(whats && whats.dataset.whatsappPendente === "true"){
+    whats.addEventListener("click", function(e){
+      e.preventDefault();
+      alert("O WhatsApp da cerimonialista será disponibilizado aqui.");
+    });
+  }
+});
+</script>
+
 </body>
 </html>
