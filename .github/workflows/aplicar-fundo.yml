@@ -2,7 +2,8 @@ name: Aplicar fundo identidade visual
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
     paths:
       - '.github/workflows/aplicar-fundo.yml'
 
@@ -17,73 +18,71 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Aplicar CSS final do fundo
-        shell: python
         run: |
+          python3 - <<'PY'
           from pathlib import Path
           import re
 
           p = Path('index.html')
           text = p.read_text(encoding='utf-8')
 
-          bloco = r'''
-<style>
-/* ===== FUNDO FINAL - IDENTIDADE VISUAL ===== */
-html,
-body,
-body.site-identidade {
-  background-color: #f8eee8 !important;
-  background-image: url("./identidade-visual.webp") !important;
-  background-repeat: repeat !important;
-  background-position: center top !important;
-  background-size: 520px auto !important;
-  background-attachment: scroll !important;
-}
+          bloco = '''
+          <style>
+          /* ===== FUNDO FINAL - IDENTIDADE VISUAL ===== */
+          html,
+          body,
+          body.site-identidade {
+            background-color: #f8eee8 !important;
+            background-image: url("./identidade-visual.webp") !important;
+            background-repeat: repeat !important;
+            background-position: center top !important;
+            background-size: 520px auto !important;
+            background-attachment: scroll !important;
+          }
 
-/* A capa continua somente com o vídeo */
-body.site-identidade .hero {
-  background: none !important;
-  background-image: none !important;
-}
+          body.site-identidade .hero {
+            background: none !important;
+            background-image: none !important;
+          }
 
-/* A identidade visual aparece de verdade em todas as áreas abaixo da capa */
-body.site-identidade section:not(.hero),
-body.site-identidade .papel-section,
-body.site-identidade .historia,
-body.site-identidade .grande-dia,
-body.site-identidade .presentes,
-body.site-identidade .lista-presentes,
-body.site-identidade .informacoes,
-body.site-identidade .rsvp,
-body.site-identidade .galeria,
-body.site-identidade .final {
-  background-color: transparent !important;
-  background-image: url("./identidade-visual.webp") !important;
-  background-repeat: repeat !important;
-  background-position: center top !important;
-  background-size: 520px auto !important;
-}
+          body.site-identidade section:not(.hero),
+          body.site-identidade .papel-section,
+          body.site-identidade .historia,
+          body.site-identidade .grande-dia,
+          body.site-identidade .presentes,
+          body.site-identidade .lista-presentes,
+          body.site-identidade .informacoes,
+          body.site-identidade .rsvp,
+          body.site-identidade .galeria,
+          body.site-identidade .final {
+            background-color: transparent !important;
+            background-image: url("./identidade-visual.webp") !important;
+            background-repeat: repeat !important;
+            background-position: center top !important;
+            background-size: 520px auto !important;
+          }
 
-/* Caixas continuam claras para o conteúdo ficar legível */
-body.site-identidade .convite-box,
-body.site-identidade .ornamental-card,
-body.site-identidade .card,
-body.site-identidade .presente-card,
-body.site-identidade .countdown-inner {
-  background-color: rgba(255, 249, 245, 0.94) !important;
-}
+          body.site-identidade .convite-box,
+          body.site-identidade .ornamental-card,
+          body.site-identidade .card,
+          body.site-identidade .presente-card,
+          body.site-identidade .countdown-inner {
+            background-color: rgba(255, 249, 245, 0.94) !important;
+          }
 
-@media (max-width: 650px) {
-  html,
-  body,
-  body.site-identidade,
-  body.site-identidade section:not(.hero) {
-    background-size: 390px auto !important;
-  }
-}
-</style>
-<!-- ===== FIM FUNDO FINAL - IDENTIDADE VISUAL ===== -->
-'''
+          @media (max-width: 650px) {
+            html,
+            body,
+            body.site-identidade,
+            body.site-identidade section:not(.hero) {
+              background-size: 390px auto !important;
+            }
+          }
+          </style>
+          <!-- ===== FIM FUNDO FINAL - IDENTIDADE VISUAL ===== -->
+          '''
 
+          bloco = '\n'.join(line[10:] if line.startswith('          ') else line for line in bloco.splitlines()) + '\n'
           padrao = re.compile(r'<style>\s*/\* ===== FUNDO FINAL - IDENTIDADE VISUAL ===== \*/.*?<!-- ===== FIM FUNDO FINAL - IDENTIDADE VISUAL ===== -->\s*', re.S)
           if padrao.search(text):
               text = padrao.sub(bloco + '\n', text)
@@ -91,12 +90,15 @@ body.site-identidade .countdown-inner {
               text = text.replace('</head>', bloco + '\n</head>', 1)
 
           p.write_text(text, encoding='utf-8')
+          PY
 
       - name: Commit da alteração
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git diff --cached --quiet && exit 0
+          if git diff --cached --quiet; then
+            exit 0
+          fi
           git commit -m "Aplica identidade visual como fundo do site"
           git push
