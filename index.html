@@ -1888,6 +1888,84 @@ body .convite-box.ornamental-card{
   background:rgba(255,248,243,.90)!important;
 }
 
+
+/* ===== FUNDO DA IDENTIDADE VISUAL MAIS ESCURO ===== */
+body{
+  background-color:#f5dfd4!important;
+  background-image:
+    linear-gradient(rgba(245,223,212,.05),rgba(245,223,212,.05)),
+    url("identidade-visual.webp")!important;
+  background-repeat:repeat,repeat!important;
+  background-size:auto,500px auto!important;
+  background-position:0 0,center top!important;
+}
+
+/* Mantém as caixas legíveis sobre o fundo agora mais marcado */
+body .convite-box.ornamental-card{
+  background:rgba(255,248,243,.92)!important;
+}
+
+
+/* AJUSTES 27/09 */
+body{background-color:#e1c1b3!important;background-image:url("identidade-visual-escura.webp")!important;background-repeat:repeat!important;background-size:500px auto!important;background-position:center top!important}
+.hero-content{width:100%!important;margin:0!important;left:0!important;right:0!important;text-align:center!important;align-items:center!important;justify-content:center!important}
+.hero h1{font-family:"Cormorant Garamond",Georgia,serif!important;font-size:clamp(52px,7vw,86px)!important;line-height:1!important;font-weight:500!important;text-transform:none!important;letter-spacing:.015em!important;color:#b65442!important;margin-left:auto!important;margin-right:auto!important}
+@font-face{font-family:"Cosmopolitan";src:url("cosmopolitan.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
+.titulo-brittany,[class*="brittany"]{font-family:"Cosmopolitan","Cosmopolitan Script","Segoe Script",cursive!important;font-style:normal!important;font-weight:400!important;font-synthesis:none!important;text-shadow:none!important;-webkit-text-stroke:0!important;letter-spacing:0!important;text-transform:none!important}
+#historia .convite-box.ornamental-card{overflow:visible!important}
+#historia .elemento-identidade{z-index:2!important;width:82px!important;top:50%!important;bottom:auto!important}
+#historia .elemento-identidade.elem-esq{left:-52px!important;right:auto!important;opacity:.52!important;transform:translateY(-50%) rotate(-5deg)!important}
+#historia .elemento-identidade.elem-dir{right:-52px!important;left:auto!important;opacity:.32!important;transform:translateY(-50%) rotate(5deg)!important}
+.fotos-grid{grid-template-columns:repeat(3,1fr)!important;gap:16px!important}.fotos-grid img{height:320px!important}
+@media(max-width:760px){.hero h1{font-size:48px!important}#historia .elemento-identidade{width:58px!important}#historia .elemento-identidade.elem-esq{left:-18px!important}#historia .elemento-identidade.elem-dir{right:-18px!important}.fotos-grid{grid-template-columns:1fr 1fr!important}.fotos-grid img{height:230px!important}}
+
+
+/* ===== GALERIA FINAL — somente as 11 fotos escolhidas ===== */
+#fotos .fotos-grid{
+  display:grid!important;
+  grid-template-columns:repeat(12,1fr)!important;
+  grid-auto-flow:dense!important;
+  gap:14px!important;
+  align-items:stretch!important;
+}
+#fotos .fotos-grid img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  min-height:300px!important;
+  object-fit:cover!important;
+  border-radius:16px!important;
+  box-shadow:0 7px 22px rgba(99,50,39,.10)!important;
+}
+#fotos .fotos-grid img:nth-child(1){grid-column:span 8;aspect-ratio:16/9}
+#fotos .fotos-grid img:nth-child(2){grid-column:span 4;grid-row:span 2;aspect-ratio:3/4}
+#fotos .fotos-grid img:nth-child(3){grid-column:span 8;aspect-ratio:16/9}
+#fotos .fotos-grid img:nth-child(4){grid-column:span 4;aspect-ratio:3/4}
+#fotos .fotos-grid img:nth-child(5){grid-column:span 4;aspect-ratio:3/4}
+#fotos .fotos-grid img:nth-child(6){grid-column:span 4;aspect-ratio:3/4}
+#fotos .fotos-grid img:nth-child(7){grid-column:span 4;aspect-ratio:3/4}
+#fotos .fotos-grid img:nth-child(8){grid-column:span 4;aspect-ratio:3/4}
+#fotos .fotos-grid img:nth-child(9){grid-column:span 4;aspect-ratio:3/4}
+#fotos .fotos-grid img:nth-child(10){grid-column:span 6;aspect-ratio:3/4}
+#fotos .fotos-grid img:nth-child(11){grid-column:span 6;aspect-ratio:16/9}
+@media(max-width:760px){
+  #fotos .fotos-grid{grid-template-columns:repeat(2,1fr)!important;gap:9px!important}
+  #fotos .fotos-grid img,
+  #fotos .fotos-grid img:nth-child(n){
+    grid-column:span 1!important;
+    grid-row:span 1!important;
+    aspect-ratio:3/4!important;
+    min-height:0!important;
+    border-radius:11px!important;
+  }
+  #fotos .fotos-grid img:nth-child(1),
+  #fotos .fotos-grid img:nth-child(3),
+  #fotos .fotos-grid img:nth-child(11){
+    grid-column:span 2!important;
+    aspect-ratio:16/9!important;
+  }
+}
+
 </style>
 </head>
 
@@ -3083,8 +3161,17 @@ document.getElementById("modalPix")
   <div class="container convite-box ornamental-card"><img class="elemento-identidade elem-esq" src="chapeu.png" alt="" aria-hidden="true"><img class="elemento-identidade elem-dir" src="pesca.png" alt="" aria-hidden="true">
     <p class="secao-kicker">NOSSAS FOTOS</p>
     <div class="fotos-grid">
-      <img src="ALX_0268.jpg" alt="Eduarda e Edilson">
-      <img src="ALX_0481.jpg" alt="Eduarda e Edilson">
+      <img src="nossas-fotos-01.jpg" alt="Eduarda e Edilson — foto 1" loading="lazy">
+      <img src="nossas-fotos-02.jpg" alt="Eduarda e Edilson — foto 2" loading="lazy">
+      <img src="nossas-fotos-03.jpg" alt="Eduarda e Edilson — foto 3" loading="lazy">
+      <img src="nossas-fotos-04.jpg" alt="Eduarda e Edilson — foto 4" loading="lazy">
+      <img src="nossas-fotos-05.jpg" alt="Eduarda e Edilson — foto 5" loading="lazy">
+      <img src="nossas-fotos-06.jpg" alt="Eduarda e Edilson — foto 6" loading="lazy">
+      <img src="nossas-fotos-07.jpg" alt="Eduarda e Edilson — foto 7" loading="lazy">
+      <img src="nossas-fotos-08.jpg" alt="Eduarda e Edilson — foto 8" loading="lazy">
+      <img src="nossas-fotos-09.jpg" alt="Eduarda e Edilson — foto 9" loading="lazy">
+      <img src="nossas-fotos-10.jpg" alt="Eduarda e Edilson — foto 10" loading="lazy">
+      <img src="nossas-fotos-11.jpg" alt="Eduarda e Edilson — foto 11" loading="lazy">
     </div>
   </div>
 </section>
