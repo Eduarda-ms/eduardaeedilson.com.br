@@ -2157,6 +2157,53 @@ html,body,body.site-identidade{background-color:#f8e9e2!important;background-ima
 body.site-identidade main,body.site-identidade section:not(.hero):not(.countdown-section){background-color:transparent!important;}
 
 </style>
+  <style>
+/* ===== FUNDO COM A IDENTIDADE VISUAL ===== */
+
+html,
+body {
+  background-color: #f8eee8 !important;
+  background-image: url("./identidade-visual.webp") !important;
+  background-repeat: repeat !important;
+  background-size: 430px auto !important;
+  background-position: center top !important;
+  background-attachment: scroll !important;
+}
+
+/* deixa as seções transparentes para o fundo aparecer */
+body.site-identidade section:not(.hero),
+body.site-identidade .historia,
+body.site-identidade .grande-dia,
+body.site-identidade .presentes,
+body.site-identidade .informacoes,
+body.site-identidade .rsvp,
+body.site-identidade .galeria {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* mantém as caixas legíveis */
+body.site-identidade .convite-box,
+body.site-identidade .ornamental-card,
+body.site-identidade .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* caixas principais com fundo claro e levemente transparente */
+body.site-identidade .convite-box,
+body.site-identidade .ornamental-card {
+  background: rgba(255, 248, 243, 0.92) !important;
+}
+
+/* no celular */
+@media (max-width: 650px) {
+  html,
+  body {
+    background-size: 350px auto !important;
+  }
+}
+</style>
 </head>
 
 <body class="site-identidade">
