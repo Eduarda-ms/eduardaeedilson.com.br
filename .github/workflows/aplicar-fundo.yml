@@ -17,7 +17,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Aplicar CSS final do fundo
+      - name: Aplicar fundo real com a identidade visual
         run: |
           python3 - <<'PY'
           from pathlib import Path
@@ -26,76 +26,173 @@ jobs:
           p = Path('index.html')
           text = p.read_text(encoding='utf-8')
 
-          bloco = '''
-          <style>
-          /* ===== FUNDO FINAL - IDENTIDADE VISUAL ===== */
-          html,
-          body,
-          body.site-identidade {
-            background-color:#f8eee8 !important;
-            background-image:url("./identidade-visual.webp") !important;
-            background-repeat:repeat-y !important;
-            background-position:center top !important;
-            background-size:100% auto !important;
-            background-attachment:scroll !important;
-          }
+          # Remove versões anteriores deste ajuste final para não acumular regras.
+          text = re.sub(
+              r'<style>\s*/\* ===== FUNDO FINAL - IDENTIDADE VISUAL ===== \*/.*?<!-- ===== FIM FUNDO FINAL - IDENTIDADE VISUAL ===== -->\s*',
+              '', text, flags=re.S
+          )
+          text = re.sub(
+              r'<style>\s*/\* ===== FUNDO REAL - IDENTIDADE VISUAL ===== \*/.*?<!-- ===== FIM FUNDO REAL - IDENTIDADE VISUAL ===== -->\s*',
+              '', text, flags=re.S
+          )
+          text = re.sub(
+              r'<script>\s*/\* ===== SCRIPT FUNDO REAL - IDENTIDADE VISUAL ===== \*/.*?</script>\s*',
+              '', text, flags=re.S
+          )
+          text = text.replace('<div id="fundoIdentidade" aria-hidden="true"></div>\n', '')
 
-          /* Capa permanece somente com o vídeo */
-          body.site-identidade .hero {
-            background:none !important;
-            background-image:none !important;
-          }
+          css = r'''
+<style>
+/* ===== FUNDO REAL - IDENTIDADE VISUAL ===== */
+html, body, body.site-identidade {
+  background:#f8eee8 !important;
+}
+body.site-identidade {
+  position:relative !important;
+  isolation:isolate !important;
+}
 
-          /* A arte aparece claramente em TODAS as seções abaixo da capa */
-          body.site-identidade section:not(.hero),
-          body.site-identidade .papel-section,
-          body.site-identidade .historia,
-          body.site-identidade .grande-dia,
-          body.site-identidade .presentes,
-          body.site-identidade .lista-presentes,
-          body.site-identidade .informacoes,
-          body.site-identidade .rsvp,
-          body.site-identidade .galeria,
-          body.site-identidade .final,
-          body.site-identidade .countdown-section {
-            background-color:#f8eee8 !important;
-            background-image:url("./identidade-visual.webp") !important;
-            background-repeat:repeat-y !important;
-            background-position:center top !important;
-            background-size:100% auto !important;
-          }
+/* Camada feita com imagens reais, em vez de depender do background do body. */
+#fundoIdentidade {
+  position:absolute !important;
+  left:0 !important;
+  right:0 !important;
+  top:0 !important;
+  bottom:0 !important;
+  z-index:0 !important;
+  overflow:hidden !important;
+  pointer-events:none !important;
+  background:#f8eee8 !important;
+}
+#fundoIdentidade .fundo-identidade-grid {
+  position:absolute !important;
+  left:0 !important;
+  right:0 !important;
+  display:grid !important;
+  line-height:0 !important;
+}
+#fundoIdentidade img {
+  display:block !important;
+  width:100% !important;
+  height:auto !important;
+  margin:0 !important;
+  padding:0 !important;
+  opacity:1 !important;
+}
 
-          /* Caixas claras, mas com transparência suficiente para a identidade aparecer */
-          body.site-identidade .convite-box,
-          body.site-identidade .ornamental-card,
-          body.site-identidade .card,
-          body.site-identidade .presente-card,
-          body.site-identidade .countdown-inner {
-            background:rgba(255,249,245,.84) !important;
-            backdrop-filter:none !important;
-            -webkit-backdrop-filter:none !important;
-          }
+/* Capa continua somente com o vídeo. */
+body.site-identidade .hero {
+  position:relative !important;
+  z-index:3 !important;
+  background:none !important;
+  background-image:none !important;
+}
+body.site-identidade .nav-elegante {
+  z-index:5 !important;
+}
 
-          @media (max-width:650px) {
-            html,
-            body,
-            body.site-identidade,
-            body.site-identidade section:not(.hero),
-            body.site-identidade .countdown-section,
-            body.site-identidade .final {
-              background-size:100% auto !important;
-            }
-          }
-          </style>
-          <!-- ===== FIM FUNDO FINAL - IDENTIDADE VISUAL ===== -->
-          '''
+/* Tudo abaixo da capa fica acima da estampa e transparente. */
+body.site-identidade .countdown-section,
+body.site-identidade section:not(.hero),
+body.site-identidade .papel-section,
+body.site-identidade .historia,
+body.site-identidade .grande-dia,
+body.site-identidade .presentes,
+body.site-identidade .lista-presentes,
+body.site-identidade .informacoes,
+body.site-identidade .rsvp,
+body.site-identidade .galeria,
+body.site-identidade .final {
+  position:relative !important;
+  z-index:2 !important;
+  background:transparent !important;
+  background-color:transparent !important;
+  background-image:none !important;
+}
 
-          bloco = '\n'.join(line[10:] if line.startswith('          ') else line for line in bloco.splitlines()) + '\n'
-          padrao = re.compile(r'<style>\s*/\* ===== FUNDO FINAL - IDENTIDADE VISUAL ===== \*/.*?<!-- ===== FIM FUNDO FINAL - IDENTIDADE VISUAL ===== -->\s*', re.S)
-          if padrao.search(text):
-              text = padrao.sub(bloco + '\n', text)
-          else:
-              text = text.replace('</head>', bloco + '\n</head>', 1)
+/* As caixas permanecem claras, mas deixam a estampa aparecer ao redor. */
+body.site-identidade .convite-box,
+body.site-identidade .ornamental-card,
+body.site-identidade .presente-card,
+body.site-identidade .countdown-inner,
+body.site-identidade .final .container {
+  background:rgba(255,249,245,.92) !important;
+}
+
+@media(max-width:650px){
+  body.site-identidade .convite-box,
+  body.site-identidade .ornamental-card,
+  body.site-identidade .countdown-inner,
+  body.site-identidade .final .container {
+    background:rgba(255,249,245,.91) !important;
+  }
+}
+</style>
+<!-- ===== FIM FUNDO REAL - IDENTIDADE VISUAL ===== -->
+'''
+
+          js = r'''
+<script>
+/* ===== SCRIPT FUNDO REAL - IDENTIDADE VISUAL ===== */
+(function(){
+  function montarFundo(){
+    var camada = document.getElementById('fundoIdentidade');
+    var hero = document.querySelector('.hero');
+    if(!camada || !hero) return;
+
+    camada.innerHTML = '';
+
+    var inicio = hero.offsetTop + hero.offsetHeight;
+    var alturaPagina = Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight
+    );
+    var altura = Math.max(0, alturaPagina - inicio);
+
+    var largura = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    var alvo = largura <= 650 ? 390 : 520;
+    var colunas = Math.max(1, Math.ceil(largura / alvo));
+    var larguraTile = largura / colunas;
+    var linhas = Math.ceil(altura / larguraTile) + 2;
+    var total = colunas * linhas;
+
+    var grid = document.createElement('div');
+    grid.className = 'fundo-identidade-grid';
+    grid.style.top = inicio + 'px';
+    grid.style.gridTemplateColumns = 'repeat(' + colunas + ', 1fr)';
+
+    for(var i=0;i<total;i++){
+      var img = document.createElement('img');
+      img.src = './identidade-visual.webp';
+      img.alt = '';
+      img.decoding = 'async';
+      img.loading = 'eager';
+      grid.appendChild(img);
+    }
+
+    camada.appendChild(grid);
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', montarFundo);
+  } else {
+    montarFundo();
+  }
+
+  window.addEventListener('load', montarFundo);
+  var timer;
+  window.addEventListener('resize', function(){
+    clearTimeout(timer);
+    timer = setTimeout(montarFundo, 180);
+  });
+  setTimeout(montarFundo, 700);
+})();
+</script>
+'''
+
+          text = text.replace('</head>', css + '\n</head>', 1)
+          text = text.replace('<body class="site-identidade">', '<body class="site-identidade">\n<div id="fundoIdentidade" aria-hidden="true"></div>', 1)
+          text = text.replace('</body>', js + '\n</body>', 1)
 
           p.write_text(text, encoding='utf-8')
           PY
@@ -108,5 +205,5 @@ jobs:
           if git diff --cached --quiet; then
             exit 0
           fi
-          git commit -m "Deixa identidade visual visível no fundo"
+          git commit -m "Exibe identidade visual como fundo real do site"
           git push
