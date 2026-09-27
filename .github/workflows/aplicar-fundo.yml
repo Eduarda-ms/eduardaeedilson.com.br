@@ -32,19 +32,21 @@ jobs:
           html,
           body,
           body.site-identidade {
-            background-color: #f8eee8 !important;
-            background-image: url("./identidade-visual.webp") !important;
-            background-repeat: repeat !important;
-            background-position: center top !important;
-            background-size: 520px auto !important;
-            background-attachment: scroll !important;
+            background-color:#f8eee8 !important;
+            background-image:url("./identidade-visual.webp") !important;
+            background-repeat:repeat-y !important;
+            background-position:center top !important;
+            background-size:100% auto !important;
+            background-attachment:scroll !important;
           }
 
+          /* Capa permanece somente com o vídeo */
           body.site-identidade .hero {
-            background: none !important;
-            background-image: none !important;
+            background:none !important;
+            background-image:none !important;
           }
 
+          /* A arte aparece claramente em TODAS as seções abaixo da capa */
           body.site-identidade section:not(.hero),
           body.site-identidade .papel-section,
           body.site-identidade .historia,
@@ -54,28 +56,34 @@ jobs:
           body.site-identidade .informacoes,
           body.site-identidade .rsvp,
           body.site-identidade .galeria,
-          body.site-identidade .final {
-            background-color: transparent !important;
-            background-image: url("./identidade-visual.webp") !important;
-            background-repeat: repeat !important;
-            background-position: center top !important;
-            background-size: 520px auto !important;
+          body.site-identidade .final,
+          body.site-identidade .countdown-section {
+            background-color:#f8eee8 !important;
+            background-image:url("./identidade-visual.webp") !important;
+            background-repeat:repeat-y !important;
+            background-position:center top !important;
+            background-size:100% auto !important;
           }
 
+          /* Caixas claras, mas com transparência suficiente para a identidade aparecer */
           body.site-identidade .convite-box,
           body.site-identidade .ornamental-card,
           body.site-identidade .card,
           body.site-identidade .presente-card,
           body.site-identidade .countdown-inner {
-            background-color: rgba(255, 249, 245, 0.94) !important;
+            background:rgba(255,249,245,.84) !important;
+            backdrop-filter:none !important;
+            -webkit-backdrop-filter:none !important;
           }
 
-          @media (max-width: 650px) {
+          @media (max-width:650px) {
             html,
             body,
             body.site-identidade,
-            body.site-identidade section:not(.hero) {
-              background-size: 390px auto !important;
+            body.site-identidade section:not(.hero),
+            body.site-identidade .countdown-section,
+            body.site-identidade .final {
+              background-size:100% auto !important;
             }
           }
           </style>
@@ -100,5 +108,5 @@ jobs:
           if git diff --cached --quiet; then
             exit 0
           fi
-          git commit -m "Aplica identidade visual como fundo do site"
+          git commit -m "Deixa identidade visual visível no fundo"
           git push
