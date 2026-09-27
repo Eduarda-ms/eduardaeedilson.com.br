@@ -1966,6 +1966,126 @@ body{background-color:#e1c1b3!important;background-image:url("identidade-visual-
   }
 }
 
+
+/* ===== AJUSTES FINAIS ===== */
+
+/* Identidade visual exatamente na cor original */
+body,
+body.site-identidade{
+  background-color:#fbf0ea!important;
+  background-image:url("identidade-visual.webp")!important;
+  background-repeat:repeat!important;
+  background-size:500px auto!important;
+  background-position:center top!important;
+}
+
+/* Volta à fonte que estava antes da Cosmopolitan */
+.titulo-brittany,
+[class*="brittany"]{
+  font-family:"Edwardian Script ITC","ITC Edwardian Script","Edwardian Script","Brush Script MT",cursive!important;
+  font-style:normal!important;
+  font-weight:400!important;
+  font-synthesis:none!important;
+}
+
+/* Capa: somente vídeo, sem foto de fundo */
+.hero,
+.site-identidade .hero{
+  background:none!important;
+  background-image:none!important;
+}
+.hero-video{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  background:#ead8cf!important;
+}
+
+
+/* ===== CONTAGEM REGRESSIVA ===== */
+.countdown-section{
+  position:relative;
+  z-index:5;
+  padding:28px 18px 32px;
+  background:rgba(255,248,243,.93);
+  border-top:1px solid rgba(190,100,79,.20);
+  border-bottom:1px solid rgba(190,100,79,.20);
+  text-align:center;
+}
+.countdown-inner{max-width:900px;margin:0 auto}
+.countdown-label{
+  color:#b65442;
+  font-size:12px;
+  letter-spacing:.28em;
+  font-weight:600;
+  margin-bottom:5px;
+}
+.countdown-title{
+  font-family:"Edwardian Script ITC","ITC Edwardian Script","Edwardian Script","Brush Script MT",cursive;
+  color:#b65442;
+  font-size:42px;
+  line-height:1.15;
+  font-weight:400;
+  margin-bottom:17px;
+}
+.countdown{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+}
+.countdown-item{min-width:82px}
+.countdown-item strong{
+  display:block;
+  font-family:"Cormorant Garamond",Georgia,serif;
+  color:#a94f3e;
+  font-size:34px;
+  font-weight:500;
+  line-height:1;
+}
+.countdown-item span{
+  display:block;
+  margin-top:7px;
+  color:#755a51;
+  font-size:9px;
+  letter-spacing:.19em;
+}
+.countdown-sep{color:#d99b88;font-size:15px}
+@media(max-width:600px){
+  .countdown-section{padding:22px 8px 25px}
+  .countdown-title{font-size:35px}
+  .countdown{gap:6px}
+  .countdown-item{min-width:60px}
+  .countdown-item strong{font-size:28px}
+  .countdown-item span{font-size:7px;letter-spacing:.12em}
+  .countdown-sep{font-size:10px}
+}
+
+
+/* Nomes da capa — ITC Edwardian Script */
+.hero h1{
+  font-family:"Edwardian Script ITC","ITC Edwardian Script","Edwardian Script","Brush Script MT",cursive!important;
+  font-style:normal!important;
+  font-weight:400!important;
+  font-synthesis:none!important;
+  text-transform:none!important;
+  letter-spacing:0!important;
+  color:#b65442!important;
+}
+
+
+/* Nosso dia + Tudo o que você precisa saber — ITC Edwardian Script */
+#grande-dia .titulo-brittany,
+#informacoes .titulo-brittany{
+  font-family:"Edwardian Script ITC","ITC Edwardian Script","Edwardian Script","Brush Script MT",cursive!important;
+  font-style:normal!important;
+  font-weight:400!important;
+  font-synthesis:none!important;
+  text-transform:none!important;
+  letter-spacing:0!important;
+}
+
 </style>
 </head>
 
@@ -1981,7 +2101,7 @@ body{background-color:#e1c1b3!important;background-image:url("identidade-visual-
 
 <section class="hero" id="inicio">
 
-<video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="ALX_0481.jpg">
+<video class="hero-video" autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture>
 <source src="video-pre-wedding.mp4" type="video/mp4">
 </video>
 
@@ -2027,6 +2147,23 @@ ROLE PARA BAIXO<br><br>↓
 
 </div>
 </section>
+
+<section class="countdown-section" aria-label="Contagem regressiva para o casamento">
+  <div class="countdown-inner">
+    <div class="countdown-label">CONTAGEM REGRESSIVA</div>
+    <div class="countdown-title">Para o nosso grande dia</div>
+    <div class="countdown" id="countdown">
+      <div class="countdown-item"><strong id="cd-days">00</strong><span>DIAS</span></div>
+      <div class="countdown-sep">•</div>
+      <div class="countdown-item"><strong id="cd-hours">00</strong><span>HORAS</span></div>
+      <div class="countdown-sep">•</div>
+      <div class="countdown-item"><strong id="cd-minutes">00</strong><span>MINUTOS</span></div>
+      <div class="countdown-sep">•</div>
+      <div class="countdown-item"><strong id="cd-seconds">00</strong><span>SEGUNDOS</span></div>
+    </div>
+  </div>
+</section>
+
 
 
 
@@ -3495,6 +3632,48 @@ document.addEventListener("DOMContentLoaded", function(){
     });
   }
 });
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const v=document.querySelector(".hero-video");
+  if(!v) return;
+  v.muted=true;
+  v.setAttribute("muted","");
+  v.setAttribute("playsinline","");
+  const tentar=()=>{ const p=v.play(); if(p && p.catch) p.catch(()=>{}); };
+  tentar();
+  document.addEventListener("touchstart",tentar,{once:true,passive:true});
+  document.addEventListener("visibilitychange",()=>{if(!document.hidden)tentar();});
+});
+</script>
+
+
+<script>
+(function(){
+  // Wedding: 28 Nov 2026, 17:00, São Gotardo/MG (UTC-3)
+  const wedding = new Date("2026-11-28T17:00:00-03:00");
+  const pad = n => String(n).padStart(2,"0");
+  function updateCountdown(){
+    let diff = wedding.getTime() - Date.now();
+    if(diff <= 0){
+      document.getElementById("countdown").innerHTML =
+        '<div class="countdown-title" style="margin:0">Chegou o nosso grande dia!</div>';
+      return;
+    }
+    const days = Math.floor(diff / 86400000); diff %= 86400000;
+    const hours = Math.floor(diff / 3600000); diff %= 3600000;
+    const minutes = Math.floor(diff / 60000); diff %= 60000;
+    const seconds = Math.floor(diff / 1000);
+    document.getElementById("cd-days").textContent = days;
+    document.getElementById("cd-hours").textContent = pad(hours);
+    document.getElementById("cd-minutes").textContent = pad(minutes);
+    document.getElementById("cd-seconds").textContent = pad(seconds);
+  }
+  updateCountdown();
+  setInterval(updateCountdown,1000);
+})();
 </script>
 
 </body>
