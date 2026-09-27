@@ -2076,6 +2076,78 @@ footer .nomes-final,
   }
 }
 
+
+/* ===== ÚLTIMOS AJUSTES — NOMES / FUNDO / 12 FOTOS ===== */
+.hero-content{
+  left:50% !important;
+  right:auto !important;
+  width:min(94%,900px) !important;
+  transform:translateX(-50%) !important;
+  text-align:center !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+.hero-content h1,
+.hero-content .nomes,
+.hero h1{
+  width:100% !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  text-align:center !important;
+}
+
+/* Identidade visual realmente aparente no fundo */
+html, body, body.site-identidade{
+  background-color:#f8e9e2 !important;
+  background-image:url("./identidade-visual.webp") !important;
+  background-repeat:repeat !important;
+  background-size:440px auto !important;
+  background-position:center top !important;
+}
+body.site-identidade main,
+body.site-identidade section:not(.hero):not(.countdown-section),
+body.site-identidade .papel-section,
+body.site-identidade .historia,
+body.site-identidade .grande-dia,
+body.site-identidade .presentes,
+body.site-identidade .informacoes,
+body.site-identidade .rsvp,
+body.site-identidade .galeria{
+  background-color:transparent !important;
+  background-image:none !important;
+}
+
+/* 12 fotos = grade fechada */
+#fotos .fotos-grid{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:12px !important;
+}
+#fotos .fotos-grid img{
+  grid-column:auto !important;
+  width:100% !important;
+  height:310px !important;
+  object-fit:cover !important;
+}
+@media(max-width:650px){
+  html,body,body.site-identidade{background-size:350px auto !important}
+  .hero-content{
+    width:94% !important;
+    left:50% !important;
+    transform:translateX(-50%) !important;
+  }
+  #fotos .fotos-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:8px !important;
+  }
+  #fotos .fotos-grid img,
+  #fotos .fotos-grid img:first-child,
+  #fotos .fotos-grid img:last-child{
+    grid-column:auto !important;
+    height:220px !important;
+  }
+}
+
 </style>
 </head>
 
@@ -3299,6 +3371,7 @@ document.getElementById("modalPix")
       <img src="./nossas-fotos-09.jpg" alt="Eduarda e Edilson — foto 9" loading="lazy">
       <img src="./nossas-fotos-10.jpg" alt="Eduarda e Edilson — foto 10" loading="lazy">
       <img src="./nossas-fotos-11.jpg" alt="Eduarda e Edilson — foto 11" loading="lazy">
+          <img src="./nossas-fotos-12.jpg" alt="Eduarda e Edilson no pré-wedding" loading="lazy">
     </div>
   </div>
 </section>
