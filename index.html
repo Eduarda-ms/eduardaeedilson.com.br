@@ -1842,28 +1842,181 @@ body .ornamental-card::after{
 }
 
 
-/* ===== FUNDO MAIS FORTE + ELEMENTOS SEM FUNDO BRANCO ===== */
-body{
-  background-color:#f8e8df!important;
-  background-image:
-    linear-gradient(rgba(248,232,223,.20),rgba(248,232,223,.20)),
-    url("./identidade-visual.webp")!important;
-  background-repeat:repeat,repeat!important;
-  background-size:auto,500px auto!important;
-  background-position:0 0,center top!important;
+/* =========================================================
+   VERSÃO FINAL — 27/09/2026
+   Uma única camada final para fundo, capa, contagem e galeria.
+   ========================================================= */
+
+/* FUNDO COM A IDENTIDADE VISUAL ORIGINAL */
+html, body, body.site-identidade{
+  background-color:#fbf0ea !important;
+  background-image:url("./identidade-visual.webp") !important;
+  background-repeat:repeat !important;
+  background-size:500px auto !important;
+  background-position:center top !important;
+  background-attachment:scroll !important;
 }
 
-/* Não usar mais monogramas em caixas/retângulos separados no fundo */
-.monogramas-fundo,.mono-fundo{
-  display:none!important;
+body.site-identidade section:not(.hero):not(.countdown-section),
+body.site-identidade .papel-section,
+body.site-identidade .historia,
+body.site-identidade .grande-dia,
+body.site-identidade .presentes,
+body.site-identidade .informacoes,
+body.site-identidade .rsvp,
+body.site-identidade .galeria{
+  background:transparent !important;
 }
 
-/* Elementos das caixas agora são PNGs transparentes, sem bloco branco */
+body.site-identidade .convite-box.ornamental-card{
+  background:rgba(255,248,243,.93) !important;
+}
+
+/* CAPA — MANTÉM SOMENTE O VÍDEO */
+.hero,
+.site-identidade .hero{
+  background:none !important;
+  background-image:none !important;
+}
+.hero-video{
+  display:block !important;
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  background:#ead8cf !important;
+}
+.hero-content{
+  position:relative !important;
+  z-index:3 !important;
+}
+
+/* EDUARDA e EDILSON — CAPA E FINAL */
+.hero h1,
+.hero h1.nomes-final,
+footer .nomes-final,
+.nomes-final{
+  font-family:"Edwardian Script ITC","ITC Edwardian Script","Edwardian Script","Brush Script MT",cursive !important;
+  font-style:normal !important;
+  font-weight:400 !important;
+  font-synthesis:none !important;
+  text-transform:none !important;
+  letter-spacing:0 !important;
+  color:#b65442 !important;
+}
+
+/* TÍTULOS SOLICITADOS */
+#grande-dia .titulo-brittany,
+#informacoes .titulo-brittany{
+  font-family:"Edwardian Script ITC","ITC Edwardian Script","Edwardian Script","Brush Script MT",cursive !important;
+  font-style:normal !important;
+  font-weight:400 !important;
+  font-synthesis:none !important;
+  text-transform:none !important;
+  letter-spacing:0 !important;
+}
+
+/* CONTAGEM — UMA CAIXA DELICADA, TUDO LADO A LADO */
+.countdown-section{
+  position:relative !important;
+  z-index:5 !important;
+  width:min(900px,calc(100% - 32px)) !important;
+  margin:24px auto 34px !important;
+  padding:0 !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  text-align:center !important;
+}
+.countdown-section .countdown-inner{
+  margin:0 !important;
+  padding:18px 24px 20px !important;
+  background:rgba(255,248,243,.96) !important;
+  border:1px solid rgba(182,84,66,.34) !important;
+  border-radius:20px !important;
+  box-shadow:0 7px 22px rgba(96,50,40,.09) !important;
+}
+.countdown-section .countdown-label{
+  margin:0 0 2px !important;
+  color:#9c4b3d !important;
+  font-size:9px !important;
+  letter-spacing:.25em !important;
+  font-weight:600 !important;
+}
+.countdown-section .countdown-title{
+  margin:0 0 13px !important;
+  color:#b65442 !important;
+  font-family:"Edwardian Script ITC","ITC Edwardian Script","Edwardian Script","Brush Script MT",cursive !important;
+  font-size:31px !important;
+  line-height:1 !important;
+  font-weight:400 !important;
+}
+.countdown-section .countdown{
+  display:flex !important;
+  flex-direction:row !important;
+  flex-wrap:nowrap !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:0 !important;
+  width:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+.countdown-section .countdown-item{
+  flex:1 1 0 !important;
+  min-width:0 !important;
+  padding:4px 10px !important;
+}
+.countdown-section .countdown-item + .countdown-sep + .countdown-item{
+  border-left:1px solid rgba(182,84,66,.17) !important;
+}
+.countdown-section .countdown-sep{
+  display:none !important;
+}
+.countdown-section .countdown-item strong{
+  display:block !important;
+  color:#914437 !important;
+  font-family:"Cormorant Garamond",Georgia,serif !important;
+  font-size:31px !important;
+  line-height:1 !important;
+  font-weight:500 !important;
+}
+.countdown-section .countdown-item span{
+  display:block !important;
+  margin-top:6px !important;
+  color:#765950 !important;
+  font-size:8px !important;
+  letter-spacing:.14em !important;
+  white-space:nowrap !important;
+}
+
+/* GALERIA — 11 FOTOS LOCAIS */
+#fotos .fotos-grid{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:12px !important;
+  align-items:stretch !important;
+}
+#fotos .fotos-grid img{
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  width:100% !important;
+  height:310px !important;
+  min-height:0 !important;
+  object-fit:cover !important;
+  border-radius:14px !important;
+  box-shadow:0 7px 20px rgba(99,50,39,.10) !important;
+}
+
+/* ELEMENTOS DA IDENTIDADE NAS LATERAIS */
 .elemento-identidade{
-  background:transparent!important;
-  mix-blend-mode:multiply!important;
-  opacity:.48!important;
-  filter:contrast(1.22) saturate(1.14)!important;
+  background:transparent !important;
+  mix-blend-mode:multiply !important;
 }
 #historia .elem-esq,
 #grande-dia .elem-dir,
@@ -1871,8 +2024,7 @@ body{
 #informacoes .elem-esq,
 #rsvp .elem-dir,
 #fotos .elem-esq{
-  opacity:.76!important;
-  filter:contrast(1.38) saturate(1.24)!important;
+  opacity:.66 !important;
 }
 #historia .elem-dir,
 #grande-dia .elem-esq,
@@ -1880,376 +2032,49 @@ body{
 #informacoes .elem-dir,
 #rsvp .elem-esq,
 #fotos .elem-dir{
-  opacity:.36!important;
+  opacity:.32 !important;
 }
 
-/* As caixas permanecem claras, mas não opacas demais */
-body .convite-box.ornamental-card{
-  background:rgba(255,248,243,.90)!important;
-}
+@media(max-width:650px){
+  html,body,body.site-identidade{background-size:390px auto !important}
 
-
-/* ===== FUNDO DA IDENTIDADE VISUAL MAIS ESCURO ===== */
-body{
-  background-color:#f5dfd4!important;
-  background-image:
-    linear-gradient(rgba(245,223,212,.05),rgba(245,223,212,.05)),
-    url("./identidade-visual.webp")!important;
-  background-repeat:repeat,repeat!important;
-  background-size:auto,500px auto!important;
-  background-position:0 0,center top!important;
-}
-
-/* Mantém as caixas legíveis sobre o fundo agora mais marcado */
-body .convite-box.ornamental-card{
-  background:rgba(255,248,243,.92)!important;
-}
-
-
-/* AJUSTES 27/09 */
-body{background-color:#e1c1b3!important;background-image:url("identidade-visual-escura.webp")!important;background-repeat:repeat!important;background-size:500px auto!important;background-position:center top!important}
-.hero-content{width:100%!important;margin:0!important;left:0!important;right:0!important;text-align:center!important;align-items:center!important;justify-content:center!important}
-.hero h1{font-family:"Cormorant Garamond",Georgia,serif!important;font-size:clamp(52px,7vw,86px)!important;line-height:1!important;font-weight:500!important;text-transform:none!important;letter-spacing:.015em!important;color:#b65442!important;margin-left:auto!important;margin-right:auto!important}
-@font-face{font-family:"Cosmopolitan";src:url("cosmopolitan.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
-.titulo-brittany,[class*="brittany"]{font-family:"Cosmopolitan","Cosmopolitan Script","Segoe Script",cursive!important;font-style:normal!important;font-weight:400!important;font-synthesis:none!important;text-shadow:none!important;-webkit-text-stroke:0!important;letter-spacing:0!important;text-transform:none!important}
-#historia .convite-box.ornamental-card{overflow:visible!important}
-#historia .elemento-identidade{z-index:2!important;width:82px!important;top:50%!important;bottom:auto!important}
-#historia .elemento-identidade.elem-esq{left:-52px!important;right:auto!important;opacity:.52!important;transform:translateY(-50%) rotate(-5deg)!important}
-#historia .elemento-identidade.elem-dir{right:-52px!important;left:auto!important;opacity:.32!important;transform:translateY(-50%) rotate(5deg)!important}
-.fotos-grid{grid-template-columns:repeat(3,1fr)!important;gap:16px!important}.fotos-grid img{height:320px!important}
-@media(max-width:760px){.hero h1{font-size:48px!important}#historia .elemento-identidade{width:58px!important}#historia .elemento-identidade.elem-esq{left:-18px!important}#historia .elemento-identidade.elem-dir{right:-18px!important}.fotos-grid{grid-template-columns:1fr 1fr!important}.fotos-grid img{height:230px!important}}
-
-
-/* ===== GALERIA FINAL — somente as 11 fotos escolhidas ===== */
-#fotos .fotos-grid{
-  display:grid!important;
-  grid-template-columns:repeat(12,1fr)!important;
-  grid-auto-flow:dense!important;
-  gap:14px!important;
-  align-items:stretch!important;
-}
-#fotos .fotos-grid img{
-  display:block!important;
-  width:100%!important;
-  height:100%!important;
-  min-height:300px!important;
-  object-fit:cover!important;
-  border-radius:16px!important;
-  box-shadow:0 7px 22px rgba(99,50,39,.10)!important;
-}
-#fotos .fotos-grid img:nth-child(1){grid-column:span 8;aspect-ratio:16/9}
-#fotos .fotos-grid img:nth-child(2){grid-column:span 4;grid-row:span 2;aspect-ratio:3/4}
-#fotos .fotos-grid img:nth-child(3){grid-column:span 8;aspect-ratio:16/9}
-#fotos .fotos-grid img:nth-child(4){grid-column:span 4;aspect-ratio:3/4}
-#fotos .fotos-grid img:nth-child(5){grid-column:span 4;aspect-ratio:3/4}
-#fotos .fotos-grid img:nth-child(6){grid-column:span 4;aspect-ratio:3/4}
-#fotos .fotos-grid img:nth-child(7){grid-column:span 4;aspect-ratio:3/4}
-#fotos .fotos-grid img:nth-child(8){grid-column:span 4;aspect-ratio:3/4}
-#fotos .fotos-grid img:nth-child(9){grid-column:span 4;aspect-ratio:3/4}
-#fotos .fotos-grid img:nth-child(10){grid-column:span 6;aspect-ratio:3/4}
-#fotos .fotos-grid img:nth-child(11){grid-column:span 6;aspect-ratio:16/9}
-@media(max-width:760px){
-  #fotos .fotos-grid{grid-template-columns:repeat(2,1fr)!important;gap:9px!important}
-  #fotos .fotos-grid img,
-  #fotos .fotos-grid img:nth-child(n){
-    grid-column:span 1!important;
-    grid-row:span 1!important;
-    aspect-ratio:3/4!important;
-    min-height:0!important;
-    border-radius:11px!important;
+  .countdown-section{
+    width:calc(100% - 20px) !important;
+    margin:16px auto 26px !important;
   }
-  #fotos .fotos-grid img:nth-child(1),
-  #fotos .fotos-grid img:nth-child(3),
-  #fotos .fotos-grid img:nth-child(11){
-    grid-column:span 2!important;
-    aspect-ratio:16/9!important;
+  .countdown-section .countdown-inner{
+    padding:15px 5px 17px !important;
+    border-radius:16px !important;
+  }
+  .countdown-section .countdown-title{
+    font-size:26px !important;
+    margin-bottom:11px !important;
+  }
+  .countdown-section .countdown-item{
+    padding:3px 2px !important;
+  }
+  .countdown-section .countdown-item strong{
+    font-size:24px !important;
+  }
+  .countdown-section .countdown-item span{
+    font-size:7px !important;
+    letter-spacing:.05em !important;
+  }
+
+  #fotos .fotos-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:8px !important;
+  }
+  #fotos .fotos-grid img{
+    height:220px !important;
+    border-radius:11px !important;
+  }
+  #fotos .fotos-grid img:first-child,
+  #fotos .fotos-grid img:last-child{
+    grid-column:span 2 !important;
+    height:230px !important;
   }
 }
-
-
-/* ===== AJUSTES FINAIS ===== */
-
-/* Identidade visual exatamente na cor original */
-body,
-body.site-identidade{
-  background-color:#fbf0ea!important;
-  background-image:url("./identidade-visual.webp")!important;
-  background-repeat:repeat!important;
-  background-size:500px auto!important;
-  background-position:center top!important;
-}
-
-/* Volta à fonte que estava antes da Cosmopolitan */
-.titulo-brittany,
-[class*="brittany"]{
-  font-family:"Edwardian Script ITC","ITC Edwardian Script","Edwardian Script","Brush Script MT",cursive!important;
-  font-style:normal!important;
-  font-weight:400!important;
-  font-synthesis:none!important;
-}
-
-/* Capa: somente vídeo, sem foto de fundo */
-.hero,
-.site-identidade .hero{
-  background:none!important;
-  background-image:none!important;
-}
-.hero-video{
-  display:block!important;
-  width:100%!important;
-  height:100%!important;
-  object-fit:cover!important;
-  background:#ead8cf!important;
-}
-
-
-/* ===== CONTAGEM REGRESSIVA ===== */
-.countdown-section{
-  position:relative;
-  z-index:5;
-  padding:28px 18px 32px;
-  background:rgba(255,248,243,.93);
-  border-top:1px solid rgba(190,100,79,.20);
-  border-bottom:1px solid rgba(190,100,79,.20);
-  text-align:center;
-}
-.countdown-inner{max-width:900px;margin:0 auto}
-.countdown-label{
-  color:#b65442;
-  font-size:12px;
-  letter-spacing:.28em;
-  font-weight:600;
-  margin-bottom:5px;
-}
-.countdown-title{
-  font-family:"Edwardian Script ITC","ITC Edwardian Script","Edwardian Script","Brush Script MT",cursive;
-  color:#b65442;
-  font-size:42px;
-  line-height:1.15;
-  font-weight:400;
-  margin-bottom:17px;
-}
-.countdown{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:18px;
-}
-.countdown-item{min-width:82px}
-.countdown-item strong{
-  display:block;
-  font-family:"Cormorant Garamond",Georgia,serif;
-  color:#a94f3e;
-  font-size:34px;
-  font-weight:500;
-  line-height:1;
-}
-.countdown-item span{
-  display:block;
-  margin-top:7px;
-  color:#755a51;
-  font-size:9px;
-  letter-spacing:.19em;
-}
-.countdown-sep{color:#d99b88;font-size:15px}
-@media(max-width:600px){
-  .countdown-section{padding:22px 8px 25px}
-  .countdown-title{font-size:35px}
-  .countdown{gap:6px}
-  .countdown-item{min-width:60px}
-  .countdown-item strong{font-size:28px}
-  .countdown-item span{font-size:7px;letter-spacing:.12em}
-  .countdown-sep{font-size:10px}
-}
-
-
-/* Nomes da capa — ITC Edwardian Script */
-.hero h1{
-  font-family:"Edwardian Script ITC","ITC Edwardian Script","Edwardian Script","Brush Script MT",cursive!important;
-  font-style:normal!important;
-  font-weight:400!important;
-  font-synthesis:none!important;
-  text-transform:none!important;
-  letter-spacing:0!important;
-  color:#b65442!important;
-}
-
-
-/* Nosso dia + Tudo o que você precisa saber — ITC Edwardian Script */
-#grande-dia .titulo-brittany,
-#informacoes .titulo-brittany{
-  font-family:"Edwardian Script ITC","ITC Edwardian Script","Edwardian Script","Brush Script MT",cursive!important;
-  font-style:normal!important;
-  font-weight:400!important;
-  font-synthesis:none!important;
-  text-transform:none!important;
-  letter-spacing:0!important;
-}
-
-
-/* ===== ÚLTIMOS AJUSTES ===== */
-
-/* Nome da capa */
-.hero h1{
-  font-family:"Edwardian Script ITC","ITC Edwardian Script","Edwardian Script","Brush Script MT",cursive!important;
-  font-style:normal!important;
-  font-weight:400!important;
-  text-transform:none!important;
-  letter-spacing:0!important;
-  color:#b65442!important;
-}
-
-/* Contagem regressiva em uma caixa mais marcada e legível */
-#countdown-casamento{
-  padding:30px 18px 18px!important;
-  background:transparent!important;
-}
-#countdown-casamento .countdown-inner{
-  max-width:900px!important;
-  margin:0 auto!important;
-  padding:30px 30px 32px!important;
-  background:#fff8f3!important;
-  border:1.5px solid rgba(159,73,59,.38)!important;
-  border-radius:26px!important;
-  box-shadow:0 12px 34px rgba(92,45,36,.16)!important;
-  text-align:center!important;
-}
-#countdown-casamento .countdown-kicker{
-  color:#93483b!important;
-  font-weight:600!important;
-}
-#countdown-casamento .countdown-title{
-  color:#a84f40!important;
-  opacity:1!important;
-}
-#countdown-casamento .countdown-grid strong{
-  color:#8f4035!important;
-  opacity:1!important;
-}
-#countdown-casamento .countdown-grid span{
-  color:#684d47!important;
-  opacity:1!important;
-}
-@media(max-width:600px){
-  #countdown-casamento{padding:18px 12px 10px!important}
-  #countdown-casamento .countdown-inner{
-    padding:24px 10px 26px!important;
-    border-radius:20px!important;
-  }
-}
-
-
-/* ===== CORREÇÃO FINAL FORÇADA ===== */
-#countdown-casamento,
-.countdown-casamento,
-.countdown,
-.contagem,
-.contagem-regressiva{
-  display:block!important;
-  max-width:920px!important;
-  margin:28px auto!important;
-  padding:8px!important;
-  border-radius:30px!important;
-  background:#f4d8cc!important;
-  border:2px solid #b65442!important;
-  box-shadow:0 14px 35px rgba(95,47,37,.22)!important;
-}
-#countdown-casamento .countdown-inner,
-.countdown-casamento .countdown-inner,
-.countdown .countdown-inner,
-.contagem .countdown-inner,
-.contagem-regressiva .countdown-inner{
-  background:#fff8f3!important;
-  border-radius:22px!important;
-  padding:28px 24px!important;
-  opacity:1!important;
-}
-#countdown-casamento *,
-.countdown-casamento *,
-.countdown *,
-.contagem *,
-.contagem-regressiva *{
-  opacity:1!important;
-}
-#countdown-casamento strong,
-.countdown-casamento strong,
-.countdown strong,
-.contagem strong,
-.contagem-regressiva strong{
-  color:#8e3f34!important;
-}
-#countdown-casamento span,
-#countdown-casamento .countdown-title,
-#countdown-casamento .countdown-kicker,
-.countdown-casamento span,
-.countdown-casamento .countdown-title,
-.countdown-casamento .countdown-kicker{
-  color:#7f4036!important;
-}
-
-/* Eduarda e Edilson — capa E rodapé/final */
-.hero h1,
-footer h1, footer h2,
-.footer-nomes,
-.nomes-final,
-.assinatura-nomes{
-  font-family:"Edwardian Script ITC","ITC Edwardian Script","Edwardian Script","Brush Script MT",cursive!important;
-  font-style:normal!important;
-  font-weight:400!important;
-  font-synthesis:none!important;
-  text-transform:none!important;
-  letter-spacing:0!important;
-  color:#b65442!important;
-}
-
-
-/* ===== REVISÃO LIMPA ===== */
-html,body{
-  background-color:#fbf0ea!important;
-  background-image:url("./identidade-visual.webp")!important;
-  background-repeat:repeat!important;
-  background-size:500px auto!important;
-  background-position:center top!important;
-}
-
-/* Nomes solicitados — capa e final */
-.hero h1.nomes-final,
-.hero h1,
-footer .nomes-final,
-h2.nomes-final{
-  font-family:"Edwardian Script ITC","ITC Edwardian Script","Edwardian Script",cursive!important;
-  font-style:normal!important;
-  font-weight:400!important;
-  font-synthesis:none!important;
-  text-transform:none!important;
-  letter-spacing:0!important;
-  color:#b65442!important;
-}
-
-/* Fotos: caminhos locais explícitos e exibição forçada */
-#fotos .fotos-grid img{
-  display:block!important;
-  width:100%!important;
-  object-fit:cover!important;
-}
-
-
-/* CORRECAO VISUAL FINAL */
-html,body,body.site-identidade{background-color:#fbf0ea!important;background-image:url("./identidade-visual.webp")!important;background-repeat:repeat!important;background-size:500px auto!important;background-position:center top!important}
-body.site-identidade section:not(.hero),body.site-identidade .papel-section,body.site-identidade .historia,body.site-identidade .evento,body.site-identidade .presentes,body.site-identidade .lista-presentes,body.site-identidade .galeria{background-image:none!important;background-color:transparent!important}
-body.site-identidade .convite-box,body.site-identidade .ornamental-card,body.site-identidade .historia .container,body.site-identidade .evento .container{background:rgba(255,248,243,.93)!important}
-#fotos .fotos-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px!important}
-#fotos .fotos-grid img{display:block!important;visibility:visible!important;opacity:1!important;width:100%!important;height:100%!important;min-height:240px!important;object-fit:cover!important;border-radius:14px!important}
-#countdown-casamento,.countdown-casamento{width:min(900px,calc(100% - 28px))!important;margin:22px auto!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important}
-#countdown-casamento .countdown-inner,.countdown-casamento .countdown-inner{padding:18px 24px!important;background:rgba(255,248,243,.95)!important;border:1px solid rgba(182,84,66,.38)!important;border-radius:22px!important;box-shadow:0 8px 24px rgba(100,55,45,.10)!important}
-#countdown-casamento .countdown-kicker,.countdown-casamento .countdown-kicker{margin:0 0 3px!important;font-size:9px!important;letter-spacing:.25em!important}
-#countdown-casamento .countdown-title,.countdown-casamento .countdown-title{margin:0 0 12px!important;font-size:31px!important;line-height:1!important}
-#countdown-casamento .countdown-grid,.countdown-casamento .countdown-grid{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:0!important;align-items:center!important}
-#countdown-casamento .countdown-grid>div,.countdown-casamento .countdown-grid>div{min-width:0!important;padding:5px 12px!important;border-left:1px solid rgba(182,84,66,.20)!important}
-#countdown-casamento .countdown-grid>div:first-child,.countdown-casamento .countdown-grid>div:first-child{border-left:0!important}
-#countdown-casamento strong,.countdown-casamento strong{display:block!important;font-size:30px!important;line-height:1!important}
-#countdown-casamento span,.countdown-casamento span{display:block!important;margin-top:5px!important;white-space:nowrap!important}
-@media(max-width:650px){#fotos .fotos-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}#fotos .fotos-grid img{min-height:180px!important}#countdown-casamento .countdown-inner,.countdown-casamento .countdown-inner{padding:15px 8px!important}#countdown-casamento .countdown-title,.countdown-casamento .countdown-title{font-size:26px!important}#countdown-casamento .countdown-grid>div,.countdown-casamento .countdown-grid>div{padding:4px 3px!important}#countdown-casamento strong,.countdown-casamento strong{font-size:24px!important}#countdown-casamento span,.countdown-casamento span{font-size:7px!important;letter-spacing:.06em!important}}
 
 </style>
 </head>
@@ -2259,7 +2084,7 @@ body.site-identidade .convite-box,body.site-identidade .ornamental-card,body.sit
 
 <nav class="nav-elegante">
 <a href="#inicio">Início</a><a href="#historia">Nossa história</a><a href="#grande-dia">O grande dia</a>
-<img src="monograma-ee-coral.png" class="nav-monograma" alt="EE">
+<img src="./monograma-ee-coral.png" class="nav-monograma" alt="EE">
 <a href="#presentes">Lista de presentes</a><a href="#informacoes">Informações</a><a href="#rsvp">RSVP</a>
 </nav>
 
@@ -2272,7 +2097,7 @@ body.site-identidade .convite-box,body.site-identidade .ornamental-card,body.sit
 
 <div class="hero-content">
 
-<img class="monograma-img" src="monograma-ee-coral.png" alt="Monograma Eduarda e Edilson">
+<img class="monograma-img" src="./monograma-ee-coral.png" alt="Monograma Eduarda e Edilson">
 
 <h1 class="nomes-final">Eduarda e Edilson</h1>
 
@@ -2352,7 +2177,7 @@ ROLE PARA BAIXO<br><br>↓
 ================================================== -->
 
 <section class="historia papel-section" id="historia">
-  <div class="container convite-box ornamental-card"><img class="elemento-identidade elem-esq" src="cachorro.png" alt="" aria-hidden="true"><img class="elemento-identidade elem-dir" src="alho.png" alt="" aria-hidden="true">
+  <div class="container convite-box ornamental-card"><img class="elemento-identidade elem-esq" src="./cachorro.png" alt="" aria-hidden="true"><img class="elemento-identidade elem-dir" src="./alho.png" alt="" aria-hidden="true">
     <p class="secao-kicker">NOSSA HISTÓRIA</p>
     <h2 class="titulo titulo-brittany">Tudo no tempo certo</h2>
     <p class="texto historia-chamada">De encontros, planos, viagens e muitos sonhos...</p>
@@ -2378,7 +2203,7 @@ ROLE PARA BAIXO<br><br>↓
   </div>
 </section>
 <section class="grande-dia papel-section" id="grande-dia">
-  <div class="container convite-box ornamental-card"><img class="elemento-identidade elem-esq" src="pesca.png" alt="" aria-hidden="true"><img class="elemento-identidade elem-dir" src="chapeu.png" alt="" aria-hidden="true">
+  <div class="container convite-box ornamental-card"><img class="elemento-identidade elem-esq" src="./pesca.png" alt="" aria-hidden="true"><img class="elemento-identidade elem-dir" src="./chapeu.png" alt="" aria-hidden="true">
     <p class="secao-kicker">O GRANDE DIA</p>
     <h2 class="titulo titulo-brittany">Nosso dia</h2>
     <div class="dia-grid novo-dia-grid">
@@ -2420,7 +2245,7 @@ ROLE PARA BAIXO<br><br>↓
   </div>
 </section>
 <section class="presentes papel-section" id="presentes">
-  <div class="container convite-box ornamental-card"><img class="elemento-identidade elem-esq" src="mala.png" alt="" aria-hidden="true"><img class="elemento-identidade elem-dir" src="aperol.png" alt="" aria-hidden="true">
+  <div class="container convite-box ornamental-card"><img class="elemento-identidade elem-esq" src="./mala.png" alt="" aria-hidden="true"><img class="elemento-identidade elem-dir" src="./aperol.png" alt="" aria-hidden="true">
     <p class="secao-kicker">LISTA DE PRESENTES</p>
     <h2 class="titulo titulo-brittany">Nosso novo lar</h2>
     <p class="texto presentes-chamada">
@@ -3352,7 +3177,7 @@ document.getElementById("modalPix")
 
 
 <section class="informacoes papel-section" id="informacoes">
-  <div class="container convite-box ornamental-card"><img class="elemento-identidade elem-esq" src="alho.png" alt="" aria-hidden="true"><img class="elemento-identidade elem-dir" src="ferradura.png" alt="" aria-hidden="true">
+  <div class="container convite-box ornamental-card"><img class="elemento-identidade elem-esq" src="./alho.png" alt="" aria-hidden="true"><img class="elemento-identidade elem-dir" src="./ferradura.png" alt="" aria-hidden="true">
     <p class="secao-kicker">INFORMAÇÕES</p>
     <h2 class="titulo titulo-brittany">Tudo o que você precisa saber</h2>
 
@@ -3439,7 +3264,7 @@ document.getElementById("modalPix")
   </div>
 </section>
 <section class="rsvp papel-section" id="rsvp">
-  <div class="container convite-box ornamental-card"><img class="elemento-identidade elem-esq" src="aperol.png" alt="" aria-hidden="true"><img class="elemento-identidade elem-dir" src="cachorro.png" alt="" aria-hidden="true">
+  <div class="container convite-box ornamental-card"><img class="elemento-identidade elem-esq" src="./aperol.png" alt="" aria-hidden="true"><img class="elemento-identidade elem-dir" src="./cachorro.png" alt="" aria-hidden="true">
     <p class="secao-kicker">CONFIRME SUA PRESENÇA</p>
     <h2 class="titulo titulo-brittany">Contamos com você</h2>
     <p class="texto">Sua presença tornará o nosso dia ainda mais especial!</p>
@@ -3460,7 +3285,7 @@ document.getElementById("modalPix")
   </div>
 </section>
 <section class="galeria papel-section" id="fotos">
-  <div class="container convite-box ornamental-card"><img class="elemento-identidade elem-esq" src="chapeu.png" alt="" aria-hidden="true"><img class="elemento-identidade elem-dir" src="pesca.png" alt="" aria-hidden="true">
+  <div class="container convite-box ornamental-card"><img class="elemento-identidade elem-esq" src="./chapeu.png" alt="" aria-hidden="true"><img class="elemento-identidade elem-dir" src="./pesca.png" alt="" aria-hidden="true">
     <p class="secao-kicker">NOSSAS FOTOS</p>
     <div class="fotos-grid">
       <img src="./nossas-fotos-01.jpg" alt="Eduarda e Edilson — foto 1" loading="lazy">
