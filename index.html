@@ -2153,78 +2153,75 @@ body.site-identidade .galeria{
 .hero-content{left:50%!important;right:auto!important;transform:translateX(-50%)!important;width:min(94%,900px)!important;text-align:center!important;}
 .hero-content h1,.hero h1.nomes-final{width:100%!important;text-align:center!important;margin-left:auto!important;margin-right:auto!important;}
 .final h2.nomes-final,footer .nomes-final{font-family:"Edwardian Script ITC","ITC Edwardian Script","Edwardian Script","Brush Script MT",cursive!important;font-style:normal!important;font-weight:400!important;font-synthesis:none!important;}
-html,body,body.site-identidade{background-color:#f8e9e2!important;background-image:url("./identidade-visual.webp")!important;background-repeat:repeat!important;background-size:440px auto!important;background-position:center top!important;}
-body.site-identidade main,body.site-identidade section:not(.hero):not(.countdown-section){background-color:transparent!important;}
-
 </style>
-  <style>
-/* ===== FUNDO COM A IDENTIDADE VISUAL ===== */
-
+  
+<style>
+/* ===== ESTAMPA FINAL DO SITE ===== */
 html,
-body {
-  background-color: #f8eee8 !important;
-  background-image: url("./identidade-visual.webp") !important;
-  background-repeat: repeat !important;
-  background-size: 430px auto !important;
-  background-position: center top !important;
-  background-attachment: scroll !important;
+body,
+body.site-identidade {
+  background-color:#f8eee8 !important;
+  background-image:url("https://raw.githubusercontent.com/Eduarda-ms/eduardaeedilson.com.br/main/identidade-visual.webp?v=20260927-2") !important;
+  background-repeat:repeat !important;
+  background-position:center top !important;
+  background-size:720px auto !important;
 }
 
-/* deixa as seções transparentes para o fundo aparecer */
+/* A capa permanece somente com o vídeo. */
+body.site-identidade .hero {
+  background:none !important;
+  background-image:none !important;
+}
+
+/* A estampa é aplicada diretamente em todas as áreas abaixo da capa. */
+body.site-identidade .countdown-section,
 body.site-identidade section:not(.hero),
+body.site-identidade .papel-section,
 body.site-identidade .historia,
 body.site-identidade .grande-dia,
 body.site-identidade .presentes,
+body.site-identidade .lista-presentes,
 body.site-identidade .informacoes,
 body.site-identidade .rsvp,
-body.site-identidade .galeria {
-  background-color: transparent !important;
-  background-image: none !important;
+body.site-identidade .galeria,
+body.site-identidade .final {
+  background-color:#f8eee8 !important;
+  background-image:url("https://raw.githubusercontent.com/Eduarda-ms/eduardaeedilson.com.br/main/identidade-visual.webp?v=20260927-2") !important;
+  background-repeat:repeat !important;
+  background-position:center top !important;
+  background-size:720px auto !important;
 }
 
-/* mantém as caixas legíveis */
+/* Evita que pseudo-camadas lisas escondam a estampa. */
+body.site-identidade section:not(.hero)::before,
+body.site-identidade section:not(.hero)::after {
+  background-color:transparent !important;
+}
+
+/* Caixas continuam claras para leitura. */
 body.site-identidade .convite-box,
 body.site-identidade .ornamental-card,
-body.site-identidade .container {
-  position: relative;
-  z-index: 2;
+body.site-identidade .countdown-inner,
+body.site-identidade .presente-card,
+body.site-identidade .final .container {
+  background:rgba(255,249,245,.94) !important;
 }
 
-/* caixas principais com fundo claro e levemente transparente */
-body.site-identidade .convite-box,
-body.site-identidade .ornamental-card {
-  background: rgba(255, 248, 243, 0.92) !important;
-}
-
-/* no celular */
-@media (max-width: 650px) {
+@media (max-width:650px) {
   html,
-  body {
-    background-size: 350px auto !important;
+  body,
+  body.site-identidade,
+  body.site-identidade .countdown-section,
+  body.site-identidade section:not(.hero) {
+    background-size:430px auto !important;
   }
 }
 </style>
-
-
-
-<style>
-/* ===== FUNDO REAL - IDENTIDADE VISUAL ===== */
-html,body,body.site-identidade{background:#f8eee8!important}
-body.site-identidade{position:relative!important;isolation:isolate!important}
-#fundoIdentidade{position:absolute!important;left:0!important;right:0!important;top:0!important;bottom:0!important;z-index:0!important;overflow:hidden!important;pointer-events:none!important;background:#f8eee8!important}
-#fundoIdentidade .fundo-identidade-grid{position:absolute!important;left:0!important;right:0!important;display:grid!important;line-height:0!important}
-#fundoIdentidade img{display:block!important;width:100%!important;height:auto!important;margin:0!important;padding:0!important;opacity:1!important}
-body.site-identidade .hero{position:relative!important;z-index:3!important;background:none!important;background-image:none!important}
-body.site-identidade .nav-elegante{z-index:5!important}
-body.site-identidade .countdown-section,body.site-identidade section:not(.hero),body.site-identidade .papel-section,body.site-identidade .historia,body.site-identidade .grande-dia,body.site-identidade .presentes,body.site-identidade .lista-presentes,body.site-identidade .informacoes,body.site-identidade .rsvp,body.site-identidade .galeria,body.site-identidade .final{position:relative!important;z-index:2!important;background:transparent!important;background-color:transparent!important;background-image:none!important}
-body.site-identidade .convite-box,body.site-identidade .ornamental-card,body.site-identidade .presente-card,body.site-identidade .countdown-inner,body.site-identidade .final .container{background:rgba(255,249,245,.92)!important}
-</style>
-<!-- ===== FIM FUNDO REAL - IDENTIDADE VISUAL ===== -->
+<!-- ===== FIM ESTAMPA FINAL DO SITE ===== -->
 
 </head>
 
 <body class="site-identidade">
-<div id="fundoIdentidade" aria-hidden="true"></div>
 
 
 <nav class="nav-elegante">
@@ -3806,43 +3803,6 @@ document.addEventListener("DOMContentLoaded", function(){
 })();
 </script>
 
-
-<script>
-/* ===== SCRIPT FUNDO REAL - IDENTIDADE VISUAL ===== */
-(function(){
-function montarFundo(){
-var camada=document.getElementById('fundoIdentidade');
-var hero=document.querySelector('.hero');
-if(!camada||!hero)return;
-camada.innerHTML='';
-var inicio=hero.offsetTop+hero.offsetHeight;
-var alturaPagina=Math.max(document.body.scrollHeight,document.documentElement.scrollHeight);
-var altura=Math.max(0,alturaPagina-inicio);
-var largura=Math.max(document.documentElement.clientWidth,window.innerWidth||0);
-var alvo=largura<=650?390:520;
-var colunas=Math.max(1,Math.ceil(largura/alvo));
-var larguraTile=largura/colunas;
-var linhas=Math.ceil(altura/larguraTile)+2;
-var total=colunas*linhas;
-var grid=document.createElement('div');
-grid.className='fundo-identidade-grid';
-grid.style.top=inicio+'px';
-grid.style.gridTemplateColumns='repeat('+colunas+',1fr)';
-for(var i=0;i<total;i++){
-var img=document.createElement('img');
-img.src='./identidade-visual.webp';
-img.alt='';
-img.decoding='async';
-grid.appendChild(img);
-}
-camada.appendChild(grid);
-}
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',montarFundo);else montarFundo();
-window.addEventListener('load',montarFundo);
-var timer;window.addEventListener('resize',function(){clearTimeout(timer);timer=setTimeout(montarFundo,180)});
-setTimeout(montarFundo,700);
-})();
-</script>
 
 </body>
 </html>
