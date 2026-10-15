@@ -3550,9 +3550,11 @@ async function buscarConvite() {
     mensagemRSVP.textContent =
       "Encontramos seu convite! Confirme a presença de cada pessoa:";
 
-    dados.convidados.forEach(function(convidado) {
+    dados.convidados.forEach(function(convidado, indice) {
   const pessoa = document.createElement("div");
   pessoa.className = "pessoa-rsvp";
+  pessoa.dataset.grupo = convidado.grupo || "";
+  pessoa.dataset.nome = convidado.nome || "";
 
   pessoa.innerHTML = `
     <p class="nome-rsvp"><strong>${convidado.nome}</strong></p>
@@ -3561,7 +3563,7 @@ async function buscarConvite() {
       <label>
         <input
           type="radio"
-          name="resposta-${convidado.grupo}-${convidado.nome}"
+          name="resposta-rsvp-${indice}"
           value="Confirmado"
         >
         <span>Sim, estarei presente</span>
@@ -3570,7 +3572,7 @@ async function buscarConvite() {
       <label>
         <input
           type="radio"
-          name="resposta-${convidado.grupo}-${convidado.nome}"
+          name="resposta-rsvp-${indice}"
           value="Não irá"
         >
         <span>Não poderei comparecer</span>
@@ -3580,13 +3582,13 @@ async function buscarConvite() {
 
   familiaRSVP.appendChild(pessoa);
 });
-    const botaoConfirmar = document.createElement("button");
+
+const botaoConfirmar = document.createElement("button");
 botaoConfirmar.type = "button";
 botaoConfirmar.className = "botao";
 botaoConfirmar.textContent = "Enviar confirmação";
 botaoConfirmar.style.marginTop = "25px";
 botaoConfirmar.addEventListener("click", enviarConfirmacoes);
-
 familiaRSVP.appendChild(botaoConfirmar);
 
   } catch (erro) {
@@ -3595,48 +3597,73 @@ familiaRSVP.appendChild(botaoConfirmar);
       "Não foi possível consultar o convite. Tente novamente.";
   }
 }
+
 async function enviarConfirmacoes() {
+  const pessoas = Array.from(document.querySelectorAll(".pessoa-rsvp"));
   const respostas = [];
 
-  document.querySelectorAll(".pessoa-rsvp").forEach(pessoa => {
-    const nome = pessoa.querySelector(".nome-rsvp").textContent.trim();
+  for (const pessoa of pessoas) {
     const selecionado = pessoa.querySelector('input[type="radio"]:checked');
-    const grupo = selecionado ? selecionado.name.split("-")[1] : "";
 
-    if (selecionado) {
-      respostas.push({
-        grupo: grupo,
-        nome: nome,
-        resposta: selecionado.value
-      });
+    if (!selecionado) {
+      alert("Por favor, confirme a presença de cada pessoa.");
+      return;
     }
-  });
+
+    respostas.push({
+      grupo: pessoa.dataset.grupo || "",
+      nome: pessoa.dataset.nome || pessoa.querySelector(".nome-rsvp").textContent.trim(),
+      resposta: selecionado.value
+    });
+  }
 
   if (respostas.length === 0) {
-    alert("Por favor, confirme a presença de cada pessoa.");
+    alert("Nenhuma confirmação foi encontrada.");
     return;
+  }
+
+  const botao = familiaRSVP.querySelector("button");
+  if (botao) {
+    botao.disabled = true;
+    botao.textContent = "Enviando...";
   }
 
   try {
     const resposta = await fetch(RSVP_API, {
       method: "POST",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+      },
       body: JSON.stringify({
         acao: "confirmar",
         respostas: respostas
       })
     });
 
-    const dados = await resposta.json();
+    const texto = await resposta.text();
+    let dados;
+
+    try {
+      dados = JSON.parse(texto);
+    } catch (e) {
+      throw new Error("Resposta inválida do servidor: " + texto);
+    }
 
     if (dados.sucesso) {
       alert("Presença confirmada com sucesso! 💚");
+      mensagemRSVP.textContent = "Confirmação enviada com sucesso.";
     } else {
       alert(dados.mensagem || "Não foi possível enviar a confirmação.");
     }
 
   } catch (erro) {
-    console.error(erro);
+    console.error("Erro RSVP:", erro);
     alert("Não foi possível enviar a confirmação. Tente novamente.");
+  } finally {
+    if (botao) {
+      botao.disabled = false;
+      botao.textContent = "Enviar confirmação";
+    }
   }
 }
   function mostrarPix() {
