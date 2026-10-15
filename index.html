@@ -3831,5 +3831,105 @@ document.addEventListener("DOMContentLoaded", function(){
 </script>
 
 
+
+<style>
+/* ===== MÚSICA DO SITE ===== */
+#botao-musica{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  z-index:9999;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  border:1px solid rgba(52,72,59,.28);
+  background:rgba(247,244,238,.94);
+  color:#34483b;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  cursor:pointer;
+  box-shadow:0 6px 22px rgba(0,0,0,.12);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  transition:transform .2s ease, opacity .2s ease;
+}
+#botao-musica:hover{ transform:scale(1.06); }
+#botao-musica[aria-pressed="true"]::after{
+  content:"";
+  position:absolute;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#c97868;
+  right:2px;
+  top:2px;
+  border:2px solid #f7f4ee;
+}
+#musica-youtube-wrap{
+  position:fixed;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+  left:-9999px;
+  bottom:-9999px;
+}
+@media(max-width:600px){
+  #botao-musica{right:14px;bottom:14px;width:46px;height:46px;}
+}
+</style>
+
+<div id="musica-youtube-wrap" aria-hidden="true">
+  <iframe
+    id="musicaYoutube"
+    width="1"
+    height="1"
+    src="https://www.youtube.com/embed/LZSjy89lFyU?enablejsapi=1&playsinline=1&rel=0&loop=1&playlist=LZSjy89lFyU"
+    title="Átomos — música do site"
+    allow="autoplay; encrypted-media"
+    referrerpolicy="strict-origin-when-cross-origin">
+  </iframe>
+</div>
+
+<button id="botao-musica" type="button" aria-label="Tocar música" aria-pressed="false" title="Tocar música">♫</button>
+
+<script>
+(function(){
+  const botao = document.getElementById("botao-musica");
+  const player = document.getElementById("musicaYoutube");
+  if(!botao || !player) return;
+
+  let tocando = false;
+
+  function comando(func){
+    if(!player.contentWindow) return;
+    player.contentWindow.postMessage(JSON.stringify({
+      event:"command",
+      func:func,
+      args:[]
+    }), "*");
+  }
+
+  botao.addEventListener("click", function(){
+    tocando = !tocando;
+
+    if(tocando){
+      comando("playVideo");
+      botao.setAttribute("aria-pressed","true");
+      botao.setAttribute("aria-label","Pausar música");
+      botao.title = "Pausar música";
+      botao.textContent = "❚❚";
+    } else {
+      comando("pauseVideo");
+      botao.setAttribute("aria-pressed","false");
+      botao.setAttribute("aria-label","Tocar música");
+      botao.title = "Tocar música";
+      botao.textContent = "♫";
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
