@@ -3605,10 +3605,9 @@ async function enviarConfirmacoes() {
   for (const pessoa of pessoas) {
     const selecionado = pessoa.querySelector('input[type="radio"]:checked');
 
-    if (!selecionado) {
-      alert("Por favor, confirme a presença de cada pessoa.");
-      return;
-    }
+    // Só envia quem a pessoa realmente marcou.
+    // Os demais nomes podem ficar sem resposta.
+    if (!selecionado) continue;
 
     respostas.push({
       grupo: pessoa.dataset.grupo || "",
@@ -3618,7 +3617,7 @@ async function enviarConfirmacoes() {
   }
 
   if (respostas.length === 0) {
-    alert("Nenhuma confirmação foi encontrada.");
+    alert("Selecione pelo menos uma pessoa para confirmar ou recusar a presença.");
     return;
   }
 
