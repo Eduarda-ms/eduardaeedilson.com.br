@@ -3930,5 +3930,47 @@ document.addEventListener("DOMContentLoaded", function(){
 })();
 </script>
 
+<style>
+#visitante-identificacao{position:fixed;inset:0;z-index:12000;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(35,43,36,.50)}
+#visitante-identificacao.visivel{display:flex}
+#visitante-identificacao .visita-caixa{background:#fffaf5;color:#34483b;width:min(100%,430px);padding:32px 25px;border-radius:16px;box-shadow:0 15px 55px rgba(0,0,0,.18);text-align:center;font-family:inherit}
+#visitante-identificacao h2{font:400 34px 'Cormorant Garamond',Georgia,serif;margin:0 0 12px}
+#visitante-identificacao p{font-size:14px;line-height:1.65;margin:0 0 16px}
+#visitante-identificacao input{display:block;box-sizing:border-box;width:100%;padding:14px;border:1px solid #b7ada4;border-radius:8px;font-size:16px;background:#fff;color:#34483b}
+#visitante-identificacao .visita-botoes{display:flex;gap:10px;justify-content:center;margin-top:15px;flex-wrap:wrap}
+#visitante-identificacao button{padding:13px 16px;border-radius:8px;font-size:13px;cursor:pointer;border:1px solid #34483b}
+#visita-continuar{background:#34483b;color:white}
+#visita-pular{background:transparent;color:#34483b}
+</style>
+<div id="visitante-identificacao" role="dialog" aria-modal="true" aria-labelledby="visita-titulo">
+<div class="visita-caixa">
+<h2 id="visita-titulo">Bem-vindo ao nosso cantinho! ♡</h2>
+<p>Quer nos contar seu nome? É opcional, e você pode conhecer nosso site sem se identificar.</p>
+<input id="visita-nome" type="text" maxlength="120" placeholder="Seu nome (opcional)" autocomplete="name" aria-label="Seu nome, opcional">
+<div class="visita-botoes">
+<button id="visita-continuar" type="button">Continuar</button>
+<button id="visita-pular" type="button">Prefiro não informar</button>
+</div>
+</div></div>
+<script>
+(function(){
+  const painel=document.getElementById("visitante-identificacao");
+  const nome=document.getElementById("visita-nome");
+  const campoRsvp=document.getElementById("nome-convidado");
+  let jaVisitou=false;
+  try{jaVisitou=sessionStorage.getItem("ee-visita-perguntada")==="sim"}catch(e){}
+  if(!jaVisitou) painel.classList.add("visivel");
+  function fechar(identificar){
+    const valor=identificar?nome.value.trim():"";
+    // Nome informado somente para facilitar a busca RSVP; nenhum dado é enviado aqui.
+    if(valor && campoRsvp && !campoRsvp.value.trim()) campoRsvp.value=valor;
+    try{sessionStorage.setItem("ee-visita-perguntada","sim")}catch(e){}
+    painel.classList.remove("visivel");
+  }
+  document.getElementById("visita-continuar").addEventListener("click",()=>fechar(true));
+  document.getElementById("visita-pular").addEventListener("click",()=>fechar(false));
+  nome.addEventListener("keydown",e=>{if(e.key==="Enter")fechar(true)});
+})();
+</script>
 </body>
 </html>
