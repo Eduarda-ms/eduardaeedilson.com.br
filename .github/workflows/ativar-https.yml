@@ -1,24 +1,24 @@
-name: Ativar HTTPS no dominio do casamento
+name: Diagnosticar certificado do dominio
 on:
   push:
     paths:
       - '.github/workflows/ativar-https.yml'
   workflow_dispatch:
 permissions:
-  pages: write
   contents: read
 jobs:
-  ativar-https:
+  diagnosticar:
     runs-on: ubuntu-latest
     steps:
-      - name: Solicitar HTTPS obrigatorio ao GitHub Pages
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - name: Consultar DNS e certificado sem alterar o site
         run: |
-          curl --fail-with-body --show-error --silent \
-            --request PUT \
-            --url "https://api.github.com/repos/${{ github.repository }}/pages" \
-            --header "Accept: application/vnd.github+json" \
-            --header "Authorization: Bearer ${GH_TOKEN}" \
-            --header "X-GitHub-Api-Version: 2022-11-28" \
-            --data '{"https_enforced":true}'
+          for tipo in A AAAA CAA NS; do
+            echo "=== DNS ${tipo} ==="
+            dig +time=3 +tries=1 +short eduardaeedilson.com.br "${tipo}" || true
+          done
+          echo "=== WWW CNAME ==="
+          dig +time=3 +tries=1 +short www.eduardaeedilson.com.br CNAME || true
+          echo "=== HEADERS HTTPS / CERT STATUS ==="
+          curl -Iv --connect-timeout 10 --max-time 20 https://eduardaeedilson.com.br/ 2>&1 | tail -45 || true
+          echo "=== CERTIFICATE SUBJECT ==="
+          timeout 15 bash -c 'echo | openssl s_client -connect eduardaeedilson.com.br:443 -servername eduardaeedilson.com.br 2>/dev/null | openssl x509 -noout -subject -issuer -dates' || true
