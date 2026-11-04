@@ -1,0 +1,24 @@
+name: Ativar HTTPS no dominio do casamento
+on:
+  push:
+    paths:
+      - '.github/workflows/ativar-https.yml'
+  workflow_dispatch:
+permissions:
+  pages: write
+  contents: read
+jobs:
+  ativar-https:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Solicitar HTTPS obrigatorio ao GitHub Pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          curl --fail-with-body --show-error --silent \
+            --request PUT \
+            --url "https://api.github.com/repos/${{ github.repository }}/pages" \
+            --header "Accept: application/vnd.github+json" \
+            --header "Authorization: Bearer ${GH_TOKEN}" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            --data '{"https_enforced":true}'
