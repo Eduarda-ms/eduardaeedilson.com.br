@@ -88,7 +88,7 @@ const RESERVAS_API_URL = "";
 
   const itens = [];
   presentes.forEach((p,i)=>{
-    if (!p.link || !cards[i]) return;
+    if (!p.link || !cards[i] || p.reservado) return;
     const id = idDoPresente(p);
     const botao = document.createElement("button");
     botao.type="button";botao.className="reserva-acao";
