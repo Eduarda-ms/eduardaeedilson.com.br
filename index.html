@@ -3131,6 +3131,7 @@ link:"https://magazineluiza.onelink.me/589508454/2ouxnclx"
 
 {
 nome:'Smart TV Samsung 55" 4K',
+reservado:true,
 preco:"R$ 2.899,00",
 imagem:"https://tse1.mm.bing.net/th?q=Smart+TV+Samsung+55+4K&w=700&h=700&c=7&rs=1&p=0",
 link:"https://magazineluiza.onelink.me/589508454/7m8qeyel"
@@ -3138,6 +3139,7 @@ link:"https://magazineluiza.onelink.me/589508454/7m8qeyel"
 
 {
 nome:"Lava-louças Brastemp Inox – 15 Serviços",
+reservado:true,
 preco:"R$ 3.979,00",
 imagem:"https://cookeletroraro.vtexassets.com/arquivos/ids/196369/BLF61.jpg?v=639071309119770000",
 link:"https://www.brastemp.com.br/lava-loucas-15-servicos-inox-smart-sensor-blf61ar/p?idsku=326126035"
@@ -3174,7 +3176,9 @@ presentes.forEach((presente) => {
 
   let botao;
 
-  if(presente.tipo === "pix"){
+  if(presente.reservado){
+    botao = `<div class="presente-reservado" role="status" style="margin-top:14px;padding:12px;border-radius:12px;background:#eee8e2;color:#815b4d;font-weight:700;text-align:center;letter-spacing:.06em;">RESERVADO</div>`;
+  } else if(presente.tipo === "pix"){
     botao = `
       <button class="botao-presente" type="button"
         onclick='abrirPix(${JSON.stringify(presente.nome)}, ${JSON.stringify(presente.preco)})'>
