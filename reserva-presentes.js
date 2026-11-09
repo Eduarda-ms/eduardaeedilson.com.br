@@ -18,6 +18,7 @@ const RESERVAS_API_URL = "";
 
   const estilo = document.createElement("style");
   estilo.textContent = [
+    ".reserva-acao[hidden],.reserva-etiqueta[hidden],.reserva-cancelar[hidden]{display:none!important}",
     ".reserva-acao{display:block;width:100%;margin-top:9px;padding:11px 9px;border:1px solid #c95f4c;border-radius:20px;background:transparent;color:#9f5043;font:600 12px Montserrat,Arial,sans-serif;cursor:pointer}",
     ".reserva-acao:disabled{opacity:.65;cursor:not-allowed}",
     ".reserva-etiqueta{display:block;text-align:center;margin-top:12px;padding:10px 8px;border-radius:10px;background:#f4ece6;color:#815b4d;font:600 12px Montserrat,Arial,sans-serif}",
@@ -151,6 +152,7 @@ const RESERVAS_API_URL = "";
     bloqueado=true;btnEnviar.disabled=true;reservaMsg.textContent="Registrando sua reserva...";
     try {
       await atualizar();
+      if(!carregado){reservaMsg.textContent="Serviço temporariamente indisponível. Tente mais tarde.";return;}
       if(ocupados.has(item.id)){reservaMsg.textContent="Este presente já está reservado.";return;}
       await enviar("reservar",item.id,token,nome,item.nome);
       const sucesso=await verificar(item.id,token,"minha");
